@@ -1,28 +1,44 @@
 <template>
-  <b-navbar toggleable type="dark" variant="dark" class="px-5">
-    <!-- <b-navbar-brand href="#">Caltus</b-navbar-brand> -->
-<b-navbar-brand href="#">
-  <img src="../../assets/cactus.png" width="35" height="35" />
-</b-navbar-brand>
-    <b-navbar-toggle target="navbar-toggle-collapse">
-      <template #default="{ expanded }">
-        <b-icon v-if="expanded" icon="chevron-bar-up"></b-icon>
-        <b-icon v-else icon="chevron-bar-down"></b-icon>
-      </template>
-    </b-navbar-toggle>
+  <b-navbar toggleable="lg" type="dark" variant="dark" class="px-3">
+    <b-navbar-brand href="#">
+      <img @click="$router.push('/dash')" src="../../assets/logpic.svg" width="35" height="35" /> &nbsp; CALTUS
+    </b-navbar-brand>
 
-    <b-collapse id="navbar-toggle-collapse" is-nav>
-      <b-navbar-nav class="ml-auto">
-        <b-nav-item href="#">Link 1</b-nav-item>
-        <b-nav-item href="#">Link 2</b-nav-item>
-        <b-nav-item href="#" disabled>Disabled</b-nav-item>
+    <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
+
+    <b-collapse id="nav-collapse" is-nav>
+      <b-navbar-nav>
+        <b-nav-item href="#" @click="$router.push('/dash')" >Home</b-nav-item>
+        <b-nav-item href="#" @click="$router.push('/cal')">Calculator</b-nav-item>
+        <b-nav-item href="#" @click="$router.push('/tracker')">Tracker</b-nav-item>
+        <b-nav-item href="#" @click="$router.push('/note')" >Note</b-nav-item>
       </b-navbar-nav>
+
+      <!-- Right aligned nav items -->
+      <b-navbar-nav right class="float-right">
+     
+        <b-nav-item href="#" @click="$router.push('/')" class="logout">Logout</b-nav-item>
+      </b-navbar-nav>
+      
     </b-collapse>
   </b-navbar>
+
+
 </template>
 
 <script>
+
 export default {
 name:"Navbar"
 }
 </script>
+
+<style scoped>
+  @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800&display=swap");
+  @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css");
+
+  .logout {
+  font-family: monospace;
+  font-style: italic;
+ }
+</style>
