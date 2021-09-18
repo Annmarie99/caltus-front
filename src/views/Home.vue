@@ -5,67 +5,52 @@
         <form action="" class="sign-in-form">
           <h2 class="title">Sign in</h2>
           <div class="input-field">
-              <i class="bi bi-person-fill"></i>
-              <input type="text" placeholder="Username" />
-            </div>
-            <div class="input-field">
-              <i class="bi bi-lock-fill"></i>
-              <input type="password" placeholder="Password" />
-            </div>
-            <b-button type="submit" variant="success">Sign in</b-button>
- 
-            <p class="forgot-password text-right">
-              <router-link to="forgot">Forgot password?</router-link>
-            </p>
-             <p class="social-text">Or Sign in with social platforms</p>
-             <div class="social-media">
-              <a href="#" class="social-icon">
-                <i class="bi bi-google"></i>
-              </a>
-              <a href="#" class="social-icon">
-                <i class="bi bi-facebook"></i>
-              </a>
-              <a href="#" class="social-icon">
-                <i class="bi bi-instagram"></i>
-              </a>
-              
-            </div>
-            
-            
+            <i class="bi bi-person-fill"></i>
+            <input type="text" placeholder="Username" />
+          </div>
+          <div class="input-field">
+            <i class="bi bi-lock-fill"></i>
+            <input type="password" placeholder="Password" />
+          </div>
+          <b-button type="submit" variant="success">Sign in</b-button>
+
+          <p class="forgot-password text-right">
+            <router-link to="forgot">Forgot password?</router-link>
+          </p>
+          <p class="social-text">Or Sign in with social platforms</p>
+          <div class="social-media">
+            <a href="#" class="social-icon">
+              <i class="bi bi-google"></i>
+            </a>
+            <a href="#" class="social-icon">
+              <i class="bi bi-facebook"></i>
+            </a>
+            <a href="#" class="social-icon">
+              <i class="bi bi-instagram"></i>
+            </a>
+          </div>
         </form>
         <form action="#" class="sign-up-form">
           <h2 class="title">Sign up</h2>
         </form>
       </div>
-
     </div>
 
     <div class="panels-container">
       <div class="panel left-panel">
-        <img src="../assets/logpic.svg" class="image" alt="">
-       
+        <img src="../assets/logpic.svg" class="image" alt="" />
       </div>
-       
-       
     </div>
-
-
-
-
   </div>
 </template>
 
 <script>
-
-export default {
- 
-}
+export default {};
 </script>
 
 <style>
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800&display=swap");
 @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css");
-
 
 * {
   margin: 0;
@@ -235,7 +220,7 @@ form.sign-in-form {
   top: -10%;
   right: 48%;
   transform: translateY(-50%);
-  background-image: linear-gradient(-45deg, #3B9A8B 0%, #00BFA6 100%);
+  background-image: linear-gradient(-45deg, #3b9a8b 0%, #00bfa6 100%);
   transition: 1.8s ease-in-out;
   border-radius: 50%;
   z-index: 6;
@@ -465,12 +450,8 @@ form.sign-in-form {
     left: 50%;
   }
 
-  .blockquote-footer{
-     padding-top: 50px;
+  .blockquote-footer {
+    padding-top: 50px;
   }
 }
-
-
-
-
 </style>

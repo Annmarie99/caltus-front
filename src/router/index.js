@@ -5,7 +5,9 @@ import Note from "../views/Note.vue";
 import Login from "../views/Login.vue";
 import Api from "../views/Api.vue";
 import Dashboard from "../views/Dashboard.vue";
-import Calculator from "../views/Calculator.vue";
+import APYCalculator from '../views/APYCalculator';
+import PercentCalculator from '../views/PercentCalculator'
+
 Vue.use(VueRouter);
 
 const routes = [{
@@ -35,10 +37,15 @@ const routes = [{
         component: Dashboard,
     },
     {
-        path: "/cal",
-        name: "Calculator",
-        component: Calculator,
-    }
+        path: "/apy-cal",
+        name: "APYCalculator",
+        component: APYCalculator
+    },
+    {
+        path: "/percent-cal",
+        name: "PercentCalculator",
+        component: PercentCalculator
+    },
 ];
 
 const router = new VueRouter({

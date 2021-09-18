@@ -1,44 +1,55 @@
 <template>
   <b-navbar toggleable="lg" type="dark" variant="dark" class="px-3">
-    <b-navbar-brand href="#">
-      <img @click="$router.push('/dash')" src="../../assets/logpic.svg" width="35" height="35" /> &nbsp; CALTUS
+    <b-navbar-brand href="#" class="flex">
+      <img
+        @click="$router.push('/dash')"
+        src="../../assets/logpic.svg"
+        width="35"
+        height="35"
+      />
+      &nbsp; CALTUS
     </b-navbar-brand>
 
     <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
 
     <b-collapse id="nav-collapse" is-nav>
       <b-navbar-nav>
-        <b-nav-item href="#" @click="$router.push('/dash')" >Home</b-nav-item>
-        <b-nav-item href="#" @click="$router.push('/cal')">Calculator</b-nav-item>
-        <b-nav-item href="#" @click="$router.push('/tracker')">Tracker</b-nav-item>
-        <b-nav-item href="#" @click="$router.push('/note')" >Note</b-nav-item>
+        <b-nav-item class="ml-5" href="#" @click="$router.push('/dash')"
+          >Home</b-nav-item
+        >
+        <b-nav-item href="#" @click="$router.push('/apy-cal')"
+          >Calculator</b-nav-item
+        >
+        <b-nav-item href="#" @click="$router.push('/tracker')"
+          >Tracker</b-nav-item
+        >
+        <b-nav-item href="#" @click="$router.push('/note')">Note</b-nav-item>
       </b-navbar-nav>
-
-      <!-- Right aligned nav items -->
-      <b-navbar-nav right class="float-right">
-     
-        <b-nav-item href="#" @click="$router.push('/')" class="logout">Logout</b-nav-item>
-      </b-navbar-nav>
-      
     </b-collapse>
+    <b-navbar-nav class="w-100">
+      <b-nav-item
+        right
+        href="#"
+        @click="$router.push('/')"
+        class="logout ml-auto"
+        >Logout</b-nav-item
+      >
+    </b-navbar-nav>
   </b-navbar>
-
-
 </template>
 
 <script>
-
 export default {
-name:"Navbar"
-}
+  name: "Navbar",
+};
 </script>
 
 <style scoped>
-  @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800&display=swap");
-  @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800&display=swap");
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css");
 
-  .logout {
+.logout {
   font-family: monospace;
   font-style: italic;
- }
+}
 </style>
