@@ -2,11 +2,12 @@ import Vue from "vue";
 import VueRouter from "vue-router";
 import Home from "../views/Home.vue";
 import Note from "../views/Note.vue";
-import Login from "../views/Login.vue";
+
 import Api from "../views/Api.vue";
 import Dashboard from "../views/Dashboard.vue";
-import APYCalculator from '../views/APYCalculator';
-import PercentCalculator from '../views/PercentCalculator'
+import APYCalculator from "../views/APYCalculator";
+import PercentCalculator from "../views/PercentCalculator";
+import Signupform from "../views/Signupform.vue";
 
 Vue.use(VueRouter);
 
@@ -18,18 +19,12 @@ const routes = [{
     {
         path: "/note",
         name: "Note",
-        component: Note
-
-    },
-    {
-        path: "/login",
-        name: "Login",
-        component: Login
+        component: Note,
     },
     {
         path: "/tracker",
         name: "Api",
-        component: Api
+        component: Api,
     },
     {
         path: "/dash",
@@ -39,12 +34,17 @@ const routes = [{
     {
         path: "/apy-cal",
         name: "APYCalculator",
-        component: APYCalculator
+        component: APYCalculator,
     },
     {
         path: "/percent-cal",
         name: "PercentCalculator",
-        component: PercentCalculator
+        component: PercentCalculator,
+    },
+    {
+        path: "/signup",
+        name: "Signupform",
+        component: Signupform,
     },
 ];
 
@@ -53,6 +53,5 @@ const router = new VueRouter({
     base: process.env.BASE_URL,
     routes,
 });
-
 
 export default router;

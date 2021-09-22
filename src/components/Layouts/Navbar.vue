@@ -1,5 +1,10 @@
 <template>
-  <b-navbar toggleable="lg" type="dark" variant="dark" class="px-3">
+  <b-navbar
+    toggleable="lg"
+    type="dark"
+    variant="dark"
+    class="px-3 border-b-4 border-white"
+  >
     <b-navbar-brand href="#" class="flex">
       <img
         @click="$router.push('/dash')"
