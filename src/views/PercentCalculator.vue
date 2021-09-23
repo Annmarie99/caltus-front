@@ -1,14 +1,16 @@
 <template>
   <calculator-layout>
 
-    <div class="flex p-0 m-0">  
+    <div class="flex p-0 m-0 bg-gradient-to-r from-green-600 to-gray-700 ">  
       
      
-       <div class="flex-1 space-y-5 bg-gradient-to-r from-green-600 to-gray-700">
+       <div class="flex-1 space-y-5 ">
 
-        <font face=angsananew size=5 color=black> Percentage Change Calculator</font> 
-         <br>
-      <font face=angsananew size=2 color=black> What is </font>
+
+        <font face=angsananew size=5 color=white> Percentage Change Calculator</font> 
+         <br><br>
+
+      <font face=angsananew size=2 color=white> What is </font>
         <b-form-input
           v-model="amount1"
           placeholder=""

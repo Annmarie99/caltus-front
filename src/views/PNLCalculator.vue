@@ -4,9 +4,12 @@
     <div class="flex p-0 m-0">  
       
       
-      <div class="flex-1 space-y-5bg-gradient-to-r from-green-600 to-gray-700">
+      <div class="flex-1 space-y-5 bg-gradient-to-r from-green-600 to-gray-700">
+        
+        <div class="bottom-2">
         <font face=angsananew size=5 color=white> PNL Calculator</font> <br><br>
-      
+         </div>
+
         <font face=angsananew size=3 color=white> Calculate your Profit/Loss price below.</font> <br>
 
         <font face=angsananew size=3 color=white> Entry Price :</font> <br>
@@ -100,3 +103,5 @@ name : "PNLCalculator",
   
    
 </script>
+
+
