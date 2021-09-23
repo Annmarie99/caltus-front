@@ -3,7 +3,7 @@
     <div class="form-container bg-gradient-to-r from-green-600 to-gray-700">
       <div class="signin-signup">
         <form action="" class="sign-in-form ml-auto w-3/4">
-          <h2 class="title">Sign in</h2>
+          <h2 class="title text-white">Sign in</h2>
           <div class="input-field">
             <i class="bi bi-person-fill"></i>
             <input type="text" placeholder="Username" />
@@ -24,16 +24,16 @@
             <router-link to="forgot">Sign up </router-link>
           </p>
 
-          <p class="social-text">Or Sign in with social platforms</p>
+          <p class="social-text text-white">Or Sign in with social platforms</p>
           <div class="social-media">
-            <a href="#" class="social-icon">
-              <i class="bi bi-google"></i>
+            <a href="#" class="social-icon border-white">
+              <i class="bi bi-google text-white"></i>
             </a>
-            <a href="#" class="social-icon">
-              <i class="bi bi-facebook"></i>
+            <a href="#" class="social-icon border-white">
+              <i class="bi bi-facebook text-white"></i>
             </a>
-            <a href="#" class="social-icon">
-              <i class="bi bi-instagram"></i>
+            <a href="#" class="social-icon border-white">
+              <i class="bi bi-instagram text-white"></i>
             </a>
           </div>
         </form>
