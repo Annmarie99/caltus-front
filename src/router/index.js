@@ -7,11 +7,20 @@ import Api from "../views/Api.vue";
 import Dashboard from "../views/Dashboard.vue";
 import APYCalculator from "../views/APYCalculator";
 import PercentCalculator from "../views/PercentCalculator";
+import FeeCalculator from "../views/FeeCalculator.vue";
 import Signupform from "../views/Signupform.vue";
+import AverageDown from "../views/AverageDown.vue";
+import LiquidationCalculator from "../views/LiquidationCalculator.vue";
+import PNLCalculator from "../views/PNLCalculator.vue";
+import TradeCompoundCalculator from "../views/TradeCompoundCalculator.vue";
+import LevergedMovementCalculator from "../views/LevergedMovementCalculator.vue";
+
+
 
 Vue.use(VueRouter);
 
-const routes = [{
+const routes = [
+    {
         path: "/",
         name: "Home",
         component: Home,
@@ -42,10 +51,45 @@ const routes = [{
         component: PercentCalculator,
     },
     {
+        path: "/fee-cal",
+        name: "FeeCalculator",
+        component: FeeCalculator,
+    },
+    {
         path: "/signup",
         name: "Signupform",
         component: Signupform,
     },
+    {
+        path: "/average-cal",
+        name: "AverageDown",
+        component: AverageDown,
+    },
+    {
+        path: "/liquidation-cal",
+        name: "LiquidationCalculator",
+        component: LiquidationCalculator,
+    },
+    {
+        path: "/pnl-cal",
+        name: "PNLCalculator",
+        component: PNLCalculator,
+    },
+    {
+        path: "/trade-cal",
+        name: "TradeCompoundCalculator",
+        component: TradeCompoundCalculator,
+    },
+
+    {
+        path: "/leverged-cal",
+        name: "LevergedMovementCalculator",
+        component: LevergedMovementCalculator,
+    },
+
+
+
+   
 ];
 
 const router = new VueRouter({
@@ -55,3 +99,5 @@ const router = new VueRouter({
 });
 
 export default router;
+
+

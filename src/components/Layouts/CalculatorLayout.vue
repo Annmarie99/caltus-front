@@ -27,8 +27,43 @@ export default {
           name: "Percentage Cahnge",
           path: "/percent-cal",
         },
+         {
+          id: 3,
+          name: "Fee Calculator",
+          path: "/fee-cal",
+        },
+        {
+          id: 4,
+          name: "Average Down Calculator",
+          path: "/average-cal",
+        },
+        {
+          id: 5,
+          name: "Liquidation Calculator",
+          path: "/liquidation-cal",
+        },
+        {
+          id: 6,
+          name: "PNL Calculator",
+          path: "/pnl-cal",
+        },
+
+        {
+          id: 7,
+          name: "Trade Compound Calculator",
+          path: "/trade-cal",
+        },
+        
+        {
+          id: 8,
+          name: "Leverged Movement Calculator",
+          path: "leverged-cal",
+        },
+      
+      
       ],
     };
   },
 };
 </script>
+

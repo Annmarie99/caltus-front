@@ -5,26 +5,40 @@
       
       
       <div class="flex-1 space-y-5 bg-gradient-to-r from-green-600 to-gray-700">
-        <font align=center face=angsananew size=5 color=white> APY Calculator</font> <br><br>
-      <font face=angsananew size=2 color=white> amount </font>
+        <font face=angsananew size=5 color=white> Trade Compound Calculator</font> <br><br>
       
+        
+        <font face=angsananew size=3 color=white> Base Amount :</font> <br>
+
         <b-form-input
           v-model="amount"
-          placeholder="Enter your amount"
+          placeholder=""
         ></b-form-input> <br>
-        <font face=angsananew size=1 color=white> APY </font>
-        <b-form-input v-model="apy" placeholder="Enter your APY"></b-form-input><br>
 
-        <font face=angsananew size=1 color=white> Day </font>
-        <b-form-input
-          v-model="days"
-          placeholder="Enter your days"
-        ></b-form-input>
-        <b-button @click="calculateAPY" variant="outline-primary"
+        <font face=angsananew size=1 color=white> Leverage on Base Amount : </font>
+        <b-form-input 
+          v-model="leverage" 
+          placeholder="">
+          </b-form-input><br>
+        
+        <font face=angsananew size=1 color=white> Interest rate gain per Trade :</font>
+        <b-form-input 
+          v-model="rate" 
+          placeholder="Rate %">
+          </b-form-input><br>
+        
+        <font face=angsananew size=1 color=white> Number of Trades : </font>
+        <b-form-input 
+          v-model="trades" 
+          placeholder="Trades">
+          </b-form-input><br>
+        
+       
+
+        
+        <b-button @click="calculateAPY" variant="outline-primary" 
           >Calculate</b-button
         >
-
-
 
 
         <div v-if="result" class="mt-5 text-gray-300 border-t-2 pt-4">
@@ -44,26 +58,26 @@
           </p>
         </div>
       </div>
-
       <div class="w-1/4 p-2 bg-gray-800 text-white">
         <p>History</p>
       </div>
-
-
     </div>
   </calculator-layout>
 </template>
 
 <script>
+
 import CalculatorLayout from "../components/Layouts/CalculatorLayout.vue";
 export default {
   components: { CalculatorLayout },
-  name: "APYCalculator",
+name : "TradeCompoundCalculator",
   data() {
     return {
       amount: "",
-      apy: "",
-      days: "",
+      leverage: "",
+      rate: "",
+      trades: "",
+      
       result: null,
     };
   },
@@ -77,4 +91,6 @@ export default {
     },
   },
 };
+  
+   
 </script>

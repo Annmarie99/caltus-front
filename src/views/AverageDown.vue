@@ -5,26 +5,25 @@
       
       
       <div class="flex-1 space-y-5 bg-gradient-to-r from-green-600 to-gray-700">
-        <font align=center face=angsananew size=5 color=white> APY Calculator</font> <br><br>
-      <font face=angsananew size=2 color=white> amount </font>
+        <font face=angsananew size=5 color=white>Average Down Calculator</font> <br><br>
+   
+       
       
         <b-form-input
           v-model="amount"
-          placeholder="Enter your amount"
+          placeholder=""
         ></b-form-input> <br>
-        <font face=angsananew size=1 color=white> APY </font>
-        <b-form-input v-model="apy" placeholder="Enter your APY"></b-form-input><br>
 
-        <font face=angsananew size=1 color=white> Day </font>
-        <b-form-input
-          v-model="days"
-          placeholder="Enter your days"
-        ></b-form-input>
+        <font face=angsananew size=1 color=white> </font>
+        <b-form-input 
+          v-model="rate" 
+          placeholder="">
+          </b-form-input><br>
+
+        
         <b-button @click="calculateAPY" variant="outline-primary"
           >Calculate</b-button
         >
-
-
 
 
         <div v-if="result" class="mt-5 text-gray-300 border-t-2 pt-4">
@@ -44,26 +43,24 @@
           </p>
         </div>
       </div>
-
       <div class="w-1/4 p-2 bg-gray-800 text-white">
         <p>History</p>
       </div>
-
-
     </div>
   </calculator-layout>
 </template>
+
+
 
 <script>
 import CalculatorLayout from "../components/Layouts/CalculatorLayout.vue";
 export default {
   components: { CalculatorLayout },
-  name: "APYCalculator",
-  data() {
+  name: "AverageDown",
+    data() {
     return {
       amount: "",
-      apy: "",
-      days: "",
+      rate: "",
       result: null,
     };
   },
@@ -77,4 +74,6 @@ export default {
     },
   },
 };
+  
+  
 </script>
