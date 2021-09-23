@@ -13,7 +13,7 @@ export default {
   name: "MainLayout",
   computed: {
     isHome() {
-      return this.$route.path === "/";
+      return this.$route.path === "/" || this.$route.path === "/signup";
     },
   },
 };

@@ -24,6 +24,7 @@ export default {
             options: {
               chart: {
                 width: 200,
+                colors: "#546E7A",
               },
               legend: {
                 position: "bottom",
@@ -31,6 +32,9 @@ export default {
             },
           },
         ],
+      },
+      fill: {
+        color: ["#ffffff"],
       },
     };
   },

@@ -1,6 +1,6 @@
 <template>
   <div class="container m-0">
-    <div class="form-container">
+    <div class="form-container bg-gradient-to-r from-green-600 to-gray-700">
       <div class="signin-signup">
         <form action="" class="sign-in-form ml-auto w-3/4">
           <h2 class="title">Sign in</h2>
@@ -12,7 +12,11 @@
             <i class="bi bi-lock-fill"></i>
             <input type="password" placeholder="Password" />
           </div>
-          <b-button type="submit" variant="success">Sign in</b-button>
+          <b-button
+            type="submit"
+            class="bg-gradient-to-r from-green-600 to-gray-700"
+            >Sign in</b-button
+          >
 
           <p class="forgot-password text-right">
             <router-link to="forgot">Forgot password?</router-link>

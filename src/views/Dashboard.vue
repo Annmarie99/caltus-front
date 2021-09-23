@@ -3,8 +3,11 @@
     <div class="w-full bg-gradient-to-r from-green-600 to-gray-700 p-10">
       <div class="row">
         <div class="col pt-10">
-          <div class="card border-success mb-3" style="max-width: 18rem">
-            <div class="card-header">Bitcoin Price</div>
+          <div
+            class="card border-success mb-3 bg-dark"
+            style="max-width: 18rem"
+          >
+            <div class="card-header text-gray-100">Bitcoin Price</div>
             <div class="card-body flex itmes-center justify-center space-x-5">
               <div class="my-auto">
                 <img
@@ -15,19 +18,19 @@
                 />
               </div>
               <div>
-                <p class="text-gray-700 p-0 m-0">
+                <p class="text-gray-300 p-0 m-0">
                   BTC / USDT
                   <span class="text-green-500 font-bold m-0 p-0">5%</span>
                 </p>
-                <p class="text-2xl font-bold p-0 m-0 text-gray-700">42,2000</p>
+                <p class="text-2xl font-bold p-0 m-0 text-gray-400">42,2000</p>
                 <p class="text-lg p-0 m-0 text-gray-400">1,400,000 THB</p>
               </div>
             </div>
           </div>
         </div>
         <div class="col pt-10">
-          <div class="card border-danger mb-3" style="max-width: 18rem">
-            <div class="card-header">Ehereum Price</div>
+          <div class="card mb-3 bg-dark" style="max-width: 18rem">
+            <div class="card-header text-white">Ethereum Price</div>
             <div class="card-body flex itmes-center justify-center space-x-5">
               <div class="my-auto">
                 <img
@@ -38,19 +41,19 @@
                 />
               </div>
               <div>
-                <p class="text-gray-700 p-0 m-0">
+                <p class="text-gray-300 p-0 m-0">
                   ETH / USDT
                   <span class="text-green-500 font-bold m-0 p-0">5%</span>
                 </p>
-                <p class="text-2xl font-bold p-0 m-0 text-gray-700">2,9000</p>
+                <p class="text-2xl font-bold p-0 m-0 text-gray-400">2,9000</p>
                 <p class="text-lg p-0 m-0 text-gray-400">94,000 THB</p>
               </div>
             </div>
           </div>
         </div>
         <div class="col pt-10">
-          <div class="card border-warning mb-3" style="max-width: 18rem">
-            <div class="card-header">Binacne Coin Price</div>
+          <div class="card mb-3 bg-dark" style="max-width: 18rem">
+            <div class="card-header text-gray-100">Binacne Coin Price</div>
             <div class="card-body flex itmes-center justify-center space-x-5">
               <div class="my-auto">
                 <img
@@ -61,20 +64,20 @@
                 />
               </div>
               <div>
-                <p class="text-gray-700 p-0 m-0">
+                <p class="text-gray-300 p-0 m-0">
                   BNB / USDT
-                  <span class="text-red-500 font-bold m-0 p-0">5%</span>
+                  <span class="text-red-500 font-bold m-0 p-0">-5%</span>
                 </p>
-                <p class="text-2xl font-bold p-0 m-0 text-gray-700">373</p>
+                <p class="text-2xl font-bold p-0 m-0 text-gray-400">373</p>
                 <p class="text-lg p-0 m-0 text-gray-400">12,000 THB</p>
               </div>
             </div>
           </div>
         </div>
         <div class="col">
-          <div class="card border-info mb-3 flex">
-            <div class="card-header">Amazing Pie !</div>
-            <div class="card-body">
+          <div class="card mb-3 flex bg-dark">
+            <div class="card-header text-white">Amazing Pie !</div>
+            <div class="card-body text-white">
               <DashPie />
             </div>
           </div>
@@ -82,7 +85,7 @@
       </div>
       <div class="row mt-3">
         <div class="col-8">
-          <div class="card border-light mb-3">
+          <div class="card mb-3 bg-dark">
             <div class="card-header">Amazing Line Graph</div>
             <div class="card-body">
               <DashLine />
@@ -90,11 +93,11 @@
           </div>
         </div>
         <div class="col-4">
-          <div class="card border-dark mb-3">
-            <div class="card-header">MARKET TREND</div>
-            <div class="card-body text-dark">
+          <div class="card border-dark mb-3 bg-dark">
+            <div class="card-header text-white">MARKET TREND</div>
+            <div class="card-body text-white">
               <div>
-                <b-table striped hover :items="items"></b-table>
+                <b-table dark striped hover :items="items"></b-table>
               </div>
             </div>
           </div>
@@ -113,6 +116,9 @@ export default {
   name: "Login",
   data() {
     return {
+      style: {
+        color: "#ffffff",
+      },
       items: [
         {
           Name: "BNB",

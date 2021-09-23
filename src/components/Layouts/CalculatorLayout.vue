@@ -1,9 +1,9 @@
 <template>
-  <div class="row w-full m-0">
-    <div class="col-3 sidebar bg-black px-0">
+  <div class="flex w-full m-0 h-full bg-dark">
+    <div class="w-1/4 sidebar bg-dark p-3 h-full">
       <cal-sidebar :menuItems="calMenuItems" />
     </div>
-    <div class="col-9 row p-0 m-0">
+    <div class="flex-1 p-3 pl-0 m-0">
       <slot />
     </div>
   </div>
@@ -27,7 +27,7 @@ export default {
           name: "Percentage Cahnge",
           path: "/percent-cal",
         },
-         {
+        {
           id: 3,
           name: "Fee Calculator",
           path: "/fee-cal",
@@ -53,17 +53,14 @@ export default {
           name: "Trade Compound Calculator",
           path: "/trade-cal",
         },
-        
+
         {
           id: 8,
           name: "Leverged Movement Calculator",
           path: "leverged-cal",
         },
-      
-      
       ],
     };
   },
 };
 </script>
-

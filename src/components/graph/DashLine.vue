@@ -27,7 +27,14 @@ export default {
           zoom: {
             enabled: false,
           },
+          style: {
+            color: "#ffffff",
+          },
         },
+        tooltip: {
+          theme: "dark",
+        },
+        colors: ["#fff"],
         dataLabels: {
           enabled: false,
         },
@@ -37,14 +44,30 @@ export default {
         title: {
           text: "Product Trends by Month",
           align: "left",
+          style: {
+            color: "#ffffff",
+          },
         },
         grid: {
           row: {
-            colors: ["#f3f3f3", "transparent"], // takes an array which will be repeated on columns
+            colors: ["#737373", "transparent"], // takes an array which will be repeated on columns
             opacity: 0.5,
           },
         },
         xaxis: {
+          theme: "dark",
+          labels: {
+            style: {
+              color: "#ffffff",
+            },
+          },
+          yaxis: {
+            labels: {
+              style: {
+                color: "#ffffff",
+              },
+            },
+          },
           categories: [
             "Jan",
             "Feb",
