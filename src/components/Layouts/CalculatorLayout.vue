@@ -24,7 +24,7 @@ export default {
         },
         {
           id: 2,
-          name: "Percentage Cahnge",
+          name: "Percentage Change Calculator",
           path: "/percent-cal",
         },
         {
