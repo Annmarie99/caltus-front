@@ -1,37 +1,67 @@
 <template>
   <calculator-layout>
-    <div class="flex p-0 m-0">
-      <div class="flex-1 space-y-5 bg-gradient-to-r from-green-600 to-gray-700">
-        <div class="bottom-2">
-          <font face="angsananew" size="5" color="white"> PNL Calculator</font>
-          <br /><br />
+    <div class="flex p-0 m-0 rounded-tl-lg">
+      <div
+        class="
+          flex-1
+          space-y-5
+          bg-gradient-to-r
+          from-green-600
+          to-gray-700
+          p-3
+          rounded-tl-lg
+        "
+      >
+        <p class="text-white text-center text-2xl p-0 m-0  uppercase"> PNL Calculator</p>
+        <br><br>
+
+        <p class="m-0 p-0 text-lg text-white">
+          Calculate your Profit/Loss price below.</p
+        >
+        <br />
+
+        <p class="m-0 p-0 text-lg text-white"> Entry Price :</p>
+        
+        <b-form-input 
+        class="bg-dark text-white"
+        v-model="price1" 
+        placeholder="">
+        </b-form-input> <br />
+
+       <p class="m-0 p-0 text-lg text-white"> Exit Price : </p>
+        <b-form-input 
+        class="bg-dark text-white"
+        v-model="price2" 
+        placeholder=""> 
+        </b-form-input><br />
+
+        <p class="m-0 p-0 text-lg text-white"> Quantity :</p>
+        <b-form-input 
+        class="bg-dark text-white"
+        v-model="quantity" 
+        placeholder=""> 
+        </b-form-input><br />
+
+        <p class="m-0 p-0 text-lg text-white"> Buy fees % : </p>
+        <b-form-input 
+        class="bg-dark text-white"
+        v-model="buy" 
+        placeholder="">
+         </b-form-input><br />
+
+        <p class="m-0 p-0 text-lg text-white"> Sell Fees % : </p>
+        <b-form-input
+        class="bg-dark text-white"
+         v-model="sell" 
+         placeholder="">
+          </b-form-input><br />
+
+         <div class="w-full flex justify-center">
+          <b-button class="mx-auto" @click="calculateAPY" variant="dark"
+            >Calculate</b-button
+          >
         </div>
 
-        <font face="angsananew" size="3" color="white">
-          Calculate your Profit/Loss price below.</font
-        >
-        <br />
-
-        <font face="angsananew" size="3" color="white"> Entry Price :</font>
-        <br />
-
-        <b-form-input v-model="price1" placeholder=""></b-form-input> <br />
-
-        <font face="angsananew" size="1" color="white"> Exit Price : </font>
-        <b-form-input v-model="price2" placeholder=""> </b-form-input><br />
-
-        <font face="angsananew" size="1" color="white"> Quantity :</font>
-        <b-form-input v-model="quantity" placeholder=""> </b-form-input><br />
-
-        <font face="angsananew" size="1" color="white"> Buy fees % : </font>
-        <b-form-input v-model="buy" placeholder=""> </b-form-input><br />
-
-        <font face="angsananew" size="1" color="white"> Sell Fees % : </font>
-        <b-form-input v-model="sell" placeholder=""> </b-form-input><br />
-
-        <b-button @click="calculateAPY" variant="outline-primary"
-          >Calculate</b-button
-        >
 
         <div v-if="result" class="mt-5 text-gray-300 border-t-2 pt-4">
           <p>
@@ -50,9 +80,11 @@
           </p>
         </div>
       </div>
+      
       <div class="w-1/4 p-2 bg-gray-800 text-white">
-        <p>History</p>
+        <p class="text-center uppercase">History</p>
       </div>
+
     </div>
   </calculator-layout>
 </template>

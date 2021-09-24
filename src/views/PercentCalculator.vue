@@ -1,22 +1,45 @@
 <template>
   <calculator-layout>
-    <div class="flex p-0 m-0 bg-gradient-to-r from-green-600 to-gray-700">
+    
+      <div class="flex p-0 m-0 rounded-tl-lg">
+      <div
+        class="
+          flex-1
+          space-y-5
+          bg-gradient-to-r
+          from-green-600
+          to-gray-700
+          p-3
+          rounded-tl-lg
+        "
+      >
       <div class="p-3">
-        <p class="text-white text-center text-2xl p-0 m-0">
+        <p class="text-white text-center text-2xl p-0 m-0 uppercase">
           Percentage Change Calculator
         </p>
+        <br><br><br>
+
         <div class="flex">
           <div class="flex-1 items-center space-y-5 p-3">
             <div class="space-y-5">
+              
               <b-form-input
+               class="bg-dark text-white"
                 v-model="amount1"
                 placeholder="what is"
               ></b-form-input>
-              <b-form-input v-model="percent1" placeholder="%of"></b-form-input>
 
-              <b-button @click="calculateAPY" variant="outline-primary"
-                >Calculate</b-button
-              >
+              <b-form-input 
+               class="bg-dark text-white"
+              v-model="percent1" 
+              placeholder="%of">
+              </b-form-input>
+
+             <div class="w-full flex justify-center">
+          <b-button class="mx-auto" @click="calculateAPY" variant="dark"
+            >Calculate</b-button
+          >
+        </div>
 
               <div v-if="result" class="mt-5 text-gray-300 border-t-2 pt-4">
                 <p>
@@ -37,20 +60,25 @@
             </div>
           </div>
 
+          
           <div>
             <div class="flex-1 space-y-5 p-3">
               <b-form-input
+               class="bg-dark text-white"
                 v-model="percent2"
                 placeholder="is what % of"
               ></b-form-input>
               <b-form-input
+               class="bg-dark text-white"
                 v-model="amount2"
                 placeholder="Enter your amount"
               ></b-form-input>
 
-              <b-button @click="calculateAPY" variant="outline-primary"
-                >Calculate</b-button
-              >
+              <div class="w-full flex justify-center">
+          <b-button class="mx-auto" @click="calculateAPY" variant="dark"
+            >Calculate</b-button
+          >
+        </div>
 
               <div v-if="result" class="mt-5 text-gray-300 border-t-2 pt-4">
                 <p>
@@ -71,18 +99,30 @@
             </div>
           </div>
 
+
+
+
           <div>
             <div class="flex-1 space-y-5 p-3">
+
+              
               <b-form-input
+               class="bg-dark text-white"
                 v-model="amount3"
-                placeholder="Enter your amount"
+                placeholder="From"
               ></b-form-input>
-              <b-form-input v-model="percent3" placeholder="%"></b-form-input>
 
-              <b-button @click="calculateAPY" variant="outline-primary"
-                >Calculate</b-button
-              >
+              <b-form-input 
+               class="bg-dark text-white"
+              v-model="percent3"
+               placeholder="to">
+               </b-form-input>
 
+              <div class="w-full flex justify-center">
+          <b-button class="mx-auto" @click="calculateAPY" variant="dark"
+            >Calculate</b-button
+          >
+        </div>
               <div v-if="result" class="mt-5 text-gray-300 border-t-2 pt-4">
                 <p>
                   Total Interest :
@@ -103,10 +143,12 @@
           </div>
         </div>
       </div>
-
-      <div class="ml-auto w-1/3 p-2 bg-gray-800 text-white">
-        <p>History</p>
       </div>
+
+     <div class="w-1/4 p-2 bg-gray-800 text-white">
+        <p class="text-center uppercase">History</p>
+      </div>
+
     </div>
   </calculator-layout>
 </template>
