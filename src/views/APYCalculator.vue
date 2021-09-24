@@ -13,7 +13,8 @@
         "
       >
         <p class="text-white text-center text-2xl p-0 m-0">APY CALCULATOR</p>
-        <br />
+        <br /><br>
+
         <p class="m-0 p-0 text-lg text-white">Amount</p>
 
         <b-form-input
@@ -36,6 +37,7 @@
           v-model="days"
           placeholder="Enter your days"
         ></b-form-input>
+
         <div class="w-full flex justify-center">
           <b-button class="mx-auto" @click="calculateAPY" variant="dark"
             >Calculate</b-button

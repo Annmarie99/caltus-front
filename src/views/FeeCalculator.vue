@@ -1,30 +1,48 @@
 <template>
   <calculator-layout>
 
-    <div class="flex p-0 m-0">  
+     <div class="flex p-0 m-0 rounded-tl-lg">
+      <div
+        class="
+          flex-1
+          space-y-5
+          bg-gradient-to-r
+          from-green-600
+          to-gray-700
+          p-3
+          rounded-tl-lg
+        "
+      >
+        <p class="text-white text-center text-2xl p-0 m-0">FEE CALCULATOR</p>
+        <br /><br>
       
-      
-      <div class="flex-1 space-y-5 bg-gradient-to-r from-green-600 to-gray-700">
-        <font face=angsananew size=5 color=white>Fee Calculator</font> <br><br>
-      
-        <font face=angsananew size=2 color=white> Calculate your trading fees and funding using the fee calculator below.Trade Size </font>
+        
+        <p class="m-0 p-0 text-lg text-white">
+Calculate your trading fees and funding using the fee calculator below.
+Trade Size </p>
+        
       
         <b-form-input
+        class="bg-dark text-white"
           v-model="amount"
           placeholder="In cryptocurrencices like USD,BTC,cet.or fiat currencies"
         ></b-form-input> <br>
 
-        <font face=angsananew size=1 color=white> Fee Rate / Funding Rate (%) </font>
+         <p class="m-0 p-0 text-lg text-white"> Fee Rate / Funding Rate (%) </p>
         <b-form-input 
+        class="bg-dark text-white"
           v-model="rate" 
           placeholder="Rate in%">
           </b-form-input><br>
 
         
-        <b-button @click="calculateAPY" variant="outline-primary"
-          >Calculate</b-button
-        >
+       <div class="w-full flex justify-center">
+          <b-button class="mx-auto" @click="calculateAPY" variant="dark"
+            >Calculate</b-button
+          >
+        </div>
 
+        
 
         <div v-if="result" class="mt-5 text-gray-300 border-t-2 pt-4">
           <p>
@@ -43,9 +61,11 @@
           </p>
         </div>
       </div>
-      <div class="w-1/4 p-2 bg-gray-800 text-white">
-        <p>History</p>
+      
+     <div class="w-1/4 p-2 bg-gray-800 text-white">
+        <p class="text-center uppercase">History</p>
       </div>
+
     </div>
   </calculator-layout>
 </template>

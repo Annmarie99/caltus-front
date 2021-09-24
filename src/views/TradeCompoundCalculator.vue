@@ -1,34 +1,46 @@
 <template>
   <calculator-layout>
 
-    <div class="flex p-0 m-0">  
-      
-      
-      <div class="flex-1 space-y-5 bg-gradient-to-r from-green-600 to-gray-700">
-        <font face=angsananew size=5 color=white> Trade Compound Calculator</font> <br><br>
-      
+    <div class="flex p-0 m-0 rounded-tl-lg">
+      <div
+        class="
+          flex-1
+          space-y-5
+          bg-gradient-to-r
+          from-green-600
+          to-gray-700
+          p-3
+          rounded-tl-lg
+        "
+      >
+        <p class="text-white text-center text-2xl p-0 m-0  uppercase"> Trade Compound Calculator</p>
+        <br><br>
         
-        <font face=angsananew size=3 color=white> Base Amount :</font> <br>
+         <p class="m-0 p-0 text-lg text-white"> Base Amount :</p> 
 
         <b-form-input
+        class="bg-dark text-white"
           v-model="amount"
           placeholder=""
         ></b-form-input> <br>
 
-        <font face=angsananew size=1 color=white> Leverage on Base Amount : </font>
+         <p class="m-0 p-0 text-lg text-white"> Leverage on Base Amount : </p>
         <b-form-input 
+        class="bg-dark text-white"
           v-model="leverage" 
           placeholder="">
           </b-form-input><br>
         
-        <font face=angsananew size=1 color=white> Interest rate gain per Trade :</font>
+         <p class="m-0 p-0 text-lg text-white">Interest rate gain per Trade :</p>
         <b-form-input 
+        class="bg-dark text-white"
           v-model="rate" 
           placeholder="Rate %">
           </b-form-input><br>
         
-        <font face=angsananew size=1 color=white> Number of Trades : </font>
+         <p class="m-0 p-0 text-lg text-white">Number of Trades : </p>
         <b-form-input 
+        class="bg-dark text-white"
           v-model="trades" 
           placeholder="Trades">
           </b-form-input><br>
@@ -36,9 +48,11 @@
        
 
         
-        <b-button @click="calculateAPY" variant="outline-primary" 
-          >Calculate</b-button
-        >
+        <div class="w-full flex justify-center">
+          <b-button class="mx-auto" @click="calculateAPY" variant="dark"
+            >Calculate</b-button
+          >
+        </div>
 
 
         <div v-if="result" class="mt-5 text-gray-300 border-t-2 pt-4">
@@ -58,9 +72,11 @@
           </p>
         </div>
       </div>
+      
       <div class="w-1/4 p-2 bg-gray-800 text-white">
-        <p>History</p>
+        <p class="text-center uppercase">History</p>
       </div>
+
     </div>
   </calculator-layout>
 </template>

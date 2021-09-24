@@ -1,37 +1,50 @@
 <template>
   <calculator-layout>
 
-    <div class="flex p-0 m-0">  
+    <div class="flex p-0 m-0 rounded-tl-lg">
+      <div
+        class="
+          flex-1
+          space-y-5
+          bg-gradient-to-r
+          from-green-600
+          to-gray-700
+          p-3
+          rounded-tl-lg
+        "
+      >
+        <p class="text-white text-center text-2xl p-0 m-0  uppercase"> Liquidation Calculator</p>
+        <br><br>
       
-      
-      <div class="flex-1 space-y-5 bg-gradient-to-r from-green-600 to-gray-700">
-        <font face=angsananew size=5 color=white>Fee Calculator</font> <br><br>
-      
-        <font face=angsananew size=2 color=white> Entry Price : </font>
+         <p class="m-0 p-0 text-lg text-white"> Entry Price : </p>
       
         <b-form-input
+         class="bg-dark text-white"
           v-model="price "
           placeholder=""
         ></b-form-input> <br>
 
-        <font face=angsananew size=1 color=white> Quantity: </font>
+         <p class="m-0 p-0 text-lg text-white"> Quantity : </p>
         <b-form-input 
+         class="bg-dark text-white"
           v-model="quantity" 
           placeholder="">
           </b-form-input><br>
 
-         <font face=angsananew size=1 color=white> Balance: </font>
+          <p class="m-0 p-0 text-lg text-white"> Balance : </p>
          <b-form-input 
+          class="bg-dark text-white"
           v-model="balance" 
           placeholder="">
           </b-form-input><br>
 
         
         
-        <b-button @click="calculateAPY" variant="outline-primary"
-          >Calculate</b-button
-        >
-
+      <div class="w-full flex justify-center">
+          <b-button class="mx-auto" @click="calculateAPY" variant="dark"
+            >Calculate</b-button
+          >
+        </div>
 
         <div v-if="result" class="mt-5 text-gray-300 border-t-2 pt-4">
           <p>
@@ -50,9 +63,11 @@
           </p>
         </div>
       </div>
+      
       <div class="w-1/4 p-2 bg-gray-800 text-white">
-        <p>History</p>
+        <p class="text-center uppercase">History</p>
       </div>
+
     </div>
   </calculator-layout>
 </template>

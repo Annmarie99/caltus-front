@@ -1,30 +1,132 @@
 <template>
   <calculator-layout>
 
-    <div class="flex p-0 m-0">  
+    <div class="flex p-0 m-0 rounded-tl-lg">
+      <div
+        class="
+          flex-1
+          space-y-5
+          bg-gradient-to-r
+          from-green-600
+          to-gray-700
+          p-3
+          rounded-tl-lg
+        "
+      >     
+        <div class="p-3 ">
+
+        <p class="text-white text-center text-2xl p-0 m-0">AVERAGE DOWN CALCULATOR</p>
+        <br /><br>
+
       
-      
-      <div class="flex-1 space-y-5 bg-gradient-to-r from-green-600 to-gray-700">
-        <font face=angsananew size=5 color=white>Average Down Calculator</font> <br><br>
-   
-       
-      
+
+     <div class="flex">
+
+          <div class="flex-auto items-center space-y-5 p-3 ">
+            
+            <div class="space-y-5">
+
+        <div class="table-fixed bg-gray-800 rounded-lg" >
+        <p class="text-center  text-white text-xl p-0 m-0">Quantity</p> 
+        </div><br>
+        
+        <p class="m-0 p-0 text-lg text-white"> 1. </p>
         <b-form-input
+        class="bg-dark text-white"
           v-model="amount"
           placeholder=""
         ></b-form-input> <br>
-
-        <font face=angsananew size=1 color=white> </font>
+ 
+        <p class="m-0 p-0 text-lg text-white"> 2. </p>
         <b-form-input 
+        class="bg-dark text-white"
+          v-model="rate" 
+          placeholder="">
+          </b-form-input><br>
+          
+        <p class="m-0 p-0 text-lg text-white"> 3. </p>
+          <b-form-input 
+          class="bg-dark text-white"
           v-model="rate" 
           placeholder="">
           </b-form-input><br>
 
-        
-        <b-button @click="calculateAPY" variant="outline-primary"
-          >Calculate</b-button
-        >
 
+        <p class="m-0 p-0 text-lg text-white"> 4. </p>
+          <b-form-input 
+          class="bg-dark text-white"
+          v-model="rate" 
+          placeholder="">
+          </b-form-input><br>
+     
+        <p class="m-0 p-0 text-lg text-white"> 5. </p>
+         <b-form-input 
+         class="bg-dark text-white"
+          v-model="rate" 
+          placeholder="">
+          </b-form-input><br>
+
+
+     <div class="w-full flex justify-center">
+          <b-button class="mx-auto" @click="calculateAPY" variant="dark"
+            >Calculate</b-button
+          >
+        </div>
+            </div>
+          </div>
+     
+
+
+     <div >
+    <div  class="flex-auto items-center space-y-5 p-3">
+        
+        <div class="table-fixed bg-gray-800 rounded-lg" >
+       <p class="text-center  text-white text-xl p-0 m-0">Purchase Price</p>
+       </div><br>
+     
+      <p class="m-0 p-0 text-lg text-white"> $ </p>
+        <b-form-input
+        class="bg-dark text-white"    
+         v-model="rate" 
+          placeholder="">
+          </b-form-input><br>
+ 
+        <p class="m-0 p-0 text-lg text-white"> $ </p>
+        <b-form-input 
+        class="bg-dark text-white"
+          v-model="rate" 
+          placeholder="">
+          </b-form-input><br>
+
+        <p class="m-0 p-0 text-lg text-white"> $ </p>
+          <b-form-input 
+          class="bg-dark text-white"
+          v-model="rate" 
+          placeholder="">
+          </b-form-input><br>
+
+        <p class="m-0 p-0 text-lg text-white"> $ </p>
+          <b-form-input 
+          class="bg-dark text-white"
+          v-model="rate" 
+          placeholder="">
+          </b-form-input><br>
+        
+        <p class="m-0 p-0 text-lg text-white"> $ </p>
+          <b-form-input 
+          class="bg-dark text-white"
+          v-model="rate" 
+          placeholder="">
+          </b-form-input><br>
+
+     <div class="w-full flex justify-center">
+          <b-button class="mx-auto" @click="calculateAPY" variant="dark"
+            >Clear</b-button
+          >
+        </div>
+    </div></div>
+        
+       
 
         <div v-if="result" class="mt-5 text-gray-300 border-t-2 pt-4">
           <p>
@@ -42,11 +144,15 @@
             }}</span>
           </p>
         </div>
-      </div>
-      <div class="w-1/4 p-2 bg-gray-800 text-white">
-        <p>History</p>
-      </div>
     </div>
+    </div> 
+</div>
+
+       <div class="w-1/4 p-2 bg-gray-800 text-white">
+        <p class="text-center uppercase">History</p>
+      </div>
+
+    </div> 
   </calculator-layout>
 </template>
 
