@@ -195,20 +195,39 @@
                 {{ (ethPrice - coin.price) * coin.amount }}
               </p>
             </div>
-            <button
-              @click="handleSubmit"
-              class="
-                bg-green-800
-                hover:bg-green-700
-                text-white
-                font-bold
-                py-2
-                px-4
-                rounded
-              "
-            >
-              ADD
-            </button>
+            <div>
+              <button
+                @click="handleSubmit"
+                class="
+                  bg-green-800
+                  hover:bg-green-700
+                  text-white
+                  font-bold
+                  py-2
+                  px-4
+                  rounded
+                  flex-1
+                "
+              >
+                ADD
+              </button>
+              <button
+                @click="handleSubmit"
+                class="
+                  bg-red-800
+                  hover:bg-red-700
+                  text-white
+                  font-bold
+                  py-2
+                  px-4
+                  rounded
+                  flex-1
+                  ml-2
+                "
+              >
+                Cancel
+              </button>
+            </div>
           </form>
         </div>
       </div>
