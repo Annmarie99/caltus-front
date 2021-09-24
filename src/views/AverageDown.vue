@@ -20,9 +20,9 @@
 
       
 
-     <div class="flex ">
+     <div class="flex">
 
-          <div class="flex-2 items-center space-y-5 p-3 ">
+          <div class="flex-auto items-center space-y-5 p-3 ">
             
             <div class="space-y-5">
 
@@ -78,7 +78,7 @@
 
 
      <div >
-    <div c class="flex-2 items-center space-y-5 p-3">
+    <div  class="flex-auto items-center space-y-5 p-3">
         
         <div class="table-fixed bg-gray-800 rounded-lg" >
        <p class="text-center  text-white text-xl p-0 m-0">Purchase Price</p>

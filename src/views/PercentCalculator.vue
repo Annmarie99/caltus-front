@@ -17,22 +17,24 @@
         <p class="text-white text-center text-2xl p-0 m-0 uppercase">
           Percentage Change Calculator
         </p>
-        <br><br><br>
+        <br><br>
 
-        <div class="flex">
+        <div class="flex-auto">
           <div class="flex-1 items-center space-y-5 p-3">
             <div class="space-y-5">
               
+               <p class="m-0 p-0 text-center text-lg text-white">what is</p>
               <b-form-input
                class="bg-dark text-white"
                 v-model="amount1"
-                placeholder="what is"
+                placeholder=""
               ></b-form-input>
-
+  
+             <p class="m-0 p-0 text-center  text-lg text-white">%of</p>
               <b-form-input 
                class="bg-dark text-white"
               v-model="percent1" 
-              placeholder="%of">
+              placeholder="">
               </b-form-input>
 
              <div class="w-full flex justify-center">
@@ -63,15 +65,19 @@
           
           <div>
             <div class="flex-1 space-y-5 p-3">
+
+              
               <b-form-input
                class="bg-dark text-white"
                 v-model="percent2"
-                placeholder="is what % of"
+                placeholder=""
               ></b-form-input>
+
+             <p class="m-0 p-0 text-center  text-lg text-white">is what % of</p>
               <b-form-input
                class="bg-dark text-white"
                 v-model="amount2"
-                placeholder="Enter your amount"
+                placeholder=""
               ></b-form-input>
 
               <div class="w-full flex justify-center">
@@ -105,17 +111,20 @@
           <div>
             <div class="flex-1 space-y-5 p-3">
 
-              
+              <p class="m-0 p-0 text-center  text-lg text-white">What is the percentage increase/decrease</p><br>
+
+              <p class="m-0 p-0 text-center  text-lg text-white">From</p>
               <b-form-input
                class="bg-dark text-white"
                 v-model="amount3"
-                placeholder="From"
+                placeholder=""
               ></b-form-input>
 
+              <p class="m-0 p-0 text-center  text-lg text-white">to</p>
               <b-form-input 
                class="bg-dark text-white"
               v-model="percent3"
-               placeholder="to">
+               placeholder="">
                </b-form-input>
 
               <div class="w-full flex justify-center">
