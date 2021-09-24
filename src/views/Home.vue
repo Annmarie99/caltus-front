@@ -18,7 +18,7 @@
             >Sign in</b-button
           >
 
-          <p class="forgot-password text-right">
+          <p class="forgot-password text-right text-white">
             <router-link to="forgot">Forgot password?</router-link>
             or
             <router-link to="forgot">Sign up </router-link>

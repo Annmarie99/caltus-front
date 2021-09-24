@@ -1,6 +1,7 @@
 <template>
   <div id="chart">
     <apexchart
+      dark
       type="line"
       height="350"
       :options="chartOptions"

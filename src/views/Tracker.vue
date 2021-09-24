@@ -35,7 +35,6 @@
                 <span class="text-blue-500 font-bold m-0 p-0">80000 THB</span>
               </p>
               <button
-                @click="openGraph = !openGraph"
                 class="
                   bg-green-500
                   hover:bg-gray-500
@@ -141,7 +140,26 @@
           </div>
         </div>
       </div>
-      <div class="ml-auto mt-20 text-center w-full flex justify-center">
+
+      <div class="mt-3 mb-0">
+        <button
+          @click="openGraph = !openGraph"
+          class="
+            bg-blue-500
+            hover:bg-gray-500
+            text-gray-100
+            font-bold
+            py-2
+            px-4
+            mt-3
+          "
+        >
+          Show track graph
+          <i class="bi bi-caret-down-fill"></i>
+        </button>
+      </div>
+
+      <div class="ml-auto mt-10 text-center w-full flex justify-center">
         <div class="text-center mr-0 h-25 bg-dark rounded-lg shadow-lg py-5">
           <form action="" class="">
             <div class="form-group">

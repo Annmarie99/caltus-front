@@ -86,7 +86,7 @@
       <div class="row mt-3">
         <div class="col-8">
           <div class="card mb-3 bg-dark">
-            <div class="card-header">Amazing Line Graph</div>
+            <div class="card-header text-white">Amazing Line Graph</div>
             <div class="card-body">
               <DashLine />
             </div>

@@ -3,7 +3,7 @@ import VueRouter from "vue-router";
 import Home from "../views/Home.vue";
 import Note from "../views/Note.vue";
 
-import Api from "../views/Api.vue";
+import Tracker from "../views/Tracker.vue";
 import Dashboard from "../views/Dashboard.vue";
 import APYCalculator from "../views/APYCalculator";
 import PercentCalculator from "../views/PercentCalculator";
@@ -15,12 +15,9 @@ import PNLCalculator from "../views/PNLCalculator.vue";
 import TradeCompoundCalculator from "../views/TradeCompoundCalculator.vue";
 import LevergedMovementCalculator from "../views/LevergedMovementCalculator.vue";
 
-
-
 Vue.use(VueRouter);
 
-const routes = [
-    {
+const routes = [{
         path: "/",
         name: "Home",
         component: Home,
@@ -32,8 +29,8 @@ const routes = [
     },
     {
         path: "/tracker",
-        name: "Api",
-        component: Api,
+        name: "Tracker",
+        component: Tracker,
     },
     {
         path: "/dash",
@@ -86,10 +83,6 @@ const routes = [
         name: "LevergedMovementCalculator",
         component: LevergedMovementCalculator,
     },
-
-
-
-   
 ];
 
 const router = new VueRouter({
@@ -99,5 +92,3 @@ const router = new VueRouter({
 });
 
 export default router;
-
-
