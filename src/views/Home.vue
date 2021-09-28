@@ -26,7 +26,7 @@
 
           <p class="social-text text-white">Or Sign in with social platforms</p>
           <div class="social-media">
-            <a href="#" class="social-icon border-white">
+            <a @click="login()" class="social-icon border-white">
               <i class="bi bi-google text-white"></i>
             </a>
             <a href="#" class="social-icon border-white">
@@ -52,7 +52,41 @@
 </template>
 
 <script>
-export default {};
+export default {
+  name: "Home",
+  data() {
+    return {
+      isLogin: false,
+    };
+  },
+  methods: {
+    async logOut() {
+      const result = await this.$gAuth.signOut();
+      this.isLogin = false;
+      console.log(`result`, result);
+    },
+    async login() {
+      const googleUser = await this.$gAuth.signIn();
+      console.log("googleUser", googleUser);
+      // console.log("getId", googleUser.getId());
+      // console.log("getBaseProfile", googleUser.getBasicProfile());
+      // console.log("getBaseProfile", googleUser.getBasicProfile().Se);
+      // console.log("getAuthResponse", googleUser.getAuthResponse());
+      // console.log(
+      //   "getAuthResponse$G",
+      //   this.$gAuth.GoogleAuth.currentUser.get().getAuthResponse()
+      // );
+      this.isLogin = this.$gAuth.isAuthorized;
+      localStorage.setItem('userName', googleUser.getBasicProfile().Se);
+
+
+      this.$router.push("/dash");
+    },
+  },
+};
+
+
+
 </script>
 
 <style>
