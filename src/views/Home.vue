@@ -28,7 +28,7 @@
           <p class="forgot-password text-right text-white">
             <router-link to="forgot">Forgot password?</router-link>
             or
-            <router-link to="forgot">Sign up </router-link>
+            <router-link to="/signup">Sign up </router-link>
           </p>
 
           <p class="social-text text-white">Or Sign in with social platforms</p>
@@ -45,7 +45,7 @@
           </div>
         </form>
         <form action="#" class="sign-up-form">
-          <h2 class="title">Sign up</h2>
+          <h2 class="title">Sign In</h2>
         </form>
       </div>
     </div>

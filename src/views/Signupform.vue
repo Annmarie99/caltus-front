@@ -11,7 +11,7 @@
         h-screen
       "
     >
-      <form action="" @submit="handleSubmit">
+      <form action="">
         <div class="w-25 p-4 rounded-lg mx-auto bg-dark mt-20 shadow-2xl">
           <h2 class="text-gray-100 text-center">Sign Up</h2>
 
@@ -39,7 +39,7 @@
             />
           </div>
 
-          <div class="text-center mt-5">
+          <div class="text-center mt-5" type="submit" @submit="handleSubmit">
             <button
               class="
                 bg-green-500
@@ -67,6 +67,7 @@
                 rounded
                 ml-5
               "
+              @click="$router.push('/')"
             >
               Cancel
             </button>
