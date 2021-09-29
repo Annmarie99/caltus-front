@@ -2,16 +2,23 @@
   <div class="container m-0">
     <div class="form-container bg-gradient-to-r from-green-600 to-gray-700">
       <div class="signin-signup">
-        <form action="" class="sign-in-form ml-auto w-3/4">
+        <form
+          action=""
+          @submit.prevent="handleSubmit"
+          class="sign-in-form ml-auto w-3/4"
+        >
           <h2 class="title text-white">Sign in</h2>
+
           <div class="input-field">
             <i class="bi bi-person-fill"></i>
-            <input type="text" placeholder="Username" />
+            <input type="text" v-model="username" placeholder="Username" />
           </div>
+
           <div class="input-field">
             <i class="bi bi-lock-fill"></i>
-            <input type="password" placeholder="Password" />
+            <input type="password" v-model="password" placeholder="Password" />
           </div>
+
           <b-button
             type="submit"
             class="bg-gradient-to-r from-green-600 to-gray-700"
@@ -52,7 +59,24 @@
 </template>
 
 <script>
-export default {};
+import axios from "axios";
+export default {
+  data() {
+    return {
+      username: "",
+      password: "",
+    };
+  },
+  methods: {
+    async handleSubmit() {
+      const response = await axios.post("https://localhost:5500/", {
+        username: this.email,
+        password: this.password,
+      });
+      localStorage.setItem("token", response.data.token);
+    },
+  },
+};
 </script>
 
 <style>
