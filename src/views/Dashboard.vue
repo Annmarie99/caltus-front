@@ -110,6 +110,7 @@
 <script>
 import DashPie from "../components/graph/DashPie.vue";
 import DashLine from "../components/graph/DashLine.vue";
+// import axios from "axios";
 
 export default {
   components: { DashPie, DashLine },
@@ -122,7 +123,7 @@ export default {
       items: [
         {
           Name: "BNB",
-          Last_price: "$364.54",
+          Last_price: "$3,333",
           lasthr_change: "-9.50%",
           Market: 12,
         },
@@ -159,6 +160,16 @@ export default {
       ],
     };
   },
+  // created() {
+  //   let vm = this;
+  //   this.connection = new WebSocket(
+  //     "wss://stream.binance.com:9443/ws/etheur@trade"
+  //   );
+  //   this.connection.onmessage = function (event) {
+  //     const convert = JSON.parse(event.data);
+  //     vm.ethPrice = convert.p;
+  //   };
+  // },
 };
 </script>
 

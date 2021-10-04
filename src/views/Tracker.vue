@@ -11,164 +11,77 @@
         to-gray-700
         m-0
         text-center
+        h-screen
       "
     >
-      <div class="flex">
-        <div class="flex-1 bg-dark rounded-lg">
-          <div class="card-body flex itmes-center justify-center space-x-5">
-            <div class="my-auto">
-              <img
-                src="../assets/eth.png"
-                width="50"
-                height="40"
-                class="mr-2 animate-bounce"
-              />
-            </div>
-            <div>
-              <p class="text-gray-300 p-0 m-0">ETH</p>
-              <p class="text-lg p-0 m-0 text-gray-400">
-                Amount :
-                <span class="text-green-500 font-bold m-0 p-0">2.0</span>
-              </p>
-              <p class="text-lg p-0 m-0 text-gray-400">
-                Buying Price :
-                <span class="text-blue-500 font-bold m-0 p-0">80000 THB</span>
-              </p>
-              <button
-                class="
-                  bg-green-500
-                  hover:bg-gray-500
-                  text-gray-100
-                  font-bold
-                  py-1
-                  px-4
-                  rounded-full
-                  mt-3
-                "
-              >
-                <i class="bi bi-arrow-down-up"></i>
-                5%
-              </button>
-            </div>
-          </div>
-          <div v-if="showGraph" class="w-full text-white p-5">
-            <dash-line />
-          </div>
-        </div>
+      <div class="grid grid-cols-3">
+        <div v-for="coin in myCoin" :key="coin.id">
+          <div class="flex-1 bg-dark rounded-lg ml-3">
+            <div class="card-body flex itmes-center justify-center space-x-5">
+              <div class="my-auto">
+                <img
+                  :src="coin.img"
+                  width="50"
+                  height="40"
+                  class="mr-2 animate-bounce"
+                />
+              </div>
 
-        <div class="flex-1 bg-dark rounded-lg ml-3">
-          <div class="card-body flex itmes-center justify-center space-x-5">
-            <div class="my-auto">
-              <img
-                src="../assets/chz.png"
-                width="50"
-                height="40"
-                class="mr-2 animate-bounce"
-              />
-            </div>
-            <div>
-              <p class="text-gray-300 p-0 m-0">CHZ</p>
-              <p class="text-lg p-0 m-0 text-gray-400">
-                Amount :
-                <span class="text-green-500 font-bold m-0 p-0">0.5</span>
-              </p>
-              <p class="text-lg p-0 m-0 text-gray-400">
-                Buying Price :
-                <span class="text-blue-500 font-bold m-0 p-0">5000 THB</span>
-              </p>
-              <button
-                class="
-                  bg-green-500
-                  hover:bg-gray-500
-                  text-gray-100
-                  font-bold
-                  py-1
-                  px-4
-                  rounded-full
-                  mt-3
-                "
-              >
-                <i class="bi bi-arrow-down-up"></i>
-                10%
-              </button>
-            </div>
-          </div>
-          <div v-if="showGraph" class="w-full text-white p-5">
-            <dash-line />
-          </div>
-        </div>
+              <div>
+                <p class="text-gray-300 p-0 m-0">{{ coin.name }}</p>
+                <p class="text-lg p-0 m-0 text-gray-400">
+                  Amount :
+                  <span class="text-green-500 font-bold m-0 p-0">{{
+                    coin.amount
+                  }}</span>
+                </p>
+                <p class="text-lg p-0 m-0 text-gray-400">
+                  Buying Price :
+                  <span class="text-blue-500 font-bold m-0 p-0">{{
+                    coin.price
+                  }}</span>
+                </p>
+                <p class="text-lg p-0 m-0 text-gray-400">
+                  Profit :
+                  <span class="text-blue-500 font-bold m-0 p-0">{{
+                    (
+                      (+marketPrice[coin.api] - +coin.price) *
+                      +coin.amount
+                    ).toFixed(2)
+                  }}</span>
+                </p>
 
-        <div class="flex-1 bg-dark rounded-lg ml-3">
-          <div class="card-body flex itmes-center justify-center space-x-5">
-            <div class="my-auto">
-              <img
-                src="../assets/ada.png"
-                width="50"
-                height="40"
-                class="mr-2 animate-bounce"
-              />
-            </div>
-            <div>
-              <p class="text-gray-300 p-0 m-0">ADA</p>
-              <p class="text-lg p-0 m-0 text-gray-400">
-                Amount :
-                <span class="text-green-500 font-bold m-0 p-0">0.2</span>
-              </p>
-              <p class="text-lg p-0 m-0 text-gray-400">
-                Buying Price :
-                <span class="text-blue-500 font-bold m-0 p-0">20000 THB</span>
-              </p>
-              <button
-                class="
-                  bg-green-500
-                  hover:bg-gray-500
-                  text-gray-100
-                  font-bold
-                  py-1
-                  px-4
-                  rounded-full
-                  mt-3
-                "
-              >
-                <i class="bi bi-arrow-down-up"></i>
-                2%
-              </button>
+                <button
+                  class="
+                    bg-green-500
+                    hover:bg-gray-500
+                    text-gray-100
+                    font-bold
+                    py-1
+                    px-4
+                    rounded-full
+                    mt-3
+                  "
+                >
+                  <i class="bi bi-arrow-down-up"></i>
+                  10%
+                </button>
+              </div>
             </div>
           </div>
-          <div v-if="showGraph" class="w-full text-white p-5">
-            <dash-line />
-          </div>
+          <!-- <div v-if="showGraph" class="w-full text-white p-5">
+          <dash-line />
+        </div> -->
         </div>
       </div>
-
-      <div class="mt-3 mb-0">
-        <button
-          @click="openGraph = !openGraph"
-          class="
-            bg-blue-500
-            hover:bg-gray-500
-            text-gray-100
-            font-bold
-            py-2
-            px-4
-            mt-3
-          "
-        >
-          Show track graph
-          <i class="bi bi-caret-down-fill"></i>
-        </button>
-      </div>
-
       <div class="ml-auto mt-10 text-center w-full flex justify-center">
         <div class="text-center mr-0 h-25 bg-dark rounded-lg shadow-lg py-5">
           <form action="" class="">
             <div class="form-group">
-              <input
-                class="form-control shadow"
-                type="text"
-                placeholder="name"
-                v-model="coinName"
-              />
+              <b-form-select
+                v-model="selected"
+                :options="options"
+              ></b-form-select>
             </div>
             <div class="form-group">
               <input
@@ -179,7 +92,7 @@
               />
             </div>
 
-            <div class="form-group">
+            <div class="form-group mb-3">
               <input
                 class="mt-3 form-control shadow"
                 type="text"
@@ -187,14 +100,7 @@
                 v-model="price"
               />
             </div>
-            <p class="mt-3 text-gray-200">ETH CURRENT PRICE : {{ ethPrice }}</p>
-            <div v-for="(coin, i) in myCoin" :key="i">
-              <p>
-                Name : {{ coin.coinName }} | Amount :{{ coin.amount }} | Price :
-                {{ coin.price }} | Profit :
-                {{ (ethPrice - coin.price) * coin.amount }}
-              </p>
-            </div>
+
             <div>
               <button
                 @click="handleSubmit"
@@ -212,7 +118,8 @@
                 ADD
               </button>
               <button
-                @click="handleSubmit"
+                type="reset"
+                value="Reset"
                 class="
                   bg-red-800
                   hover:bg-red-700
@@ -236,23 +143,48 @@
 </template>
 
 <script>
-import DashLine from "../components/graph/DashLine.vue";
+import { tokenList } from "../constants/tokenlist";
+import Vue from "vue";
+// import DashLine from "../components/graph/DashLine.vue";
 export default {
-  components: { DashLine },
+  // components: { DashLine },
   name: "App",
   data() {
     return {
+      selected: "",
       coinName: "",
       amount: "",
       price: "",
       myCoin: [],
-      ethPrice: 0,
+      marketPrice: {},
+      options: tokenList.map((e) => {
+        return {
+          value: { name: e.name, api: e.api, img: e.imageUrl },
+          text: e.name,
+        };
+      }),
       openGraph: false,
+      coinBox: [
+        {
+          id: 1,
+          content: "coin Here",
+        },
+      ],
     };
   },
   computed: {
     showGraph() {
       return this.openGraph;
+    },
+    apiLink() {
+      const coins = this.myCoin.map(
+        (e, i) => `${e.api}@trade${i !== this.myCoin.length - 1 ? "/" : ""}`
+      );
+      let url = "";
+      coins.forEach((e) => {
+        url += e;
+      });
+      return url;
     },
   },
   methods: {
@@ -261,25 +193,45 @@ export default {
         this.openGraph = false;
       } else this.openGraph = true;
     },
-    handleSubmit() {
+    handleSubmit(e) {
+      e.preventDefault();
       const newCoin = {
-        coinName: this.coinName,
+        coinName: this.selected.name,
+        api: this.selected.api,
         amount: this.amount,
         price: this.price,
+        img: this.selected.img,
+        id: this.coinBox[this.coinBox.length - 1].id + 1,
       };
-
+      console.log(newCoin);
       this.myCoin.push(newCoin);
+      console.log(this.apiLink);
     },
   },
-  created: function () {
-    const vm = this;
-    this.connection = new WebSocket(
-      "wss://stream.binance.com:9443/ws/etheur@trade"
-    );
-    this.connection.onmessage = function (event) {
-      const convert = JSON.parse(event.data);
-      vm.ethPrice = convert.p;
-    };
+  watch: {
+    myCoin() {
+      const vm = this;
+      this.connection = new WebSocket(
+        `wss://stream.binance.com:9443/stream?streams=${this.apiLink}`
+      );
+      this.connection.onmessage = function (event) {
+        const convert = JSON.parse(event.data);
+        // vm.marketPrice[convert.data.s.toLowerCase()] = convert.data.p;
+        Vue.set(vm.marketPrice, convert.data.s.toLowerCase(), convert.data.p);
+        console.log("x");
+      };
+    },
   },
+  // created: function () {
+  //   const vm = this;
+  //   this.connection = new WebSocket(
+  //     `wss://stream.binance.com:9443/stream?streams=${this.apiLink}`
+  //   );
+  //   this.connection.onmessage = function (event) {
+  //     const convert = JSON.parse(event.data);
+  //     console.log(convert);
+  //     vm.ethPrice = convert.p;
+  //   };
+  // },
 };
 </script>
