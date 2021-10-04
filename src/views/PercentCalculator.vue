@@ -38,26 +38,19 @@
               </b-form-input>
 
              <div class="w-full flex justify-center">
-          <b-button class="mx-auto" @click="calculateAPY" variant="dark"
+          <b-button class="mx-auto" @click="calculatePercent" variant="dark"
             >Calculate</b-button
           >
         </div>
 
               <div v-if="result" class="mt-5 text-gray-300 border-t-2 pt-4">
                 <p>
-                  Total Interest :
+                  Result: :
                   <span class="text-calc-accent">{{
-                    result.totalInterest.toFixed(3)
+                    result.totalPercent.toFixed(3)
                   }}</span>
                 </p>
-                <p>
-                  Your total balance after
-                  <span class="text-calc-accent">{{ result.totalDays }}</span>
-                  days will be :
-                  <span class="text-calc-accent">{{
-                    result.totalBalance.toFixed(3)
-                  }}</span>
-                </p>
+                
               </div>
             </div>
           </div>
@@ -81,26 +74,19 @@
               ></b-form-input>
 
               <div class="w-full flex justify-center">
-          <b-button class="mx-auto" @click="calculateAPY" variant="dark"
+          <b-button class="mx-auto" @click="calculatePercent" variant="dark"
             >Calculate</b-button
           >
         </div>
 
               <div v-if="result" class="mt-5 text-gray-300 border-t-2 pt-4">
                 <p>
-                  Total Interest :
+                  Result :
                   <span class="text-calc-accent">{{
-                    result.totalInterest.toFixed(3)
-                  }}</span>
+                    result.totalPercent2.toFixed(3)
+                  }}</span> %
                 </p>
-                <p>
-                  Your total balance after
-                  <span class="text-calc-accent">{{ result.totalDays }}</span>
-                  days will be :
-                  <span class="text-calc-accent">{{
-                    result.totalBalance.toFixed(3)
-                  }}</span>
-                </p>
+                
               </div>
             </div>
           </div>
@@ -128,25 +114,19 @@
                </b-form-input>
 
               <div class="w-full flex justify-center">
-          <b-button class="mx-auto" @click="calculateAPY" variant="dark"
+          <b-button class="mx-auto" @click="calculatePercent" variant="dark"
             >Calculate</b-button
           >
         </div>
               <div v-if="result" class="mt-5 text-gray-300 border-t-2 pt-4">
                 <p>
-                  Total Interest :
+                  Result :
                   <span class="text-calc-accent">{{
-                    result.totalInterest.toFixed(3)
+                    result.totalPercent3.toFixed(3) 
                   }}</span>
+                  %
                 </p>
-                <p>
-                  Your total balance after
-                  <span class="text-calc-accent">{{ result.totalDays }}</span>
-                  days will be :
-                  <span class="text-calc-accent">{{
-                    result.totalBalance.toFixed(3)
-                  }}</span>
-                </p>
+                
               </div>
             </div>
           </div>
@@ -156,6 +136,51 @@
 
      <div class="w-1/4 p-2 bg-gray-800 text-white">
         <p class="text-center uppercase">History</p>
+
+        <div v-if="result" class="mt-5 text-gray-300 border-t-2 pt-4">
+                <p>
+                  what is :
+                  <span class="text-calc-accent">{{
+                    result.totalA1
+                  }}</span>
+                  of% 
+                  <span class="text-calc-accent">{{
+                    result.totalP1 
+                  }}</span> = 
+                  <span class="text-calc-accent">{{
+                    result.totalPercent.toFixed(3) 
+                  }}</span> <br>
+
+                  
+                  <span class="text-calc-accent">{{
+                    result.totalP2
+                  }}</span>
+                  is what % of
+                  <span class="text-calc-accent">{{
+                    result.totalA2
+                  }}</span> = 
+                  <span class="text-calc-accent">{{
+                    result.totalPercent2.toFixed(3) 
+                  }}</span> %<br>
+                  
+                  From 
+                   <span class="text-calc-accent">{{
+                    result.totalA3
+                  }}</span>
+                  is what % of
+                  <span class="text-calc-accent">{{
+                    result.totalP3
+                  }}</span> = 
+                  <span class="text-calc-accent">{{
+                    result.totalPercent3.toFixed(3) 
+                  }}</span> %
+                  
+                </p>
+                
+          </div>
+        
+
+
       </div>
 
     </div>
@@ -181,10 +206,17 @@ export default {
   methods: {
     calculatePercent(e) {
       e.preventDefault();
-      const x = (parseFloat(this.apy) / 365) * parseFloat(this.days);
-      const totalInterest = (parseFloat(this.amount) * x) / 100;
-      const totalBalance = totalInterest + parseFloat(this.amount);
-      this.result = { totalInterest, totalBalance, totalDays: this.days };
+      
+      const totalPercent = (parseFloat(this.amount1)/ 100 ) * parseFloat(this.percent1);
+      
+      const totalPercent2 = ( parseFloat(this.percent2) / parseFloat(this.amount2) )  * 100;
+      
+
+      const result = parseFloat(this.amount3) - parseFloat(this.percent3);
+      const totalValue = result / parseFloat(this.amount3);
+      const totalPercent3 = totalValue * -100;
+      
+      this.result = { totalPercent,totalPercent2, totalPercent3, totalA1 : this.amount1 , totalA2 : this.amount2 ,totalA3 : this.amount3 , totalP1 : this.percent1, totalP2 : this.percent2 ,totalP3 : this.percent3 };
     },
   },
 };

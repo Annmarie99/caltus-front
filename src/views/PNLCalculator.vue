@@ -57,7 +57,7 @@
           </b-form-input><br />
 
          <div class="w-full flex justify-center">
-          <b-button class="mx-auto" @click="calculateAPY" variant="dark"
+          <b-button class="mx-auto" @click="calculatePNL" variant="dark"
             >Calculate</b-button
           >
         </div>
@@ -65,24 +65,27 @@
 
         <div v-if="result" class="mt-5 text-gray-300 border-t-2 pt-4">
           <p>
-            Total Interest :
+            PNL :
             <span class="text-calc-accent">{{
-              result.totalInterest.toFixed(3)
+              result.totalpnl.toFixed(3)
             }}</span>
           </p>
-          <p>
-            Your total balance after
-            <span class="text-calc-accent">{{ result.totalDays }}</span> days
-            will be :
-            <span class="text-calc-accent">{{
-              result.totalBalance.toFixed(3)
-            }}</span>
-          </p>
+          
         </div>
       </div>
       
       <div class="w-1/4 p-2 bg-gray-800 text-white">
         <p class="text-center uppercase">History</p>
+
+         <div v-if="result" class="mt-5 text-gray-300 border-t-2 pt-4">
+          <p>
+            PNL :
+            <span class="text-calc-accent">{{
+              result.totalpnl.toFixed(3)
+            }}</span>
+          </p>
+          
+        </div>
       </div>
 
     </div>
@@ -105,12 +108,12 @@ export default {
     };
   },
   methods: {
-    calculateAPY(e) {
-      e.preventDefault();
-      const x = (parseFloat(this.apy) / 365) * parseFloat(this.days);
-      const totalInterest = (parseFloat(this.amount) * x) / 100;
-      const totalBalance = totalInterest + parseFloat(this.amount);
-      this.result = { totalInterest, totalBalance, totalDays: this.days };
+    calculatePNL(p) {
+      p.preventDefault();
+      const x = (parseFloat(this.price2)-parseFloat(this.price1));
+      const totalpnl = x  *  parseFloat(this.quantity);
+      
+      this.result = { totalpnl };
     },
   },
 };

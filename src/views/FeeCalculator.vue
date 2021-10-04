@@ -37,7 +37,7 @@ Trade Size </p>
 
         
        <div class="w-full flex justify-center">
-          <b-button class="mx-auto" @click="calculateAPY" variant="dark"
+          <b-button class="mx-auto" @click="calculateFee" variant="dark"
             >Calculate</b-button
           >
         </div>
@@ -46,24 +46,37 @@ Trade Size </p>
 
         <div v-if="result" class="mt-5 text-gray-300 border-t-2 pt-4">
           <p>
-            Total Interest :
+            Trading Fee / Funding: 
             <span class="text-calc-accent">{{
-              result.totalInterest.toFixed(3)
+              result.totalCI.toFixed(3)
             }}</span>
           </p>
-          <p>
-            Your total balance after
-            <span class="text-calc-accent">{{ result.totalDays }}</span> days
-            will be :
-            <span class="text-calc-accent">{{
-              result.totalBalance.toFixed(3)
-            }}</span>
-          </p>
+          
+         
         </div>
       </div>
       
      <div class="w-1/4 p-2 bg-gray-800 text-white">
         <p class="text-center uppercase">History</p>
+
+         <!--<datetime type="datetime" v-model="datetime13" format="yyyy-MM-dd HH:mm:ss"></datetime>-->
+         
+          <div v-if="result" class="mt-5 text-gray-300 border-t-2 pt-4">
+
+            
+          <p>
+            (<span class="text-calc-accent">{{ result.totalA }}</span> x
+             <span class="text-calc-accent">{{ result.totalR }}</span> )/100 =
+            <span class="text-calc-accent">{{
+              result.totalCI.toFixed(3)
+            }}</span>
+          </p>
+          
+         
+        
+
+     </div>
+        
       </div>
 
     </div>
@@ -84,12 +97,10 @@ name : "FeeCalculator",
     };
   },
   methods: {
-    calculateAPY(e) {
-      e.preventDefault();
-      const x = (parseFloat(this.apy) / 365) * parseFloat(this.days);
-      const totalInterest = (parseFloat(this.amount) * x) / 100;
-      const totalBalance = totalInterest + parseFloat(this.amount);
-      this.result = { totalInterest, totalBalance, totalDays: this.days };
+    calculateFee(f) {
+      f.preventDefault();
+     const totalCI = (parseFloat(this.rate)*parseFloat(this.amount)) /100;
+      this.result = { totalCI , totalA: this.amount , totalR: this.rate};
     },
   },
 };

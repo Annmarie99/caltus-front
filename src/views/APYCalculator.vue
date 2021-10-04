@@ -64,6 +64,24 @@
 
       <div class="w-1/4 p-2 bg-gray-800 text-white">
         <p class="text-center uppercase">History</p>
+      
+       <div v-if="result" class="mt-5 text-gray-300 border-t-2 pt-4">
+          <p>
+            Total Interest :
+            <span class="text-calc-accent">{{
+              result.totalInterest.toFixed(3)
+            }}</span>
+          </p>
+          <p>
+            Your total balance after
+            <span class="text-calc-accent">{{ result.totalDays }}</span> days
+            will be :
+            <span class="text-calc-accent">{{
+              result.totalBalance.toFixed(3)
+            }}</span>
+          </p>
+      </div>
+
       </div>
     </div>
   </calculator-layout>

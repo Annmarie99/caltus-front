@@ -49,7 +49,7 @@
 
         
         <div class="w-full flex justify-center">
-          <b-button class="mx-auto" @click="calculateAPY" variant="dark"
+          <b-button class="mx-auto" @click="calculateTrad" variant="dark"
             >Calculate</b-button
           >
         </div>
@@ -57,26 +57,40 @@
 
         <div v-if="result" class="mt-5 text-gray-300 border-t-2 pt-4">
           <p>
-            Total Interest :
+            TOTAL BALANCE AFTER INTEREST : :
             <span class="text-calc-accent">{{
-              result.totalInterest.toFixed(3)
+              result.totalCI.toFixed(3)
             }}</span>
           </p>
-          <p>
-            Your total balance after
-            <span class="text-calc-accent">{{ result.totalDays }}</span> days
-            will be :
-            <span class="text-calc-accent">{{
-              result.totalBalance.toFixed(3)
-            }}</span>
-          </p>
+            
+            
         </div>
       </div>
       
       <div class="w-1/4 p-2 bg-gray-800 text-white">
+        
         <p class="text-center uppercase">History</p>
+         
+        <div v-if="result" class="mt-5 text-gray-300 border-t-2 pt-4">
+          <p>
+            Trade 
+            <span class="text-calc-accent">{{result.totalM}}</span> : <br>
+            Base amount : 
+          <span class="text-calc-accent">{{
+              result.totalaAmount.toFixed(3)
+            }}</span><br>
+            Earnings : 
+            <span class="text-calc-accent">{{
+              result.totalX.toFixed(3)
+            }}</span><br>
+            Balance : 
+            <span class="text-calc-accent">{{
+              result.totalCI.toFixed(3)
+            }}</span>
+         </p>
       </div>
 
+    </div>
     </div>
   </calculator-layout>
 </template>
@@ -90,21 +104,28 @@ name : "TradeCompoundCalculator",
   data() {
     return {
       amount: "",
-      leverage: "",
+      leverage: null ,
       rate: "",
       trades: "",
+      m: 0,
       
       result: null,
     };
   },
   methods: {
-    calculateAPY(e) {
-      e.preventDefault();
-      const x = (parseFloat(this.apy) / 365) * parseFloat(this.days);
-      const totalInterest = (parseFloat(this.amount) * x) / 100;
-      const totalBalance = totalInterest + parseFloat(this.amount);
-      this.result = { totalInterest, totalBalance, totalDays: this.days };
-    },
+    calculateTrad(t) {
+      t.preventDefault()
+     
+      this.m++
+      const totalX = parseFloat(this.amount)  * parseFloat(this.leverage) ;
+
+
+      const totalaAmount = (parseFloat(this.amount) * parseFloat(this.rate) )/ 100;
+      const totalCI = totalaAmount + parseFloat(this.amount) ;
+      
+      this.result = { totalCI ,totalX,totalaAmount, totalM: this.m , totalA: this.amount };
+      console.log(totalCI)
+    }
   },
 };
   

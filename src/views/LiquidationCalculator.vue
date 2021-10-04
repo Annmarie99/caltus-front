@@ -48,24 +48,35 @@
 
         <div v-if="result" class="mt-5 text-gray-300 border-t-2 pt-4">
           <p>
-            Total Interest :
+            Liquidation Price  :
             <span class="text-calc-accent">{{
-              result.totalInterest.toFixed(3)
+              result.totalPercentt.toFixed(3)
             }}</span>
           </p>
-          <p>
-            Your total balance after
-            <span class="text-calc-accent">{{ result.totalDays }}</span> days
-            will be :
-            <span class="text-calc-accent">{{
-              result.totalBalance.toFixed(3)
-            }}</span>
-          </p>
+          
         </div>
       </div>
       
       <div class="w-1/4 p-2 bg-gray-800 text-white">
         <p class="text-center uppercase">History</p>
+
+
+        <div v-if="result" class="mt-5 text-gray-300 border-t-2 pt-4">
+          <p>
+            <span class="text-calc-accent">{{
+              result.totalP}}</span> - (
+            <span class="text-calc-accent">{{
+              result.totalB}}</span> / 
+            <span class="text-calc-accent">{{
+              result.totalQ
+            }}</span>) = 
+            <span class="text-calc-accent">{{
+              result.totalPercentt.toFixed(3)}}</span>  
+
+          </p>
+
+
+        </div>
       </div>
 
     </div>
@@ -83,16 +94,17 @@ name : "LiquidationCalculator",
       price: "",
       quantity: "",
       balance : "",
+
       result: null,
     };
   },
   methods: {
     calculateAPY(e) {
       e.preventDefault();
-      const x = (parseFloat(this.apy) / 365) * parseFloat(this.days);
-      const totalInterest = (parseFloat(this.amount) * x) / 100;
-      const totalBalance = totalInterest + parseFloat(this.amount);
-      this.result = { totalInterest, totalBalance, totalDays: this.days };
+      const x = parseFloat(this.balance) / parseFloat(this.quantity);
+      const totalPercentt = parseFloat(this.price) - x ;
+      
+      this.result = { totalPercentt ,totalB : this.balance , totalQ : this.quantity , totalP : this.price};
     },
   },
 };

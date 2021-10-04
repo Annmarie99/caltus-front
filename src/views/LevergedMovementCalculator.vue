@@ -33,34 +33,42 @@
         
        
       <div class="w-full flex justify-center">
-          <b-button class="mx-auto" @click="calculateAPY" variant="dark"
+          <b-button class="mx-auto" @click="calculateMovment" variant="dark"
             >Calculate</b-button
           >
         </div>
 
-
-
-
         <div v-if="result" class="mt-5 text-gray-300 border-t-2 pt-4">
           <p>
-            Total Interest :
+            FOR :
+            <span class="text-calc-accent">{{ result.totalR }}</span> %
+            GAIN ON BASE AMOUNT WITH
+            <span class="text-calc-accent">{{ result.totalA }}</span> X 
+            LEVERAGE :
+            YOU NEED TO TARGET 
             <span class="text-calc-accent">{{
-              result.totalInterest.toFixed(3)
-            }}</span>
-          </p>
-          <p>
-            Your total balance after
-            <span class="text-calc-accent">{{ result.totalDays }}</span> days
-            will be :
-            <span class="text-calc-accent">{{
-              result.totalBalance.toFixed(3)
-            }}</span>
+              result.totalCI.toFixed(3)
+            }}</span>%
           </p>
         </div>
       </div>
       
       <div class="w-1/4 p-2 bg-gray-800 text-white">
         <p class="text-center uppercase">History</p>
+        <div v-if="result" class="mt-5 text-gray-300 border-t-2 pt-4">
+          <p>
+            FOR :
+            <span class="text-calc-accent">{{ result.totalR }}</span> %
+            GAIN ON BASE AMOUNT WITH
+            <span class="text-calc-accent">{{ result.totalA }}</span> X 
+            LEVERAGE :
+            YOU NEED TO TARGET 
+            <span class="text-calc-accent">{{
+              result.totalCI.toFixed(3)
+            }}</span>%
+          </p>
+        </div>
+
       </div>
 
     </div>
@@ -76,17 +84,17 @@ export default {
     return {
       amount: "",
       rate: "",
-    
+      p:0,
       result: null,
     };
   },
   methods: {
-    calculateAPY(e) {
-      e.preventDefault();
-      const x = (parseFloat(this.apy) / 365) * parseFloat(this.days);
-      const totalInterest = (parseFloat(this.amount) * x) / 100;
-      const totalBalance = totalInterest + parseFloat(this.amount);
-      this.result = { totalInterest, totalBalance, totalDays: this.days };
+    calculateMovment(m) {
+      m.preventDefault();
+      
+      const totalCI = parseFloat(this.rate)/parseFloat(this.amount);
+      this.result = { totalCI  , totalA: this.amount , totalR:this.rate};
+      console.log(totalCI)
     },
   },
 };
