@@ -32,12 +32,8 @@
       </b-navbar-nav>
     </b-collapse>
     <b-navbar-nav class="w-100">
-    <b-nav-item class="ml-auto">{{cookieName}}</b-nav-item>
-      <b-nav-item
-        right
-        href="#"
-        @click="logOut()"
-        class="logout ml-auto"
+      <b-nav-item class="ml-auto">{{ cookieName }}</b-nav-item>
+      <b-nav-item right href="#" @click="logOut()" class="logout ml-auto"
         >Logout</b-nav-item
       >
     </b-navbar-nav>
@@ -47,22 +43,21 @@
 <script>
 export default {
   name: "Navbar",
-  mounted(){
-      this.cookieName = localStorage.getItem('userName');
+  mounted() {
+    this.cookieName = localStorage.getItem("userName");
   },
-  data(){
+  data() {
     return {
       cookieName: "test",
     };
   },
   methods: {
-
-     async logOut() {
+    async logOut() {
       const result = await this.$gAuth.signOut();
       this.isLogin = false;
       console.log(`result`, result);
-      localStorage.removeItem('userName');
-      this.$router.push('/');
+      localStorage.removeItem("userName");
+      this.$router.push("/");
     },
   },
 };

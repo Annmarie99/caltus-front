@@ -51,7 +51,7 @@
                   }}</span>
                 </p>
 
-                <button
+                <!-- <button
                   class="
                     bg-green-500
                     hover:bg-gray-500
@@ -65,7 +65,7 @@
                 >
                   <i class="bi bi-arrow-down-up"></i>
                   10%
-                </button>
+                </button> -->
               </div>
             </div>
           </div>
@@ -77,10 +77,13 @@
       <div class="ml-auto mt-10 text-center w-full flex justify-center">
         <div class="text-center mr-0 h-25 bg-dark rounded-lg shadow-lg py-5">
           <form action="" class="">
-            <div class="form-group">
+            <div class="form-group mt-3 form-control">
               <b-form-select
                 v-model="selected"
                 :options="options"
+                size="lg"
+                class="text-lg"
+                placeholder="pls choose "
               ></b-form-select>
             </div>
             <div class="form-group">
@@ -172,6 +175,7 @@ export default {
       ],
     };
   },
+
   computed: {
     showGraph() {
       return this.openGraph;
