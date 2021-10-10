@@ -31,8 +31,12 @@
         <b-nav-item href="#" @click="$router.push('/note')">Note</b-nav-item>
       </b-navbar-nav>
     </b-collapse>
-    <b-navbar-nav class="w-100">
+    <b-navbar-nav class="w-100"
+      ><b-nav-item href="#" @click="$router.push('/more')" class="learnmore"
+        >Learn More</b-nav-item
+      >
       <b-nav-item class="ml-auto">{{ cookieName }}</b-nav-item>
+
       <b-nav-item right href="#" @click="logOut()" class="logout ml-auto"
         >Logout</b-nav-item
       >
@@ -68,6 +72,10 @@ export default {
 @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css");
 
 .logout {
+  font-family: monospace;
+  font-style: italic;
+}
+.learnmore {
   font-family: monospace;
   font-style: italic;
 }

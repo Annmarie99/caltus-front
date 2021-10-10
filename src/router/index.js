@@ -14,6 +14,7 @@ import LiquidationCalculator from "../views/LiquidationCalculator.vue";
 import PNLCalculator from "../views/PNLCalculator.vue";
 import TradeCompoundCalculator from "../views/TradeCompoundCalculator.vue";
 import LevergedMovementCalculator from "../views/LevergedMovementCalculator.vue";
+import Learnmore from "../views/Learnmore.vue";
 
 Vue.use(VueRouter);
 
@@ -82,6 +83,12 @@ const routes = [{
         path: "/leverged-cal",
         name: "LevergedMovementCalculator",
         component: LevergedMovementCalculator,
+    },
+
+    {
+        path: "/more",
+        name: "Learnmore",
+        component: Learnmore,
     },
 ];
 
