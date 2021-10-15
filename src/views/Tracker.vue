@@ -14,6 +14,12 @@
         h-screen
       "
     >
+      <div class="w-full text-left mb-4 ml-4">
+        <b-form-select
+          v-model="selectedCurr"
+          :options="currOptions"
+        ></b-form-select>
+      </div>
       <div class="grid grid-cols-3">
         <div v-for="coin in myCoin" :key="coin.id">
           <div class="flex-1 bg-dark rounded-lg ml-3">
@@ -34,21 +40,36 @@
                   <span class="text-green-500 font-bold m-0 p-0">{{
                     coin.amount
                   }}</span>
+                  {{ coin.symbol }}
                 </p>
                 <p class="text-lg p-0 m-0 text-gray-400">
                   Buying Price :
-                  <span class="text-blue-500 font-bold m-0 p-0">{{
-                    coin.price
-                  }}</span>
+                  <span class="text-blue-500 font-bold m-0 p-0"
+                    >{{
+                      (+coin.price * selectedCurr.multiplier).toLocaleString(
+                        "en-US",
+                        { maximumFractionDigits: 2 }
+                      )
+                    }}
+                    <span class="text-gray-400">{{
+                      selectedCurr.name
+                    }}</span></span
+                  >
                 </p>
                 <p class="text-lg p-0 m-0 text-gray-400">
                   Profit :
-                  <span class="text-blue-500 font-bold m-0 p-0">{{
-                    (
-                      (+marketPrice[coin.api] - +coin.price) *
-                      +coin.amount
-                    ).toFixed(2)
-                  }}</span>
+                  <span class="text-blue-500 font-bold m-0 p-0"
+                    >{{
+                      (
+                        (+marketPrice[coin.api] - +coin.price) *
+                        +coin.amount *
+                        selectedCurr.multiplier
+                      ).toLocaleString("en-US", { maximumFractionDigits: 2 })
+                    }}
+                    <span class="text-gray-400">{{
+                      selectedCurr.name
+                    }}</span></span
+                  >
                 </p>
 
                 <!-- <button
@@ -77,14 +98,23 @@
       <div class="ml-auto mt-10 text-center w-full flex justify-center">
         <div class="text-center mr-0 h-25 bg-dark rounded-lg shadow-lg py-5">
           <form action="" class="">
-            <div class="form-group mt-3 form-control">
-              <b-form-select
-                v-model="selected"
-                :options="options"
-                size="lg"
-                class="text-lg"
-                placeholder="pls choose "
-              ></b-form-select>
+            <div class="form-group mt-3 form-control bg-black text-white">
+              <div class="flex items-center space-x-3 bg-black">
+                <input
+                  type="text"
+                  v-model="searchCoin"
+                  class="border-gray-400 text-white bg-black"
+                  placeholder="Search your coin"
+                />
+                <b-form-select
+                  :select-size="4"
+                  v-model="selected"
+                  :options="filteredCoin"
+                  size="lg"
+                  class="text-lg bg-black"
+                  placeholder="pls choose "
+                ></b-form-select>
+              </div>
             </div>
             <div class="form-group">
               <input
@@ -147,22 +177,40 @@
 
 <script>
 import { tokenList } from "../constants/tokenlist";
+import { curencyList } from "../constants/currency";
 import Vue from "vue";
+
 // import DashLine from "../components/graph/DashLine.vue";
 export default {
   // components: { DashLine },
   name: "App",
   data() {
     return {
+      searchCoin: "",
       selected: "",
+      selectedCurr: { name: "USD", multiplier: 1 },
       coinName: "",
       amount: "",
       price: "",
       myCoin: [],
       marketPrice: {},
-      options: tokenList.map((e) => {
+      currOptions: curencyList.map((e) => {
         return {
-          value: { name: e.name, api: e.api, img: e.imageUrl },
+          value: {
+            name: e.name,
+            multiplier: e.multiplier,
+          },
+          text: e.name,
+        };
+      }),
+      coinOptions: tokenList.map((e) => {
+        return {
+          value: {
+            name: e.name,
+            api: e.api,
+            img: e.imageUrl,
+            symbol: e.symbol,
+          },
           text: e.name,
         };
       }),
@@ -177,6 +225,11 @@ export default {
   },
 
   computed: {
+    filteredCoin() {
+      return this.coinOptions.filter((coin) =>
+        coin.text.toLowerCase().includes(this.searchCoin.toLowerCase())
+      );
+    },
     showGraph() {
       return this.openGraph;
     },
@@ -206,8 +259,8 @@ export default {
         price: this.price,
         img: this.selected.img,
         id: this.coinBox[this.coinBox.length - 1].id + 1,
+        symbol: this.selected.symbol,
       };
-      console.log(newCoin);
       this.myCoin.push(newCoin);
       console.log(this.apiLink);
     },
@@ -222,7 +275,6 @@ export default {
         const convert = JSON.parse(event.data);
         // vm.marketPrice[convert.data.s.toLowerCase()] = convert.data.p;
         Vue.set(vm.marketPrice, convert.data.s.toLowerCase(), convert.data.p);
-        console.log("x");
       };
     },
   },

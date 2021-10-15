@@ -20,10 +20,27 @@
               <div>
                 <p class="text-gray-300 p-0 m-0">
                   BTC / USDT
-                  <span class="text-green-500 font-bold m-0 p-0">5%</span>
+                  <!-- <span class="text-green-500 font-bold m-0 p-0">5%</span> -->
                 </p>
-                <p class="text-2xl font-bold p-0 m-0 text-gray-400">42,2000</p>
-                <p class="text-lg p-0 m-0 text-gray-400">1,400,000 THB</p>
+                <p class="text-2xl font-bold p-0 m-0 text-gray-400">
+                  {{
+                    Math.floor(marketPrice.btcusdt).toLocaleString("en-US", {
+                      maximumFractionDigits: 2,
+                    })
+                  }}
+                  USD
+                </p>
+                <p class="text-lg p-0 m-0 text-gray-400">
+                  {{
+                    Math.floor(marketPrice.btcusdt * 33.3).toLocaleString(
+                      "en-US",
+                      {
+                        maximumFractionDigits: 2,
+                      }
+                    )
+                  }}
+                  THB
+                </p>
               </div>
             </div>
           </div>
@@ -43,10 +60,27 @@
               <div>
                 <p class="text-gray-300 p-0 m-0">
                   ETH / USDT
-                  <span class="text-green-500 font-bold m-0 p-0">5%</span>
+                  <!-- <span class="text-green-500 font-bold m-0 p-0">5%</span> -->
                 </p>
-                <p class="text-2xl font-bold p-0 m-0 text-gray-400">2,9000</p>
-                <p class="text-lg p-0 m-0 text-gray-400">94,000 THB</p>
+                <p class="text-2xl font-bold p-0 m-0 text-gray-400">
+                  {{
+                    Math.floor(marketPrice.ethusdt).toLocaleString("en-US", {
+                      maximumFractionDigits: 2,
+                    })
+                  }}
+                  USD
+                </p>
+                <p class="text-lg p-0 m-0 text-gray-400">
+                  {{
+                    Math.floor(marketPrice.ethusdt * 33.3).toLocaleString(
+                      "en-US",
+                      {
+                        maximumFractionDigits: 2,
+                      }
+                    )
+                  }}
+                  THB
+                </p>
               </div>
             </div>
           </div>
@@ -66,10 +100,27 @@
               <div>
                 <p class="text-gray-300 p-0 m-0">
                   BNB / USDT
-                  <span class="text-red-500 font-bold m-0 p-0">-5%</span>
+                  <!-- <span class="text-red-500 font-bold m-0 p-0">-5%</span> -->
                 </p>
-                <p class="text-2xl font-bold p-0 m-0 text-gray-400">373</p>
-                <p class="text-lg p-0 m-0 text-gray-400">12,000 THB</p>
+                <p class="text-2xl font-bold p-0 m-0 text-gray-400">
+                  {{
+                    Math.floor(marketPrice.bnbusdt).toLocaleString("en-US", {
+                      maximumFractionDigits: 2,
+                    })
+                  }}
+                  USD
+                </p>
+                <p class="text-lg p-0 m-0 text-gray-400">
+                  {{
+                    Math.floor(marketPrice.bnbusdt * 33.3).toLocaleString(
+                      "en-US",
+                      {
+                        maximumFractionDigits: 2,
+                      }
+                    )
+                  }}
+                  THB
+                </p>
               </div>
             </div>
           </div>
@@ -110,20 +161,21 @@
 <script>
 import DashPie from "../components/graph/DashPie.vue";
 import DashLine from "../components/graph/DashLine.vue";
-// import axios from "axios";
+import Vue from "vue";
 
 export default {
   components: { DashPie, DashLine },
   name: "Login",
   data() {
     return {
+      marketPrice: [],
       style: {
         color: "#ffffff",
       },
       items: [
         {
           Name: "BNB",
-          Last_price: "$3,333",
+          Last_price: "$42,345.78",
           lasthr_change: "-9.50%",
           Market: 12,
         },
@@ -160,16 +212,18 @@ export default {
       ],
     };
   },
-  // created() {
-  //   let vm = this;
-  //   this.connection = new WebSocket(
-  //     "wss://stream.binance.com:9443/ws/etheur@trade"
-  //   );
-  //   this.connection.onmessage = function (event) {
-  //     const convert = JSON.parse(event.data);
-  //     vm.ethPrice = convert.p;
-  //   };
-  // },
+  created: function () {
+    const vm = this;
+    this.connection = new WebSocket(
+      `wss://stream.binance.com:9443/stream?streams=btcusdt@trade/bnbusdt@trade/ethusdt@trade`
+    );
+    this.connection.onmessage = function (event) {
+      const convert = JSON.parse(event.data);
+      console.log(convert);
+      Vue.set(vm.marketPrice, convert.data.s.toLowerCase(), convert.data.p);
+      // console.log(vm.marketPrice);
+    };
+  },
 };
 </script>
 

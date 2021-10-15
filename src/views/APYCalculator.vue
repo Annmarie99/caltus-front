@@ -13,7 +13,7 @@
         "
       >
         <p class="text-white text-center text-2xl p-0 m-0">APY CALCULATOR</p>
-        <br /><br>
+        <br /><br />
 
         <p class="m-0 p-0 text-lg text-white">Amount</p>
 
@@ -42,6 +42,15 @@
           <b-button class="mx-auto" @click="calculateAPY" variant="dark"
             >Calculate</b-button
           >
+          <div>
+            <b-button v-b-modal.modal-1 class="mx-auto ml-5"
+              >Learn More</b-button
+            >
+
+            <b-modal id="modal-1" title="BootstrapVue">
+              <p class="my-4">Hello from modal!</p>
+            </b-modal>
+          </div>
         </div>
 
         <div v-if="result" class="mt-5 text-gray-300 border-t-2 pt-4">
@@ -64,8 +73,8 @@
 
       <div class="w-1/4 p-2 bg-gray-800 text-white">
         <p class="text-center uppercase">History</p>
-      
-       <div v-if="result" class="mt-5 text-gray-300 border-t-2 pt-4">
+
+        <div v-if="result" class="mt-5 text-gray-300 border-t-2 pt-4">
           <p>
             Total Interest :
             <span class="text-calc-accent">{{
@@ -80,8 +89,7 @@
               result.totalBalance.toFixed(3)
             }}</span>
           </p>
-      </div>
-
+        </div>
       </div>
     </div>
   </calculator-layout>

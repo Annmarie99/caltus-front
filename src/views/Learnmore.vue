@@ -1,6 +1,6 @@
 <template>
   <div class="mt-4">
-    <h4>Left and Right (or Start and End)</h4>
+    <h2 class="text-white">APY Calculator</h2>
     <b-card
       img-src="https://placekitten.com/300/300"
       img-alt="Card image"
@@ -24,7 +24,7 @@
       </b-card-text>
     </b-card>
 
-    <h4>Left and Right (or Start and End)</h4>
+    <h4>Percentage Change Calculator</h4>
     <b-card
       img-src="https://placekitten.com/300/300"
       img-alt="Card image"
@@ -48,7 +48,7 @@
       </b-card-text>
     </b-card>
 
-    <h4>Left and Right (or Start and End)</h4>
+    <h4>Fee Calculator</h4>
     <b-card
       img-src="https://placekitten.com/300/300"
       img-alt="Card image"
