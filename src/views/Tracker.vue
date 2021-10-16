@@ -14,8 +14,9 @@
         h-screen
       "
     >
-      <div class="w-full text-left mb-4 ml-4">
+      <div class="grid grid-cols-6">
         <b-form-select
+          class="text-white bg-dark mt-3 shadow ml-3 form-control"
           v-model="selectedCurr"
           :options="currOptions"
         ></b-form-select>
@@ -98,12 +99,12 @@
       <div class="ml-auto mt-10 text-center w-full flex justify-center">
         <div class="text-center mr-0 h-25 bg-dark rounded-lg shadow-lg py-5">
           <form action="" class="">
-            <div class="form-group mt-3 form-control bg-black text-white">
-              <div class="flex items-center space-x-3 bg-black">
+            <div class="form-group mt-3 form-control bg-dark text-white">
+              <div class="flex items-center space-x-3 bg-dark">
                 <input
                   type="text"
                   v-model="searchCoin"
-                  class="border-gray-400 text-white bg-black"
+                  class="text-black bg-white mt-3 form-control shadow"
                   placeholder="Search your coin"
                 />
                 <b-form-select
@@ -111,7 +112,7 @@
                   v-model="selected"
                   :options="filteredCoin"
                   size="lg"
-                  class="text-lg bg-black"
+                  class="text-lg bg-dark"
                   placeholder="pls choose "
                 ></b-form-select>
               </div>
