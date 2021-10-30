@@ -17,23 +17,24 @@
         <br /><br>
       
         
-        <p class="m-0 p-0 text-lg text-white">
-Calculate your trading fees and funding using the fee calculator below.
-Trade Size </p>
+       
         
       
         <b-form-input
         class="bg-dark text-white"
           v-model="amount"
           placeholder="In cryptocurrencices like USD,BTC,cet.or fiat currencies"
-        ></b-form-input> <br>
+        ></b-form-input>
+        
+         <br>
 
          <p class="m-0 p-0 text-lg text-white"> Fee Rate / Funding Rate (%) </p>
+        <b-input-group append="%">
         <b-form-input 
         class="bg-dark text-white"
           v-model="rate" 
           placeholder="Rate in%">
-          </b-form-input><br>
+          </b-form-input></b-input-group><br>s
 
         
        <div class="w-full flex justify-center">
@@ -60,7 +61,7 @@ Trade Size </p>
         <p class="text-center uppercase">History</p>
 
          <!--<datetime type="datetime" v-model="datetime13" format="yyyy-MM-dd HH:mm:ss"></datetime>-->
-         
+
           <div v-if="result" class="mt-5 text-gray-300 border-t-2 pt-4">
 
             
@@ -71,10 +72,7 @@ Trade Size </p>
               result.totalCI.toFixed(3)
             }}</span>
           </p>
-          
-         
-        
-
+  
      </div>
         
       </div>

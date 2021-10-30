@@ -23,6 +23,7 @@
         <p class="m-0 p-0 text-lg text-white"> Entry Price :</p>
         
         <b-form-input 
+        size = "xs"
         class="bg-dark text-white"
         v-model="price1" 
         placeholder="">

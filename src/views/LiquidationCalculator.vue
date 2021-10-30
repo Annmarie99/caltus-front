@@ -20,9 +20,18 @@
       
         <b-form-input
          class="bg-dark text-white"
-          v-model="price "
+          v-model="value "
           placeholder=""
-        ></b-form-input> <br>
+        ></b-form-input> 
+         <label for="range-1"  class="text-white" ></label> 
+         <b-form-input  id="range-1" 
+         v-model="value" 
+         style="width: 120px; background-color: rgba(0,0,255,.1)"
+         type="range" 
+         min="0"   
+         max="10000000" 
+         step="100"></b-form-input><br>
+
 
          <p class="m-0 p-0 text-lg text-white"> Quantity : </p>
         <b-form-input 
@@ -91,6 +100,7 @@ export default {
 name : "LiquidationCalculator",
   data() {
     return {
+      value: "",
       price: "",
       quantity: "",
       balance : "",
@@ -102,9 +112,9 @@ name : "LiquidationCalculator",
     calculateAPY(e) {
       e.preventDefault();
       const x = parseFloat(this.balance) / parseFloat(this.quantity);
-      const totalPercentt = parseFloat(this.price) - x ;
+      const totalPercentt = parseFloat(this.value) - x ;
       
-      this.result = { totalPercentt ,totalB : this.balance , totalQ : this.quantity , totalP : this.price};
+      this.result = { totalPercentt ,totalB : this.balance , totalQ : this.quantity , totalP : this.value};
     },
   },
 };
