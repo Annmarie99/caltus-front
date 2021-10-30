@@ -16,9 +16,14 @@ import TradeCompoundCalculator from "../views/TradeCompoundCalculator.vue";
 import LevergedMovementCalculator from "../views/LevergedMovementCalculator.vue";
 import Learnmore from "../views/Learnmore.vue";
 
+
+//import Learnmore from '@/components/Learnmore'
+//import BlogPost from "../views/BlogPost.vue";
+
 Vue.use(VueRouter);
 
-const routes = [{
+const routes = [
+    {
         path: "/",
         name: "Home",
         component: Home,
@@ -80,16 +85,18 @@ const routes = [{
     },
 
     {
-        path: "/leverged-cal",
-        name: "LevergedMovementCalculator",
-        component: LevergedMovementCalculator,
-    },
+      path: "/leverged-cal",
+    name: "LevergedMovementCalculator",
+    component: LevergedMovementCalculator,
+   },
 
     {
         path: "/more",
         name: "Learnmore",
         component: Learnmore,
     },
+
+   
 ];
 
 const router = new VueRouter({

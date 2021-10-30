@@ -12,16 +12,21 @@
           rounded-tl-lg
         "
       >
-        <p class="text-white text-center text-2xl p-0 m-0">APY CALCULATOR</p>
-        <br /><br />
+        <p class="text-white text-center text-2xl  p-0 m-0">APY CALCULATOR</p>
+        <br />
 
         <p class="m-0 p-0 text-lg text-white">Amount</p>
 
         <b-form-input
           class="bg-dark text-white"
-          v-model="amount"
+          v-model="value"
           placeholder="Enter your amount"
         ></b-form-input>
+        
+         <label for="range-1"  class="text-white" ></label> 
+         <b-form-input id="range-1" v-model="value" type="range" min="0"  class="bg-dark" max="10000000" step="1"></b-form-input>
+          
+
         <br />
         <p class="m-0 p-0 text-lg text-white">APY</p>
         <b-form-input
@@ -42,15 +47,7 @@
           <b-button class="mx-auto" @click="calculateAPY" variant="dark"
             >Calculate</b-button
           >
-          <div>
-            <b-button v-b-modal.modal-1 class="mx-auto ml-5"
-              >Learn More</b-button
-            >
-
-            <b-modal id="modal-1" title="BootstrapVue">
-              <p class="my-4">Hello from modal!</p>
-            </b-modal>
-          </div>
+          
         </div>
 
         <div v-if="result" class="mt-5 text-gray-300 border-t-2 pt-4">
@@ -102,6 +99,7 @@ export default {
   name: "APYCalculator",
   data() {
     return {
+      value: "",
       amount: "",
       apy: "",
       days: "",
@@ -112,8 +110,8 @@ export default {
     calculateAPY(e) {
       e.preventDefault();
       const x = (parseFloat(this.apy) / 365) * parseFloat(this.days);
-      const totalInterest = (parseFloat(this.amount) * x) / 100;
-      const totalBalance = totalInterest + parseFloat(this.amount);
+      const totalInterest = (parseFloat(this.value) * x) / 100;
+      const totalBalance = totalInterest + parseFloat(this.value);
       this.result = { totalInterest, totalBalance, totalDays: this.days };
     },
   },

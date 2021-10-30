@@ -24,11 +24,12 @@
         ></b-form-input> <br>
 
     <p class="m-0 p-0 text-lg text-white"> Gain want to achieve in %  : </p>
+    <b-input-group append="%">
     <b-form-input 
     class="bg-dark text-white"
         v-model="rate" 
         placeholder="Rate in %">
-        </b-form-input><br>
+        </b-form-input></b-input-group><br>
 
         
        
