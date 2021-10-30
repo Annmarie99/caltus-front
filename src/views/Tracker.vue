@@ -62,11 +62,14 @@
                   <span class="text-blue-500 font-bold m-0 p-0"
                     >{{
                       (
-                        (+marketPrice[coin.api] - +coin.price) *
-                        +coin.amount *
-                        selectedCurr.multiplier
+                        (((+marketPrice[coin.api] - +coin.price) *
+                          +coin.amount *
+                          selectedCurr.multiplier) /
+                          (+coin.price * selectedCurr.multiplier)) *
+                        100
                       ).toLocaleString("en-US", { maximumFractionDigits: 2 })
                     }}
+                    %
                     <span class="text-gray-400">{{
                       selectedCurr.name
                     }}</span></span

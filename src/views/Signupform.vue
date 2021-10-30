@@ -1,19 +1,15 @@
 <template>
   <div class="">
     <div
-      class="
-        w-full
-        bg-gradient-to-r
-        from-green-600
-        to-gray-700
-        p-10
-        pt-10
-        h-screen
-      "
+      class="w-full p-10 pt-10 h-screen"
+      :style="{
+        'background-image':
+          'url(https://images6.alphacoders.com/888/888108.png)',
+      }"
     >
       <form action="">
-        <div class="w-25 p-4 rounded-lg mx-auto bg-dark mt-20 shadow-2xl">
-          <h2 class="text-gray-100 text-center">Sign Up</h2>
+        <div class="w-25 p-4 rounded-lg mx-auto mt-20">
+          <h2 class="text-gray-100 text-center text-5xl">Sign Up</h2>
 
           <div class="input-field mt-5">
             <i class="bi bi-person-fill"></i>
@@ -42,7 +38,7 @@
           <div class="text-center mt-5" type="submit" @submit="handleSubmit">
             <button
               class="
-                bg-green-500
+                bg-blue-400
                 hover:bg-gray-400
                 text-white
                 font-bold

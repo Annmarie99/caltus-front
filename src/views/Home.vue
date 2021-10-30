@@ -7,7 +7,7 @@
           @submit.prevent="handleSubmit"
           class="sign-in-form ml-auto w-3/4"
         >
-          <h2 class="title text-white">Sign in</h2>
+          <h1 class="title text-white">Sign in</h1>
 
           <div class="input-field">
             <i class="bi bi-person-fill"></i>
@@ -38,9 +38,6 @@
             </a>
             <a href="#" class="social-icon border-white">
               <i class="bi bi-facebook text-white"></i>
-            </a>
-            <a href="#" class="social-icon border-white">
-              <i class="bi bi-instagram text-white"></i>
             </a>
           </div>
         </form>
