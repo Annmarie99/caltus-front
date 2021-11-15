@@ -1,6 +1,12 @@
 <template>
   <div>
-    <div class="w-full bg-gradient-to-r from-green-600 to-gray-700 p-10">
+    <div
+      class="w-full p-10"
+      :style="{
+        'background-image':
+          'url(https://images6.alphacoders.com/888/888108.png)',
+      }"
+    >
       <div class="row">
         <div class="col pt-10">
           <div
@@ -135,21 +141,11 @@
         </div>
       </div>
       <div class="row mt-3">
-        <div class="col-8">
-          <div class="card mb-3 bg-dark">
-            <div class="card-header text-white">Amazing Line Graph</div>
-            <div class="card-body">
-              <DashLine />
-            </div>
-          </div>
-        </div>
-        <div class="col-4">
-          <div class="card border-dark mb-3 bg-dark">
-            <div class="card-header text-white">MARKET TREND</div>
-            <div class="card-body text-white">
-              <div>
-                <b-table dark striped hover :items="items"></b-table>
-              </div>
+        <div class="card border-dark mb-3 bg-dark">
+          <div class="card-header text-white">MARKET TREND</div>
+          <div class="card-body text-white">
+            <div>
+              <b-table dark striped hover :items="items"></b-table>
             </div>
           </div>
         </div>
@@ -160,11 +156,11 @@
 
 <script>
 import DashPie from "../components/graph/DashPie.vue";
-import DashLine from "../components/graph/DashLine.vue";
+//import DashLine from "../components/graph/DashLine.vue";
 import Vue from "vue";
 
 export default {
-  components: { DashPie, DashLine },
+  components: { DashPie },
   name: "Login",
   data() {
     return {

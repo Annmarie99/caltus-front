@@ -1,22 +1,19 @@
 <template>
   <div>
     <div
-      class="
-        w-full
-        mx-auto
-        pb-36
-        p-10
-        bg-gradient-to-r
-        from-green-600
-        to-gray-700
-        m-0
-        text-center
-        h-screen
-      "
+      class="w-full mx-auto pb-36 p-10 m-0 text-center h-screen"
+      :style="{
+        'background-image':
+          'url(https://images6.alphacoders.com/888/888108.png)',
+      }"
     >
+      <h1 class="text-white">TRACKER</h1>
+      <div class="grid grid-cols-6">
+        <h5 class="text-white text-left">Currency change</h5>
+      </div>
       <div class="grid grid-cols-6">
         <b-form-select
-          class="text-white bg-dark mt-3 shadow ml-3 form-control"
+          class="text-white bg-dark mt-3 shadow ml-3 form-control text-left"
           v-model="selectedCurr"
           :options="currOptions"
         ></b-form-select>
