@@ -34,7 +34,7 @@
         class="bg-dark text-white"
           v-model="rate" 
           placeholder="Rate in%">
-          </b-form-input></b-input-group><br>s
+          </b-form-input></b-input-group><br>
 
         
        <div class="w-full flex justify-center">

@@ -100,7 +100,6 @@ export default {
   data() {
     return {
       value: "",
-      amount: "",
       apy: "",
       days: "",
       result: null,
