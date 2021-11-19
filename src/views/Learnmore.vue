@@ -29,8 +29,6 @@
   </b-card>
   
   </div>
-  <b-row>
-    <b-col>
    
    <div class="flex-1 w-full grid grid-cols-3 gap-4 p-3">
      <b-card
@@ -45,39 +43,14 @@
 
     <b-button href="#" variant="primary">Go</b-button>
   </b-card>
-  </b-col>
-</b-row>
 
- </div>
-  
-  
-  <b-row>
-    <b-col>
- <div class="flex-1 w-full grid grid-cols-3 gap-4 p-3">
-     <b-card
-    title="AVERAGE DOWN CALCULATOR"
-    tag="article"
-    style="max-width: 15rem;"
-    class="mb-2  "
-  >
-    <b-card-text>
-      Some quick example text to build on the card title and make up the bulk of the card's content.
-    </b-card-text>
-
-    <b-button href="#" variant="primary">Go</b-button>
-  </b-card>
-
-</b-col>
-</b-row>
   </div>
   
-</div>
-
-</div>
 
 
 
- 
+
+  </div>
 </template>
 
 <script>
