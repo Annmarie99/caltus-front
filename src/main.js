@@ -2,6 +2,7 @@ import Vue from "vue";
 import App from "./App.vue";
 import router from "./router";
 import store from "./store";
+//import firebase from "firebase";
 
 import { BootstrapVue, IconsPlugin } from "bootstrap-vue";
 
@@ -18,6 +19,20 @@ const gauthOption = {
     prompt: "consent",
     fetch_basic_profile: true,
 };
+
+// const config = {
+//     apiKey: "AIzaSyDLqTPX6RusN20Vd8pkrnzYK62ZwC3c098",
+//     authDomain: "caltus-7dc51.firebaseapp.com",
+//     projectId: "caltus-7dc51",
+//     storageBucket: "caltus-7dc51.appspot.com",
+//     messagingSenderId: "184245836959",
+//     appId: "1:184245836959:web:ca00a99263ec4f4034d6aa",
+//     measurementId: "G-873NGP2H8N",
+// };
+
+//Initialize Firebase
+//firebase.initializeApp(config);
+
 Vue.use(GAuth, gauthOption); /***** */
 
 Vue.use(VueApexCharts);

@@ -139,13 +139,6 @@ export const tokenList = [{
     },
 
     {
-        symbol: "DYDX",
-        name: "DYDX ",
-        api: "dydxusdt",
-        imageUrl: "https://s2.coinmarketcap.com/static/img/coins/200x200/11156.png",
-    },
-
-    {
         symbol: "AVAX",
         name: "Avalance",
         api: "avaxusdt",

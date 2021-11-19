@@ -145,7 +145,74 @@
           <div class="card-header text-white">MARKET TREND</div>
           <div class="card-body text-white">
             <div>
-              <b-table dark striped hover :items="items"></b-table>
+              <!--<b-table dark striped hover :items="items"></b-table>-->
+              <table class="table table-dark table-striped">
+                <thead>
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Last Price</th>
+                    <th scope="col">24hr change</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row">1</th>
+                    <td>
+                      BNB
+                      <footer>BNB</footer>
+                    </td>
+                    <td>
+                      ${{ marketPrice.bnbusdt }}
+                      <!--{{
+                        Math.Round(
+                          marketPrice.bnbusdt,
+                          MidpointRounding.AwayFromZero
+                        )
+                      }}-->
+                    </td>
+                    <td>
+                      {{ marketPrice.bnbusdt }}
+                      <!--{{ Math.Floor((+marketPrice.bnbusdt - 572) / 572) * 100 }}-->
+                      %
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">2</th>
+                    <td>
+                      BTC
+                      <footer>Bitcoin</footer>
+                    </td>
+                    <td>
+                      $
+                      {{
+                        marketPrice.btcusdt.toLocaleString("en-US", {
+                          maximumFractionDigits: 2,
+                        })
+                      }}
+                    </td>
+                    <td>@fat</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">3</th>
+                    <td>
+                      ETH
+                      <footer>Ethereum</footer>
+                    </td>
+                    <td>{{ marketPrice.ethusdt }}</td>
+                    <td>@twitter</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">4</th>
+                    <td>
+                      SAND
+                      <footer>The Sandbox</footer>
+                    </td>
+                    <td>{{ marketPrice.chzusdt }}</td>
+                    <td>@twitter</td>
+                  </tr>
+                </tbody>
+              </table>
             </div>
           </div>
         </div>
@@ -158,12 +225,14 @@
 import DashPie from "../components/graph/DashPie.vue";
 //import DashLine from "../components/graph/DashLine.vue";
 import Vue from "vue";
+//import axios from "axios";
 
 export default {
   components: { DashPie },
   name: "Login",
   data() {
     return {
+      user: null,
       marketPrice: [],
       style: {
         color: "#ffffff",
@@ -188,7 +257,7 @@ export default {
           Market: 567,
         },
         {
-          Name: "CHZ",
+          Name: "heloo",
           Last_price: "$0.456325",
           lasthr_change: "-12.45%",
           Market: 986,
@@ -220,6 +289,10 @@ export default {
       // console.log(vm.marketPrice);
     };
   },
+  // async created() {
+  //   const response = await axios.get("user", {});
+  //   console.log(response);
+  // },
 };
 </script>
 
@@ -230,5 +303,8 @@ export default {
 div.card {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   text-align: center;
+}
+footer {
+  color: #d3d3d3;
 }
 </style>

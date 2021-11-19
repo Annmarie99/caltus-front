@@ -253,6 +253,25 @@ export default {
     },
     handleSubmit(e) {
       e.preventDefault();
+      // console.log(this.myCoin);
+      // for (var i = 0; i <= this.myCoin.length + 1; i++) {
+      //   if (i == this.myCoin.length - 1) {
+      //     const newCoin = {
+      //       coinName: this.selected.name,
+      //       api: this.selected.api,
+      //       amount: this.amount,
+      //       price: this.price,
+      //       img: this.selected.img,
+      //       id: this.coinBox[this.coinBox.length - 1].id + 1,
+      //       symbol: this.selected.symbol,
+      //     };
+      //     this.myCoin.push(newCoin);
+      //   } else if (this.myCoin[i - 1].coinName == this.selected.name) {
+      //     console.log(this.myCoin[i - 1].coinName);
+      //   }
+      // this.myCoin[i].price = this.myCoin[i].price + this.price;
+      // this.myCoin[i].amount = this.myCoin[i].amount + this.amount;
+      // }
       const newCoin = {
         coinName: this.selected.name,
         api: this.selected.api,
@@ -263,6 +282,7 @@ export default {
         symbol: this.selected.symbol,
       };
       this.myCoin.push(newCoin);
+
       console.log(this.apiLink);
     },
   },

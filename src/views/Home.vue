@@ -32,28 +32,13 @@
           </p>
 
           <p class="social-text text-white">Or Sign in with social platforms</p>
-          <facebook-login
-            class="button"
-            appId="326022817735322"
-            @login="getUserData"
-            @logout="onLogout"
-            @get-initial-status="getUserData"
-          >
-          </facebook-login>
+
           <div class="social-media">
             <a @click="login" class="social-icon border-white">
               <i class="bi bi-google text-white"></i>
             </a>
 
-            <a
-              href="#"
-              class="social-icon border-white"
-              appID="421366179477619"
-              @click="getUerData"
-              @login="onLogin"
-              @logout="onLogout"
-              @sdk-loaded="sdkLoaded"
-            >
+            <a class="social-icon border-white" @click="socialFacecbookLogin">
               <i class="bi bi-facebook text-white"></i>
             </a>
           </div>
@@ -73,13 +58,16 @@
 </template>
 
 <script>
-import facebookLogin from "facebook-login-vuejs";
+import axios from "axios";
 export default {
+  components: {},
   name: "Home",
-  components: { facebookLogin },
+
   data() {
     return {
       isLogin: false,
+      email: "",
+      password: "",
     };
   },
   methods: {
@@ -104,30 +92,34 @@ export default {
 
       this.$router.push("/dash");
     },
-    getUerData() {
-      this.FB.api(
-        "/me",
-        "GET",
-        { field: "id,name,email" },
-        (UserInformation) => {
-          console.warn("get data from fb", UserInformation);
-          this.personalID = UserInformation.id;
-          this.email = UserInformation.email;
-          this.name = UserInformation.name;
-        }
-      );
+    async handleSubmit() {
+      const response = await axios.post("login", {
+        email: this.email,
+        password: this.password,
+      });
+      localStorage.setItem("token", response.data.token);
+
+      this.$router.push("/dash");
     },
-    sdkLoaded(payload) {
-      this.isConnected = payload.isConnected;
-      this.FB = payload.FB;
-      if (this.isConnected) this.getUserData();
-    },
-    onLogin() {
-      this.isConnected = true;
-      this.getUserData();
-    },
-    onLogout() {
-      this.isConnected = false;
+    socialFacecbookLogin: function () {
+      const provide = new firebase.auth.FacebookAuthProvider();
+      firebase
+        .auth()
+        .signInWithPopup(provide)
+        .then((result) => {
+          // create user in db
+          let obj = {
+            facebook_id: result.additionalUserInfo.profile.id,
+            fullname: result.additionalUserInfo.profile.name,
+            email: result.additionalUserInfo.profile.email,
+            profile_image: result.user.photoURL + "?height=500",
+            user_type_id: 1,
+          };
+          console.log(obj);
+        })
+        .catch((err) => {
+          alert("Oops. " + err.message);
+        });
     },
   },
 };
