@@ -2,24 +2,31 @@
   <div class="container m-0">
     <div class="form-container bg-gradient-to-r from-green-600 to-gray-700">
       <div class="signin-signup">
-        <form
-          action=""
-          @submit.prevent="handleSubmit"
-          class="sign-in-form ml-auto w-3/4"
-        >
+        <form action="" class="sign-in-form ml-auto w-3/4">
           <h1 class="title text-white">Sign in</h1>
 
           <div class="input-field">
             <i class="bi bi-person-fill"></i>
-            <input type="text" v-model="username" placeholder="Username" />
+            <input
+              type="text"
+              v-model="username"
+              placeholder="Username"
+              required
+            />
           </div>
 
           <div class="input-field">
             <i class="bi bi-lock-fill"></i>
-            <input type="password" v-model="password" placeholder="Password" />
+            <input
+              type="password"
+              v-model="password"
+              placeholder="Password"
+              required
+            />
           </div>
 
           <b-button
+            @click="handleSubmit"
             type="submit"
             class="bg-gradient-to-r from-green-600 to-gray-700"
             >Sign in</b-button
@@ -64,6 +71,10 @@ export default {
   data() {
     return {
       isLogin: false,
+      username: "",
+      password: "",
+      user: "usertest",
+      pass: "1234",
     };
   },
   methods: {
@@ -72,6 +83,15 @@ export default {
       this.isLogin = false;
       console.log(`result`, result);
     },
+    handleSubmit() {
+      if (this.username === this.user && this.password === this.pass) {
+        localStorage.setItem("username", this.username);
+        this.$router.push("/dash");
+      } else {
+        alert("Invalid username or password!");
+      }
+    },
+
     async login() {
       const googleUser = await this.$gAuth.signIn();
       console.log("googleUser", googleUser);

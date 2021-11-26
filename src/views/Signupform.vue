@@ -8,32 +8,62 @@
       }"
     >
       <form action="">
-        <div class="w-25 p-4 rounded-lg mx-auto mt-20">
+        <div class="w-25 p-4 rounded-lg mx-auto mt-auto">
           <h2 class="text-gray-100 text-center text-5xl">Sign Up</h2>
+          <v-alert :value="userExists" color="error" icon="warning"
+            >This user already exists, try a different set of data.</v-alert
+          >
+          <b-form-input
+            type="texy"
+            id="inline-form-input-name"
+            class="mb-2 mr-sm-2 mb-sm-0 mt-5"
+            v-model="fistname"
+            placeholder="firstname"
+          ></b-form-input>
 
-          <div class="input-field mt-5">
-            <i class="bi bi-person-fill"></i>
-            <input type="text" v-model="username" placeholder="Username" />
-          </div>
+          <b-form-input
+            type="text"
+            id="inline-form-input-name"
+            class="mb-2 mr-sm-2 mb-sm-0 mt-3"
+            placeholder="lastname"
+            v-model="lastname"
+          ></b-form-input>
 
-          <div class="input-field mt-3">
-            <i class="bi bi-envelope-fill"></i>
-            <input type="email" v-model="email" placeholder="Email" />
-          </div>
+          <b-form-input
+            type="text"
+            id="inline-form-input-name"
+            class="mb-2 mr-sm-2 mb-sm-0 mt-3"
+            placeholder="username"
+            v-model="username"
+          ></b-form-input>
 
-          <div class="input-field mt-3">
-            <i class="bi bi-lock-fill"></i>
-            <input type="password" v-model="password" placeholder="Password" />
-          </div>
+          <b-form-input
+            type="email"
+            id="inline-form-input-name"
+            class="mb-2 mr-sm-2 mb-sm-0 mt-3"
+            placeholder="email"
+            v-model="email"
+            :rules="[rules.email]"
+          ></b-form-input>
 
-          <div class="input-field mt-3">
-            <i class="bi bi-file-lock2-fill"></i>
-            <input
-              type="password"
-              v-model="confirm_password"
-              placeholder="Confirm Password"
-            />
-          </div>
+          <b-form-input
+            type="password"
+            id="inline-form-input-name"
+            class="mb-2 mr-sm-2 mb-sm-0 mt-3"
+            placeholder="password"
+            v-model="password"
+          >
+            ></b-form-input
+          >
+
+          <b-form-input
+            type="password"
+            id="inline-form-input-name"
+            class="mb-2 mr-sm-2 mb-sm-0 mt-3"
+            placeholder="Re-password"
+            v-model="repassword"
+            :error="!valid()"
+          ></b-form-input>
 
           <div class="text-center mt-5" type="submit" @submit="handleSubmit">
             <button
@@ -80,15 +110,35 @@ export default {
   name: "Signupform",
   data() {
     return {
+      firstname: "",
+      lastname: "",
       username: "",
       email: "",
       password: "",
-      confirm_password: "",
     };
   },
+  // data: () => ({
+  //   userExists: false,
+  //   firstname: "",
+  //   lastname: "",
+  //   username: "",
+  //   email: "",
+  //   password: "",
+  //   confirm_password: "",
+  //   rules: {
+  //     required: (value) => !!value || "Required",
+  //     email: (value) => {
+  //       const pattern =
+  //         /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+  //       return pattern.test(value) || "Invalid e-mail.";
+  //     },
+  //   },
+  // }),
   methods: {
     async handleSubmit() {
       await axios.post("https://localhost:5500/signup", {
+        firstname: this.firstname,
+        lastname: this.lastname,
         username: this.username,
         email: this.email,
         password: this.password,
@@ -97,6 +147,32 @@ export default {
 
       this.$router.push("/");
     },
+    // handleSubmit() {
+    //   if (this.valid()) {
+    //     this.$store
+    //       .dispatch("REGISTER", {
+    //         firstname: this.firstname,
+    //         lastname: this.lastname,
+    //         username: this.username,
+    //         email: this.email,
+    //         password: this.password,
+    //       })
+    //       .then(({ status }) => {
+    //         this.$store.commit("SET_NOTIFICATION", {
+    //           display: true,
+    //           text: "Your account has been successfully created! you can now login.",
+    //           alertClass: "danger",
+    //         });
+    //         this.$router.push("/login");
+    //       })
+    //       .catch((error) => {
+    //         this.userExists = true;
+    //       });
+    //   }
+    // },
+    // valid() {
+    //   return this.password === this.confirm_password;
+    // },
   },
 };
 </script>

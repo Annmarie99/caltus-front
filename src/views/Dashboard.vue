@@ -141,14 +141,89 @@
         </div>
       </div>
       <div class="row mt-3">
-        <div class="card border-dark mb-3 bg-dark">
+        <div class="span3">
+          <table class="table sticky table-dark table-striped">
+            <thead>
+              <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Last Price</th>
+                <th scope="col">24hr Change</th>
+              </tr>
+            </thead>
+            <tbody>
+              <div></div>
+              <tr>
+                <td>Mark</td>
+                <td>Otto</td>
+                <td>@mdo</td>
+              </tr>
+              <tr>
+                <td>Jacob</td>
+                <td>Thornton</td>
+                <td>@fat</td>
+              </tr>
+              <tr>
+                <td>Jacob</td>
+                <td>Thornton</td>
+                <td>@fat</td>
+              </tr>
+              <tr>
+                <td>Jacob</td>
+                <td>Thornton</td>
+                <td>@fat</td>
+              </tr>
+              <tr>
+                <td>Jacob</td>
+                <td>Thornton</td>
+                <td>@fat</td>
+              </tr>
+              <tr>
+                <td>Jacob</td>
+                <td>Thornton</td>
+                <td>@fat</td>
+              </tr>
+              <tr>
+                <td>Jacob</td>
+                <td>Thornton</td>
+                <td>@fat</td>
+              </tr>
+              <tr>
+                <td>Jacob</td>
+                <td>Thornton</td>
+                <td>@fat</td>
+              </tr>
+              <tr>
+                <td>Jacob</td>
+                <td>Thornton</td>
+                <td>@fat</td>
+              </tr>
+              <tr>
+                <td>Jacob</td>
+                <td>Thornton</td>
+                <td>@fat</td>
+              </tr>
+              <tr>
+                <td>Jacob</td>
+                <td>Thornton</td>
+                <td>@fat</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <p>
+            <a class="btn btn-dark" href="https://www.binance.com/en/markets"
+              >View details &raquo;</a
+            >
+          </p>
+        </div>
+        <!-- <div class="card border-dark mb-3 bg-dark">
           <div class="card-header text-white">MARKET TREND</div>
           <div class="card-body text-white">
             <div>
               <b-table dark striped hover :items="items"></b-table>
             </div>
           </div>
-        </div>
+        </div> -->
       </div>
     </div>
   </div>
@@ -164,27 +239,50 @@ export default {
   name: "Login",
   data() {
     return {
+      user: null,
       marketPrice: [],
-      items: [{
-        Name: "BNB",
-        Last_price: "$42,345.78",
-        lasthr_change: "-9.50%",
-        Market: 12,
-      },],
       style: {
         color: "#ffffff",
       },
-
+      // items: [
+      //   {
+      //     Name: "BNB",
+      //     Last_price: "$42,345.78",
+      //     lasthr_change: "-9.50%",
+      //     Market: 12,
+      //   },
+      //   {
+      //     Name: "BTC",
+      //     Last_price: "$42,345.78",
+      //     lasthr_change: "-8.30%",
+      //     Market: 678,
+      //   },
+      //   {
+      //     Name: "ETH",
+      //     Last_price: "$3,452.50",
+      //     lasthr_change: "-7.96%",
+      //     Market: 567,
+      //   },
+      //   {
+      //     Name: "heloo",
+      //     Last_price: "$0.456325",
+      //     lasthr_change: "-12.45%",
+      //     Market: 986,
+      //   },
+      //   {
+      //     Name: "FIL",
+      //     Last_price: "$74.60",
+      //     lasthr_change: "-9.23%",
+      //     Market: 89,
+      //   },
+      //   {
+      //     Name: "ADA",
+      //     Last_price: "$2.145",
+      //     lasthr_change: "-3.64%",
+      //     Market: 679,
+      //   },
+      // ],
     };
-  },
-  mounted() {
-    const item ={
-        Name: "BNB",
-        Last_price: "$42,345.78",
-        lasthr_change: "-9.50%",
-        Market: 12,
-    },
-
   },
   created: function () {
     const vm = this;
@@ -198,6 +296,10 @@ export default {
       // console.log(vm.marketPrice);
     };
   },
+  // async created() {
+  //   const response = await axios.get("user", {});
+  //   console.log(response);
+  // },
 };
 </script>
 
@@ -208,5 +310,27 @@ export default {
 div.card {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   text-align: center;
+}
+footer {
+  color: #d3d3d3;
+}
+
+.table.sticky th {
+  position: sticky;
+  top: 0;
+}
+.table.sticky th::after {
+  content: "";
+  width: 100%;
+  height: 100px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+.span3 {
+  /* overflow: hidden; */
+  /* margin-right: 15px; */
+  height: 350px;
+  overflow-y: scroll;
 }
 </style>
