@@ -10,9 +10,9 @@
       <form action="">
         <div class="w-25 p-4 rounded-lg mx-auto mt-auto">
           <h2 class="text-gray-100 text-center text-5xl">Sign Up</h2>
-          <v-alert :value="userExists" color="error" icon="warning"
+          <!-- <v-alert :value="userExists" color="error" icon="warning"
             >This user already exists, try a different set of data.</v-alert
-          >
+          > -->
           <b-form-input
             type="texy"
             id="inline-form-input-name"
@@ -43,7 +43,6 @@
             class="mb-2 mr-sm-2 mb-sm-0 mt-3"
             placeholder="email"
             v-model="email"
-            :rules="[rules.email]"
           ></b-form-input>
 
           <b-form-input
@@ -62,7 +61,6 @@
             class="mb-2 mr-sm-2 mb-sm-0 mt-3"
             placeholder="Re-password"
             v-model="repassword"
-            :error="!valid()"
           ></b-form-input>
 
           <div class="text-center mt-5" type="submit" @submit="handleSubmit">
@@ -136,7 +134,7 @@ export default {
   // }),
   methods: {
     async handleSubmit() {
-      await axios.post("https://localhost:5500/signup", {
+      await axios.post("REGISTER", {
         firstname: this.firstname,
         lastname: this.lastname,
         username: this.username,

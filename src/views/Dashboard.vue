@@ -145,6 +145,7 @@
           <table class="table sticky table-dark table-striped">
             <thead>
               <tr>
+                <th scope="col"></th>
                 <th scope="col">Name</th>
                 <th scope="col">Last Price</th>
                 <th scope="col">24hr Change</th>
@@ -153,56 +154,156 @@
             <tbody>
               <div></div>
               <tr>
-                <td>Mark</td>
+                <td>
+                  <img
+                    src="../assets/eth.png"
+                    width="30"
+                    height="20"
+                    class="ml-5 mt-2"
+                  />
+                </td>
+                <td>
+                  ETH
+                  <footer>Eteream</footer>
+                </td>
                 <td>Otto</td>
                 <td>@mdo</td>
               </tr>
               <tr>
+                <td>
+                  <img
+                    src="../assets/bnb.png"
+                    width="30"
+                    height="20"
+                    class="ml-5 mt-2"
+                  />
+                </td>
+                <td>
+                  BNB
+                  <footer>bnb</footer>
+                </td>
+                <td>Thornton</td>
+                <td>@fat</td>
+              </tr>
+              <tr>
+                <td>
+                  <img
+                    src="../assets/btc.png"
+                    width="30"
+                    height="20"
+                    class="ml-5 mt-2"
+                  />
+                </td>
+                <td>
+                  BTC
+                  <footer>Bitcoin</footer>
+                </td>
+                <td>Thornton</td>
+                <td>@fat</td>
+              </tr>
+              <tr>
+                <td>
+                  <img
+                    src="../assets/chz.png"
+                    width="30"
+                    height="20"
+                    class="ml-5 mt-2"
+                  />
+                </td>
+                <td>
+                  CHZ
+                  <footer>Chiliz</footer>
+                </td>
+                <td>Thornton</td>
+                <td>@fat</td>
+              </tr>
+              <tr>
+                <td>
+                  <img
+                    src="../assets/ada.png"
+                    width="30"
+                    height="20"
+                    class="ml-5"
+                  />
+                </td>
+                <td>hello</td>
+                <td>Thornton</td>
+                <td>@fat</td>
+              </tr>
+              <tr>
+                <td>
+                  <img
+                    src="../assets/amp.png"
+                    width="30"
+                    height="20"
+                    class="ml-5"
+                  />
+                </td>
                 <td>Jacob</td>
                 <td>Thornton</td>
                 <td>@fat</td>
               </tr>
               <tr>
+                <td>
+                  <img
+                    src="../assets/sand.png"
+                    width="30"
+                    height="20"
+                    class="ml-5"
+                  />
+                </td>
                 <td>Jacob</td>
                 <td>Thornton</td>
                 <td>@fat</td>
               </tr>
               <tr>
+                <td>
+                  <img
+                    src="../assets/alice.png"
+                    width="30"
+                    height="20"
+                    class="ml-5"
+                  />
+                </td>
                 <td>Jacob</td>
                 <td>Thornton</td>
                 <td>@fat</td>
               </tr>
               <tr>
+                <td>
+                  <img
+                    src="../assets/mana.png"
+                    width="30"
+                    height="20"
+                    class="ml-5"
+                  />
+                </td>
                 <td>Jacob</td>
                 <td>Thornton</td>
                 <td>@fat</td>
               </tr>
               <tr>
+                <td>
+                  <img
+                    src="../assets/gala.png"
+                    width="30"
+                    height="20"
+                    class="ml-5"
+                  />
+                </td>
                 <td>Jacob</td>
                 <td>Thornton</td>
                 <td>@fat</td>
               </tr>
               <tr>
-                <td>Jacob</td>
-                <td>Thornton</td>
-                <td>@fat</td>
-              </tr>
-              <tr>
-                <td>Jacob</td>
-                <td>Thornton</td>
-                <td>@fat</td>
-              </tr>
-              <tr>
-                <td>Jacob</td>
-                <td>Thornton</td>
-                <td>@fat</td>
-              </tr>
-              <tr>
-                <td>Jacob</td>
-                <td>Thornton</td>
-                <td>@fat</td>
-              </tr>
-              <tr>
+                <td>
+                  <img
+                    src="../assets/shib.png"
+                    width="30"
+                    height="20"
+                    class="ml-5"
+                  />
+                </td>
                 <td>Jacob</td>
                 <td>Thornton</td>
                 <td>@fat</td>
