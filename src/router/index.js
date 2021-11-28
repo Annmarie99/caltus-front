@@ -3,7 +3,7 @@ import VueRouter from "vue-router";
 import Home from "../views/Home.vue";
 import Note from "../views/Note.vue";
 
-import Tracker from "../views/Tracker.vue";
+import Tracker from "../views/Tracker/Tracker.vue";
 import Dashboard from "../views/Dashboard.vue";
 import APYCalculator from "../views/APYCalculator";
 import PercentCalculator from "../views/PercentCalculator";
@@ -14,7 +14,15 @@ import LiquidationCalculator from "../views/LiquidationCalculator.vue";
 import PNLCalculator from "../views/PNLCalculator.vue";
 import TradeCompoundCalculator from "../views/TradeCompoundCalculator.vue";
 import LevergedMovementCalculator from "../views/LevergedMovementCalculator.vue";
-import Learnmore from "../views/Learnmore.vue";
+import Learnmore from "../views/Cards/Learnmore.vue";
+import CardsApy from "../views/Cards/CardsApy.vue";
+import CardsAverage from "../views/Cards/CardsAverage.vue";
+import CardsFee from "../views/Cards/CardsFee.vue";
+import CardsLeverged from "../views/Cards/CardsLeverged.vue";
+import CardsLiqui from "../views/Cards/CardsLiqui.vue";
+import CardsPercent from "../views/Cards/CardsPercent.vue";
+import CardsPNL from "../views/Cards/CardsPNL.vue";
+import CardsTrade from "../views/Cards/CardsTrade.vue";
 
 //import Learnmore from '@/components/Learnmore'
 //import BlogPost from "../views/BlogPost.vue";
@@ -92,6 +100,54 @@ const routes = [{
         path: "/more",
         name: "Learnmore",
         component: Learnmore,
+    },
+
+    {
+        path: "/cardsapy",
+        name: "CardsApy",
+        component: CardsApy,
+    },
+
+    {
+        path: "/cardsAverage",
+        name: "CardsAverage",
+        component: CardsAverage,
+    },
+
+    {
+        path: "/cardsfee",
+        name: "CardsFee",
+        component: CardsFee,
+    },
+
+    {
+        path: "cardsLeverged",
+        name: "CardsLeverged",
+        component: CardsLeverged,
+    },
+
+    {
+        path: "/cardsliqui",
+        name: "CardsLiqui",
+        component: CardsLiqui,
+    },
+
+    {
+        path: "/cardspercent",
+        name: "CardsPercent",
+        component: CardsPercent,
+    },
+
+    {
+        path: "/cardspnl",
+        name: "CardsPNL",
+        component: CardsPNL,
+    },
+
+    {
+        path: "/cardstrade",
+        name: "CardsTrade",
+        component: CardsTrade,
     },
 ];
 

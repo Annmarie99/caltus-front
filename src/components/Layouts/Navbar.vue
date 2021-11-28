@@ -5,7 +5,7 @@
     variant="dark"
     class="px-3 border-b-4 border-white"
   >
-    <b-navbar-brand href="#" class="flex">
+    <b-navbar-brand href="#" border-gray-400 class="flex">
       <img
         @click="$router.push('/dash')"
         src="../../assets/logpic.svg"
@@ -35,7 +35,7 @@
       ><b-nav-item href="#" @click="$router.push('/more')" class="learnmore"
         >Learn More</b-nav-item
       >
-      <b-nav-item class="ml-auto">Hello, {{ name }}</b-nav-item>
+      <b-nav-item class="ml-auto">{{ cookieName }}</b-nav-item>
 
       <b-nav-item right href="#" @click="logOut()" class="logout ml-auto"
         >Logout</b-nav-item
@@ -52,24 +52,12 @@ export default {
     this.cookieName = localStorage.getItem("userName");
     this.id = localStorage.getItem("id_user");
   },
-
   data() {
     return {
       cookieName: "user",
     };
   },
-  created() {
-    this.checkLogin();
-  },
   methods: {
-    checkLogin() {
-      var username = localStorage.getItem("username");
-      if (!username) {
-        this.$router.push("/dash");
-      } else {
-        this.name = username;
-      }
-    },
     async logOut() {
       const result = await this.$gAuth.signOut();
       this.isLogin = false;
