@@ -18,7 +18,7 @@ import Learnmore from "../views/Cards/Learnmore.vue";
 import CardsApy from "../views/Cards/CardsApy.vue";
 import CardsAverage from "../views/Cards/CardsAverage.vue";
 import CardsFee from "../views/Cards/CardsFee.vue";
-import CardsLeverged from "../views/Cards/CardsLeverged.vue";
+import CardsLever from "../views/Cards/CardsLever.vue";
 import CardsLiqui from "../views/Cards/CardsLiqui.vue";
 import CardsPercent from "../views/Cards/CardsPercent.vue";
 import CardsPNL from "../views/Cards/CardsPNL.vue";
@@ -121,9 +121,9 @@ const routes = [{
     },
 
     {
-        path: "cardsLeverged",
-        name: "CardsLeverged",
-        component: CardsLeverged,
+        path: "cardsLever",
+        name: "CardsLever",
+        component: CardsLever,
     },
 
     {

@@ -11,7 +11,7 @@
             tag="article"
             class="mb-2 morecard"
           >
-            <router-link to="/CardsApy">APY CALCULATOR</router-link>
+            <router-link to="/CardsApy" class="text-black" >APY CALCULATOR</router-link>
           </b-card>
         </b-col>
       </div>
@@ -25,7 +25,7 @@
             tag="article"
             class="mb-2 morecard"
           >
-            <router-link to="/CardsPercent"
+            <router-link to="/CardsPercent" class="text-black"
               >PERCENTAGE CHANGE CALCULATOR</router-link
             >
           </b-card>
@@ -41,7 +41,7 @@
             tag="article"
             class="mb-2 morecard"
           >
-            <router-link to="/CardsFee">FEE CALCULATOR</router-link>
+            <router-link to="/CardsFee" class="text-black" >FEE CALCULATOR</router-link>
           </b-card>
         </b-col>
       </div>
@@ -55,7 +55,7 @@
             tag="article"
             class="mb-2 morecard"
           >
-            <router-link to="/CardsAverage"
+            <router-link to="/CardsAverage" class="text-black"
               >AVERAGE DOWN CALCULATOR</router-link
             >
           </b-card>
@@ -73,7 +73,7 @@
             tag="article"
             class="mb-2 morecard"
           >
-            <router-link to="/CardsLiqui">LIQUIDATION CALCULATOR</router-link>
+            <router-link to="/CardsLiqui" class="text-black">LIQUIDATION CALCULATOR</router-link>
           </b-card>
         </b-col>
       </div>
@@ -87,7 +87,7 @@
             tag="article"
             class="mb-2 morecard"
           >
-            <router-link to="/CardsPNL">TRADE COMPOUND CALCULATOR</router-link>
+            <router-link to="/CardsTrade" class="text-black" >TRADE COMPOUND CALCULATOR</router-link>
           </b-card>
         </b-col>
       </div>
@@ -101,7 +101,7 @@
             tag="article"
             class="mb-2 morecard"
           >
-            <router-link to="/CardsTrade">PNL CALCULATOR</router-link>
+            <router-link to="/CardsPNL" class="text-black">PNL CALCULATOR</router-link>
           </b-card>
         </b-col>
       </div>
@@ -115,7 +115,7 @@
             tag="article"
             class="mb-2 morecard"
           >
-            <router-link to="/CardsLeverged"
+            <router-link to="/CardsLever" class="text-black"
               >LEVERGED MOVEMENT CALCULATOR</router-link
             >
           </b-card>

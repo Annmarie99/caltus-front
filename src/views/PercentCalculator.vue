@@ -139,7 +139,7 @@
         </div>
       </div>
 
-      <router-link to=/CardsPercent>Learn More --> </router-link>
+      <router-link to=/CardsPercent class="text-white" >Learn More --> </router-link>
 
 
       </div>

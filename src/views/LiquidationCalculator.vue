@@ -68,7 +68,7 @@
           </p>
           
         </div>
-        <router-link to=/CardsLiqui>Learn More --> </router-link>
+        <router-link to=/CardsLiqui class="text-white" >Learn More --> </router-link>
       </div>
       
       <div class="w-1/4 p-2 bg-gray-800 text-white">

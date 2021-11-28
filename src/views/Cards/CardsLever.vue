@@ -15,15 +15,14 @@
   <br>
 
   <div>
-    <p class="text-white text-center text-4xl  p-0 m-0">AVERAGE DOWN CALCULATOR</p> <br>
-    <p class="text-white text-center text-2xl  p-0 m-0">คำนวณต้นทุนเฉลี่ยของหุ้นของคุณเมื่อคุณซื้อหุ้นตัวเดียวกันหลายครั้ง จะทำให้ทราบต้นทุนเฉลี่ยสำหรับค่าเฉลี่ยลง หรือค่าเฉลี่ยขึ้น
-</p> <br>
+    <p class="text-white text-center text-4xl  p-0 m-0">LEVERGED MOVEMENT CALCULATOR</p> <br>
+    <p class="text-white text-center text-2xl  p-0 m-0">  การคำนวณค่าเปอร์นที่เปลี่ยนไป</p> <br>
     
   </div>
 
   <div>
   <b-img 
-  center src="https://scontent.fhdy3-1.fna.fbcdn.net/v/t1.15752-9/258816658_221818760068945_8475534669980422421_n.png?_nc_cat=108&ccb=1-5&_nc_sid=ae9488&_nc_ohc=I1W88_0ggJkAX-_8vWt&_nc_oc=AQlTE8oijrNBxIJKjGT7N3RufJgyb6sBvzY0PNl9yfFOqaR12-4T1ms7NAF6M1OIfeU&tn=9HuvVjk_7ElYvQ78&_nc_ht=scontent.fhdy3-1.fna&oh=9e0fc1fda4e526792757ea90b64ad15a&oe=61C8B873"
+  center src="https://scontent.fhdy3-1.fna.fbcdn.net/v/t1.15752-9/258868337_2025443064278477_992455615209546543_n.png?_nc_cat=101&ccb=1-5&_nc_sid=ae9488&_nc_ohc=paI_UpLchIsAX_Q9lR-&_nc_oc=AQl9JWY0LzO-M25xaxLNPhbAa8t6tkzZKLMvY6FNrmHewEgXKs9K4eWUG_HkUQIqHRc&_nc_ht=scontent.fhdy3-1.fna&oh=f3b28cd4be9d086f50ad079cc286a74f&oe=61CA51DD"
   style="max-width: 40rem;"
   class="mb-3"
   ></b-img>
@@ -41,8 +40,8 @@
     <b-card-group deck>
     <b-card bg-variant="dark" text-variant="white" header="วิธีการใช้งาน" class="text-center text-2xl howto2">
 
-        <b-card-text class="text-left text-lg"> ขั้นตอนแรก : ใส่จำนวนการซื้อแต่ละครั้ง ในช่อง Quantity  </b-card-text><br>
-        <b-card-text class="text-left text-lg"> ขั้นตอนที่ 2 : ใส่ราคาที่ซื้อในแต่ละครั้ง ในช่อง Purchase Price  </b-card-text><br>       
+        <b-card-text class="text-left text-lg"> ขั้นตอนแรก : ใส่จำนวนเงินที่คุณต้องการลงทุน ในช่อง Leverage on Base Amount  </b-card-text><br>
+        <b-card-text class="text-left text-lg"> ขั้นตอนที่ 2 : ใส่กำไรเป้าหมายที่เคุณต้องการกี่เปอร์เซ็น ในช่อง Gain want to achieve in % </b-card-text><br>       
         <b-card-text class="text-left text-lg"> ขั้นตอนที่ 3 : เมื่อใส่ตัวเลขทุกช่องตามที่ต้องการแล้ว ให้คุณกด ปุ่ม CALCULATATE เพื่อคำนวณผลลัพธ์ เป็นอันเสร็จสิ้นการใช้งาน</b-card-text><br>
     </b-card>
     </b-card-group>

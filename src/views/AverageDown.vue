@@ -74,7 +74,7 @@
         </div>
             </div>
 
-            <router-link to=/CardsAverge>Learn More --> </router-link> 
+            <router-link to=/CardsAverage  class="text-white" >Learn More --> </router-link> 
             
           </div>
 

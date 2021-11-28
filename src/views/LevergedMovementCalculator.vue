@@ -49,7 +49,7 @@
           </p>
         </div>
 
-         <router-link to=/CardsLever>Learn More --> </router-link> 
+         <router-link to=/CardsLever  class="text-white" >Learn More --> </router-link> 
 
       </div>
       

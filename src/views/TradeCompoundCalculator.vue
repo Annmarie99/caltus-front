@@ -64,7 +64,7 @@
             
         </div>
      
-       <router-link to=/CardsTrade>Learn More --> </router-link>
+       <router-link to=/CardsTrade class="text-white" >Learn More --> </router-link>
 
 
       </div>

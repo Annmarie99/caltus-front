@@ -51,7 +51,7 @@
           
          
         </div>
-         <router-link to=/CardsFee>Learn More --> </router-link> 
+         <router-link to=/CardsFee  class="text-white" >Learn More --> </router-link> 
       </div>
       
      <div class="w-1/4 p-2 bg-gray-800 text-white">

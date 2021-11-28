@@ -76,7 +76,7 @@
           </p>
         </div>
 
-       <router-link  to=/CardsApy>Learn More --> </router-link> 
+       <router-link  to=/CardsApy  class="text-white" >Learn More --> </router-link> 
       
       </div>
 
