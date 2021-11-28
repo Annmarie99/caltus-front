@@ -3,12 +3,8 @@
     toggleable="lg"
     type="dark"
     variant="dark"
-<<<<<<< Updated upstream
     class="px-3 border-b-4 border-white"
-=======
-    class="px-3	"
    
->>>>>>> Stashed changes
   >
     <b-navbar-brand href="#" border-gray-400 class="flex">
       <img
@@ -40,7 +36,7 @@
       ><b-nav-item href="#" @click="$router.push('/more')" class="learnmore"
         >Learn More</b-nav-item
       >
-      <b-nav-item class="ml-auto">Hello, {{ name }}</b-nav-item>
+      <b-nav-item class="ml-auto">{{ cookieName }}</b-nav-item>
 
       <b-nav-item right href="#" @click="logOut()" class="logout ml-auto"
         >Logout</b-nav-item
@@ -53,26 +49,14 @@
 export default {
   name: "Navbar",
   mounted() {
-    this.cookieName = localStorage.getItem("username");
+    this.cookieName = localStorage.getItem("userName");
   },
-
   data() {
     return {
       cookieName: "test",
     };
   },
-  created() {
-    this.checkLogin();
-  },
   methods: {
-    checkLogin() {
-      var username = localStorage.getItem("username");
-      if (!username) {
-        this.$router.push("/dash");
-      } else {
-        this.name = username;
-      }
-    },
     async logOut() {
       const result = await this.$gAuth.signOut();
       this.isLogin = false;

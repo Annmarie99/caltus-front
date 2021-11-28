@@ -14,9 +14,6 @@ import LiquidationCalculator from "../views/LiquidationCalculator.vue";
 import PNLCalculator from "../views/PNLCalculator.vue";
 import TradeCompoundCalculator from "../views/TradeCompoundCalculator.vue";
 import LevergedMovementCalculator from "../views/LevergedMovementCalculator.vue";
-<<<<<<< Updated upstream
-import Learnmore from "../views/Learnmore.vue";
-=======
 import Learnmore from "../views/Cards/Learnmore.vue";
 import CardsApy from "../views/Cards/CardsApy.vue";
 import CardsAverage from "../views/Cards/CardsAverage.vue";
@@ -30,7 +27,6 @@ import CardsTrade from "../views/Cards/CardsTrade.vue";
 
 
 
->>>>>>> Stashed changes
 
 
 //import Learnmore from '@/components/Learnmore'
@@ -38,8 +34,7 @@ import CardsTrade from "../views/Cards/CardsTrade.vue";
 
 Vue.use(VueRouter);
 
-const routes = [
-    {
+const routes = [{
         path: "/",
         name: "Home",
         component: Home,
@@ -101,10 +96,10 @@ const routes = [
     },
 
     {
-      path: "/leverged-cal",
-    name: "LevergedMovementCalculator",
-    component: LevergedMovementCalculator,
-   },
+        path: "/leverged-cal",
+        name: "LevergedMovementCalculator",
+        component: LevergedMovementCalculator,
+    },
 
     {
         path: "/more",
@@ -112,9 +107,6 @@ const routes = [
         component: Learnmore,
     },
 
-<<<<<<< Updated upstream
-   
-=======
     {
         path: "/cardsapy",
         name: "CardsApy",
@@ -165,7 +157,6 @@ const routes = [
 
 
 
->>>>>>> Stashed changes
 ];
 
 const router = new VueRouter({

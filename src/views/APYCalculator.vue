@@ -1,29 +1,23 @@
 <template>
   <calculator-layout>
     <div class="flex p-0 m-0 rounded-tl-lg">
-      <div
-        class="
+      <div class="
           flex-1
           space-y-5
-          bg-gradient-to-r
-          from-green-600
-          to-gray-700
-          p-3
+           p-3
           rounded-tl-lg
         "
-      >
+          >
         <p class="text-white text-center text-2xl  p-0 m-0">APY CALCULATOR</p>
         <br />
 
         <p class="m-0 p-0 text-lg text-white">Amount</p>
 
+        <b-input-group prepend="$" append="$">
         <b-form-input
           class="bg-dark text-white"
           v-model="value"
           placeholder="Enter your amount"
-<<<<<<< Updated upstream
-        ></b-form-input>
-=======
         ></b-form-input></b-input-group>
 
         <div class="range1">
@@ -34,7 +28,6 @@
         <div class="value right text-white">10,000,000</div>
         <div id="selector">
         <div class="SelectBtn">
->>>>>>> Stashed changes
         
         </div>
         </div>
@@ -60,7 +53,7 @@
         ></b-form-input>
 
         <div class="w-full flex justify-center">
-          <b-button class="mx-auto" @click="calculateAPY" variant="dark"
+          <b-button class="mx-auto" @click="calculateAPY" variant="secondary"
             >Calculate</b-button
           >
           
@@ -82,9 +75,12 @@
             }}</span>
           </p>
         </div>
+
+       <router-link  to=/CardsApy>Learn More --> </router-link> 
+      
       </div>
 
-      <div class="w-1/4 p-2 bg-gray-800 text-white">
+      <div class="w-1/4 p-2 bg-gray-700 text-white">
         <p class="text-center uppercase">History</p>
 
         <div v-if="result" class="mt-5 text-gray-300 border-t-2 pt-4">
@@ -104,7 +100,7 @@
           </p>
         </div>
       </div>
-    </div>
+   </div>
   </calculator-layout>
 </template>
 
