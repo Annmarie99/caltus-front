@@ -3,9 +3,14 @@
     toggleable="lg"
     type="dark"
     variant="dark"
+<<<<<<< Updated upstream
     class="px-3 border-b-4 border-white"
+=======
+    class="px-3	"
+   
+>>>>>>> Stashed changes
   >
-    <b-navbar-brand href="#" class="flex">
+    <b-navbar-brand href="#" border-gray-400 class="flex">
       <img
         @click="$router.push('/dash')"
         src="../../assets/logpic.svg"

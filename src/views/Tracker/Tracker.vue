@@ -177,8 +177,8 @@
 </template>
 
 <script>
-import { tokenList } from "../constants/tokenlist";
-import { curencyList } from "../constants/currency";
+import { tokenList } from "../../constants/tokenlist";
+import { curencyList } from "../../constants/currency";
 import Vue from "vue";
 
 // import DashLine from "../components/graph/DashLine.vue";

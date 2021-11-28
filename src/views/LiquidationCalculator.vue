@@ -18,19 +18,27 @@
       
          <p class="m-0 p-0 text-lg text-white"> Entry Price : </p>
       
+      <b-input-group prepend="$" append="$">
         <b-form-input
          class="bg-dark text-white"
           v-model="value "
           placeholder=""
-        ></b-form-input> 
-         <label for="range-1"  class="text-white" ></label> 
-         <b-form-input  id="range-1" 
-         v-model="value" 
-         style="width: 120px; background-color: rgba(0,0,255,.1)"
-         type="range" 
-         min="0"   
-         max="10000000" 
-         step="100"></b-form-input><br>
+        ></b-form-input> </b-input-group>
+
+
+        <div class="range3">
+        <div class="field1">
+        <div class="value left text-white ">0</div>
+        <label for="range-1"  class="text-white" ></label> 
+         <b-form-input id="range4" v-model="value" value="50" type="range" min="0"   max="10000000" step="1" ></b-form-input>
+        <div class="value right text-white">10,000,000</div>
+        <div id="selector1">
+        <div class="SelectBtn1">
+        
+        </div>
+        </div>
+        </div>
+        </div>
 
 
          <p class="m-0 p-0 text-lg text-white"> Quantity : </p>
@@ -121,3 +129,54 @@ name : "LiquidationCalculator",
   
    
 </script>
+<style>
+
+.range3{
+
+  width: 100%;
+  margin: 24% auto;
+  position: relative;
+}
+#range4{
+
+  -webkit-appearance: none;
+  width: 100%;
+  height: 7px;
+  outline: none;
+  border-radius: 3px ;
+}
+#range4::-webkit-range2-thumb{
+
+   -webkit-appearance: none;
+    width: 48px;
+    height: 48px;
+    cursor: pointer;
+    z-index: 3;
+    position: relative;
+}
+#selector1{
+
+   height: 104px;
+   width: 48px;
+   position: absolute;
+   bottom: -20px;
+   left: 50%;
+   transform: translateX(-50%);
+   z-index: 2;
+}
+.SelectBtn1{
+  height: 48px;
+  width: 48px;
+  background-size: cover;
+  background-position: center;
+  border-radius: 50%;
+  bottom: 0;
+}
+.range3 .field1{
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center ;
+  height: 100%;
+}
+</style>

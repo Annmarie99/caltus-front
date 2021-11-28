@@ -21,20 +21,21 @@
         <br />
 
         <p class="m-0 p-0 text-lg text-white"> Entry Price :</p>
-        
+        <b-input-group prepend="$" append="$">
         <b-form-input 
         size = "xs"
         class="bg-dark text-white"
         v-model="price1" 
         placeholder="">
-        </b-form-input> <br />
+        </b-form-input> </b-input-group><br/>
 
        <p class="m-0 p-0 text-lg text-white"> Exit Price : </p>
+       <b-input-group prepend="$" append="$">
         <b-form-input 
         class="bg-dark text-white"
         v-model="price2" 
         placeholder=""> 
-        </b-form-input><br />
+        </b-form-input></b-input-group><br />
 
         <p class="m-0 p-0 text-lg text-white"> Quantity :</p>
         <b-form-input 
@@ -119,3 +120,5 @@ export default {
   },
 };
 </script>
+
+

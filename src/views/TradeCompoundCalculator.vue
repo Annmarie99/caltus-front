@@ -17,12 +17,13 @@
         <br><br>
         
          <p class="m-0 p-0 text-lg text-white"> Base Amount :</p> 
-
+        
+        <b-input-group prepend="$" append="$">
         <b-form-input
         class="bg-dark text-white"
           v-model="amount"
           placeholder=""
-        ></b-form-input> <br>
+        ></b-form-input> </b-input-group><br>
 
          <p class="m-0 p-0 text-lg text-white"> Leverage on Base Amount : </p>
         <b-form-input 
@@ -32,11 +33,12 @@
           </b-form-input><br>
         
          <p class="m-0 p-0 text-lg text-white">Interest rate gain per Trade :</p>
+         <b-input-group prepend="%" append="%">
         <b-form-input 
         class="bg-dark text-white"
           v-model="rate" 
           placeholder="Rate %">
-          </b-form-input><br>
+          </b-form-input></b-input-group><br>
         
          <p class="m-0 p-0 text-lg text-white">Number of Trades : </p>
         <b-form-input 
