@@ -2,17 +2,13 @@
   <calculator-layout>
     
       <div class="flex p-0 m-0 rounded-tl-lg">
-      <div
-        class="
+      <div class="
           flex-1
           space-y-5
-          bg-gradient-to-r
-          from-green-600
-          to-gray-700
-          p-3
+           p-3
           rounded-tl-lg
         "
-      >
+          >
       <div class="p-3">
         <p class="text-white text-center text-2xl p-0 m-0 uppercase">
           Percentage Change Calculator
@@ -24,21 +20,25 @@
             <div class="space-y-5">
               
                <p class="m-0 p-0 text-center text-lg text-white">what is</p>
+               
+              <b-input-group prepend="$" append="$">
               <b-form-input
                class="bg-dark text-white"
                 v-model="amount1"
-                placeholder=""
-              ></b-form-input>
+                 placeholder="Enter your amount"
+              ></b-form-input></b-input-group>
   
              <p class="m-0 p-0 text-center  text-lg text-white">%of</p>
+
+             <b-input-group prepend="%" append="%">
               <b-form-input 
                class="bg-dark text-white"
               v-model="percent1" 
-              placeholder="">
-              </b-form-input>
+              placeholder="rate %">
+              </b-form-input></b-input-group>
 
              <div class="w-full flex justify-center">
-          <b-button class="mx-auto" @click="calculatePercent" variant="dark"
+          <b-button class="mx-auto" @click="calculatePercent" variant="secondary "
             >Calculate</b-button
           >
         </div>
@@ -47,34 +47,38 @@
                 <p>
                   Result: :
                   <span class="text-calc-accent">{{
-                    result.totalPercent.toFixed(3)
-                  }}</span>
+                    result.totalPercent.toFixed(2)
+                  }} </span>
                 </p>
                 
               </div>
             </div>
+                  
+            
           </div>
 
           
           <div>
             <div class="flex-1 space-y-5 p-3">
 
-              
+              <b-input-group prepend="$" append="$">
               <b-form-input
                class="bg-dark text-white"
                 v-model="percent2"
-                placeholder=""
-              ></b-form-input>
+                placeholder="Enter your amount"
+              ></b-form-input></b-input-group>
 
              <p class="m-0 p-0 text-center  text-lg text-white">is what % of</p>
+
+             <b-input-group prepend="$" append="$">
               <b-form-input
                class="bg-dark text-white"
                 v-model="amount2"
-                placeholder=""
-              ></b-form-input>
+                placeholder="Enter your amount"
+              ></b-form-input></b-input-group>
 
               <div class="w-full flex justify-center">
-          <b-button class="mx-auto" @click="calculatePercent" variant="dark"
+          <b-button class="mx-auto" @click="calculatePercent" variant="secondary "
             >Calculate</b-button
           >
         </div>
@@ -83,7 +87,7 @@
                 <p>
                   Result :
                   <span class="text-calc-accent">{{
-                    result.totalPercent2.toFixed(3)
+                    result.totalPercent2.toFixed(2)
                   }}</span> %
                 </p>
                 
@@ -100,21 +104,23 @@
               <p class="m-0 p-0 text-center  text-lg text-white">What is the percentage increase/decrease</p><br>
 
               <p class="m-0 p-0 text-center  text-lg text-white">From</p>
+              <b-input-group prepend="$" append="$">
               <b-form-input
                class="bg-dark text-white"
                 v-model="amount3"
-                placeholder=""
-              ></b-form-input>
+                placeholder="Enter your amount"
+              ></b-form-input></b-input-group>
 
               <p class="m-0 p-0 text-center  text-lg text-white">to</p>
+              <b-input-group prepend="$" append="$">
               <b-form-input 
                class="bg-dark text-white"
               v-model="percent3"
-               placeholder="">
-               </b-form-input>
+               placeholder="Enter your amount">
+               </b-form-input></b-input-group>
 
               <div class="w-full flex justify-center">
-          <b-button class="mx-auto" @click="calculatePercent" variant="dark"
+          <b-button class="mx-auto" @click="calculatePercent" variant="secondary "
             >Calculate</b-button
           >
         </div>
@@ -122,7 +128,7 @@
                 <p>
                   Result :
                   <span class="text-calc-accent">{{
-                    result.totalPercent3.toFixed(3) 
+                    result.totalPercent3.toFixed(2) 
                   }}</span>
                   %
                 </p>
@@ -132,6 +138,10 @@
           </div>
         </div>
       </div>
+
+      <router-link to=/CardsPercent>Learn More --> </router-link>
+
+
       </div>
 
      <div class="w-1/4 p-2 bg-gray-800 text-white">

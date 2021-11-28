@@ -2,17 +2,13 @@
   <calculator-layout>
 
     <div class="flex p-0 m-0 rounded-tl-lg">
-      <div
-        class="
+      <div class="
           flex-1
           space-y-5
-          bg-gradient-to-r
-          from-green-600
-          to-gray-700
-          p-3
+           p-3
           rounded-tl-lg
         "
-      >     
+          >
         <div class="p-3 ">
 
         <p class="text-white text-center text-2xl p-0 m-0">AVERAGE DOWN CALCULATOR</p>
@@ -26,7 +22,7 @@
             
             <div class="space-y-5">
 
-        <div class="table-fixed bg-gray-800 rounded-lg" >
+        <div class="table-fixed bg-gray-600 rounded-lg" >
         <p class="text-center  text-white text-xl p-0 m-0">Quantity</p> 
         </div><br>
         
@@ -72,18 +68,22 @@
 
 
      <div class="w-full flex justify-center">
-          <b-button class="mx-auto" @click="calculateAver" variant="dark"
+          <b-button class="mx-auto" @click="calculateAver" variant="secondary"
             >Calculate</b-button
           >
         </div>
             </div>
+
+            <router-link to=/CardsAverge>Learn More --> </router-link> 
+            
           </div>
+
      
 
      <div >
     <div  class="flex-auto items-center space-y-5 p-3">
         
-        <div class="table-fixed bg-gray-800 rounded-lg" >
+        <div class="table-fixed bg-gray-600 rounded-lg" >
        <p class="text-center  text-white text-xl p-0 m-0">Purchase Price</p>
        </div><br>
      
@@ -151,8 +151,8 @@
 
        <div class="w-1/4 p-2 bg-gray-800 text-white">
         <p class="text-center uppercase">History</p>
-      </div>
-<div v-if="result" class="mt-5 text-gray-300 border-t-2 pt-4">
+
+        <div v-if="result" class="mt-5 text-gray-300 border-t-2 pt-4">
           <p>
             The average cost for :
             <span class="text-calc-accent">{{
@@ -168,8 +168,9 @@
           </p>
         
         </div>
-    </div>
-    
+      </div>
+
+    </div> 
   </calculator-layout>
 </template>
 

@@ -1,17 +1,13 @@
 <template>
   <calculator-layout>
     <div class="flex p-0 m-0 rounded-tl-lg">
-      <div
-        class="
+     <div class="
           flex-1
           space-y-5
-          bg-gradient-to-r
-          from-green-600
-          to-gray-700
-          p-3
+           p-3
           rounded-tl-lg
         "
-      >
+          >
         <p class="text-white text-center text-2xl p-0 m-0  uppercase"> PNL Calculator</p>
         <br><br>
 
@@ -44,7 +40,7 @@
         placeholder=""> 
         </b-form-input><br />
 
-        <p class="m-0 p-0 text-lg text-white"> Buy fees % : </p>
+        <!--<p class="m-0 p-0 text-lg text-white"> Buy fees % : </p>
         <b-form-input 
         class="bg-dark text-white"
         v-model="buy" 
@@ -57,9 +53,10 @@
          v-model="sell" 
          placeholder="">
           </b-form-input><br />
+-->
 
          <div class="w-full flex justify-center">
-          <b-button class="mx-auto" @click="calculatePNL" variant="dark"
+          <b-button class="mx-auto" @click="calculatePNL" variant="secondary "
             >Calculate</b-button
           >
         </div>
@@ -74,6 +71,7 @@
           </p>
           
         </div>
+     <router-link to=/CardsPNL>Learn More --> </router-link>
       </div>
       
       <div class="w-1/4 p-2 bg-gray-800 text-white">

@@ -2,17 +2,13 @@
   <calculator-layout>
 
     <div class="flex p-0 m-0 rounded-tl-lg">
-      <div
-        class="
+      <div class="
           flex-1
           space-y-5
-          bg-gradient-to-r
-          from-green-600
-          to-gray-700
-          p-3
+           p-3
           rounded-tl-lg
         "
-      >
+          >
         <p class="text-white text-center text-2xl p-0 m-0  uppercase"> Trade Compound Calculator</p>
         <br><br>
         
@@ -51,7 +47,7 @@
 
         
         <div class="w-full flex justify-center">
-          <b-button class="mx-auto" @click="calculateTrad" variant="dark"
+          <b-button class="mx-auto" @click="calculateTrad" variant="secondary"
             >Calculate</b-button
           >
         </div>
@@ -67,6 +63,10 @@
             
             
         </div>
+     
+       <router-link to=/CardsTrade>Learn More --> </router-link>
+
+
       </div>
       
       <div class="w-1/4 p-2 bg-gray-800 text-white">
