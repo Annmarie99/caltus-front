@@ -63,17 +63,15 @@
          <!--<datetime type="datetime" v-model="datetime13" format="yyyy-MM-dd HH:mm:ss"></datetime>-->
 
           <div v-if="result" class="mt-5 text-gray-300 border-t-2 pt-4">
-
-            
           <p>
-            (<span class="text-calc-accent">{{ result.totalA }}</span> x
-             <span class="text-calc-accent">{{ result.totalR }}</span> )/100 =
+            Trading Fee / Funding: 
             <span class="text-calc-accent">{{
               result.totalCI.toFixed(3)
             }}</span>
           </p>
-  
-     </div>
+          
+         
+        </div>
         
       </div>
 

@@ -152,8 +152,24 @@
        <div class="w-1/4 p-2 bg-gray-800 text-white">
         <p class="text-center uppercase">History</p>
       </div>
-
-    </div> 
+<div v-if="result" class="mt-5 text-gray-300 border-t-2 pt-4">
+          <p>
+            The average cost for :
+            <span class="text-calc-accent">{{
+              result.totalY.toFixed(3)
+            }}</span>
+          </p>
+          <p>
+            Contracts / Shares is $ : 
+             <span class="text-calc-accent">{{
+              result.totalX.toFixed(3)
+            }}</span>
+            
+          </p>
+        
+        </div>
+    </div>
+    
   </calculator-layout>
 </template>
 

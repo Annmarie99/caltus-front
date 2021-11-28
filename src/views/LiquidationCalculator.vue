@@ -80,19 +80,12 @@
 
         <div v-if="result" class="mt-5 text-gray-300 border-t-2 pt-4">
           <p>
+            Liquidation Price  :
             <span class="text-calc-accent">{{
-              result.totalP}}</span> - (
-            <span class="text-calc-accent">{{
-              result.totalB}}</span> / 
-            <span class="text-calc-accent">{{
-              result.totalQ
-            }}</span>) = 
-            <span class="text-calc-accent">{{
-              result.totalPercentt.toFixed(3)}}</span>  
-
+              result.totalPercentt.toFixed(3)
+            }}</span>
           </p>
-
-
+          
         </div>
       </div>
 
