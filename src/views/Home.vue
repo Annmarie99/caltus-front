@@ -64,7 +64,11 @@
 </template>
 
 <script>
-// import facebookLogin from "facebook-login-vuejs";
+// // import facebookLogin from "facebook-login-vuejs";
+import Vue from "vue"; // in Vue 2
+import axios from "axios";
+import VueAxios from "vue-axios";
+Vue.use(VueAxios, axios);
 export default {
   name: "Home",
   // components: { facebookLogin },
@@ -75,7 +79,15 @@ export default {
       password: "",
       user: "usertest",
       pass: "1234",
+      userid: [],
     };
+  },
+  mounted() {
+    console.warn("kan so handsome");
+    Vue.axios.get("https://caltus.herokuapp.com/api/user").then((response) => {
+      console.log(response.data.data);
+      this.userid = response.data.data;
+    });
   },
   methods: {
     async logOut() {
@@ -84,11 +96,19 @@ export default {
       console.log(`result`, result);
     },
     handleSubmit() {
-      if (this.username === this.user && this.password === this.pass) {
-        localStorage.setItem("username", this.username);
-        this.$router.push("/dash");
-      } else {
-        alert("Invalid username or password!");
+      for (var i = 0; i <= this.userid.length; i++) {
+        console.warn(this.userid[i].username + " : " + this.userid[i].id_user);
+        if (
+          this.username == this.userid[i].username &&
+          this.password == this.userid[i].id_user
+        ) {
+          localStorage.setItem("username", this.username);
+          localStorage.setItem("id_user", this.userid[i].id_user);
+          this.$router.push("/dash/" + this.userid[i].id_user);
+          break;
+        } else if (i == this.userid.length - 1) {
+          alert("Invalid username or password!");
+        }
       }
     },
 

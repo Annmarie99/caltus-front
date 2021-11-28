@@ -387,6 +387,7 @@ export default {
     return {
       user: null,
       marketPrice: [],
+      id: this.$route.params.id,
       style: {
         color: "#ffffff",
       },
@@ -431,6 +432,10 @@ export default {
       // ],
     };
   },
+  mounted() {
+    console.warn("id " + this.id);
+    console.warn("name " + this.name);
+  },
 
   created: function () {
     const vm = this;
@@ -439,7 +444,7 @@ export default {
     );
     this.connection.onmessage = function (event) {
       const convert = JSON.parse(event.data);
-      console.log(convert);
+      // console.log(convert);
       Vue.set(vm.marketPrice, convert.data.s.toLowerCase(), convert.data.p);
       // console.log(vm.marketPrice);
     };

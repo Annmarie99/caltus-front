@@ -4,9 +4,8 @@
     type="dark"
     variant="dark"
     class="px-3 border-b-4 border-white"
-   
   >
-    <b-navbar-brand href="#" border-gray-400 class="flex">
+    <b-navbar-brand href="#" class="flex">
       <img
         @click="$router.push('/dash')"
         src="../../assets/logpic.svg"
@@ -20,7 +19,7 @@
 
     <b-collapse id="nav-collapse" is-nav>
       <b-navbar-nav>
-        <b-nav-item class="ml-5" href="#" @click="$router.push('/dash')"
+        <b-nav-item class="ml-5" href="#" @click="$router.push('/dash/' + id)"
           >Home</b-nav-item
         >
         <b-nav-item href="#" @click="$router.push('/apy-cal')"
@@ -36,7 +35,7 @@
       ><b-nav-item href="#" @click="$router.push('/more')" class="learnmore"
         >Learn More</b-nav-item
       >
-      <b-nav-item class="ml-auto">{{ cookieName }}</b-nav-item>
+      <b-nav-item class="ml-auto">Hello, {{ name }}</b-nav-item>
 
       <b-nav-item right href="#" @click="logOut()" class="logout ml-auto"
         >Logout</b-nav-item
@@ -48,15 +47,29 @@
 <script>
 export default {
   name: "Navbar",
+  id: "",
   mounted() {
     this.cookieName = localStorage.getItem("userName");
+    this.id = localStorage.getItem("id_user");
   },
+
   data() {
     return {
-      cookieName: "test",
+      cookieName: "user",
     };
   },
+  created() {
+    this.checkLogin();
+  },
   methods: {
+    checkLogin() {
+      var username = localStorage.getItem("username");
+      if (!username) {
+        this.$router.push("/dash");
+      } else {
+        this.name = username;
+      }
+    },
     async logOut() {
       const result = await this.$gAuth.signOut();
       this.isLogin = false;
