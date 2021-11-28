@@ -133,7 +133,7 @@
         </div>
         <div class="col">
           <div class="card mb-3 flex bg-dark">
-            <div class="card-header text-white">Amazing Pie !</div>
+            <div class="card-header text-white">My Coin !</div>
             <div class="card-body text-white">
               <DashPie />
             </div>
@@ -166,7 +166,13 @@
                   ETH
                   <footer>Eteream</footer>
                 </td>
-                <td>Otto</td>
+                <td>
+                  ${{
+                    Math.floor(marketPrice.ethusdt).toLocaleString("en-US", {
+                      maximumFractionDigits: 2,
+                    })
+                  }}
+                </td>
                 <td>@mdo</td>
               </tr>
               <tr>
@@ -182,8 +188,14 @@
                   BNB
                   <footer>bnb</footer>
                 </td>
-                <td>Thornton</td>
-                <td>@fat</td>
+                <td>
+                  ${{
+                    Math.floor(marketPrice.bnbusdt).toLocaleString("en-US", {
+                      maximumFractionDigits: 2,
+                    })
+                  }}
+                </td>
+                <td>%</td>
               </tr>
               <tr>
                 <td>
@@ -198,7 +210,13 @@
                   BTC
                   <footer>Bitcoin</footer>
                 </td>
-                <td>Thornton</td>
+                <td>
+                  ${{
+                    Math.floor(marketPrice.btcusdt).toLocaleString("en-US", {
+                      maximumFractionDigits: 2,
+                    })
+                  }}
+                </td>
                 <td>@fat</td>
               </tr>
               <tr>
@@ -214,7 +232,13 @@
                   CHZ
                   <footer>Chiliz</footer>
                 </td>
-                <td>Thornton</td>
+                <td>
+                  ${{
+                    marketPrice.chzusdt.toLocaleString("en-US", {
+                      maximumFractionDigits: 2,
+                    })
+                  }}
+                </td>
                 <td>@fat</td>
               </tr>
               <tr>
@@ -223,11 +247,14 @@
                     src="../assets/ada.png"
                     width="30"
                     height="20"
-                    class="ml-5"
+                    class="ml-5 mt-2"
                   />
                 </td>
-                <td>hello</td>
-                <td>Thornton</td>
+                <td>
+                  ADA
+                  <footer>Cardano</footer>
+                </td>
+                <td>${{ marketPrice.adausdt }}</td>
                 <td>@fat</td>
               </tr>
               <tr>
@@ -236,11 +263,14 @@
                     src="../assets/amp.png"
                     width="30"
                     height="20"
-                    class="ml-5"
+                    class="ml-5 mt-2"
                   />
                 </td>
-                <td>Jacob</td>
-                <td>Thornton</td>
+                <td>
+                  AMP
+                  <footer>Amp</footer>
+                </td>
+                <td>${{ marketPrice.ampusdt }}</td>
                 <td>@fat</td>
               </tr>
               <tr>
@@ -249,11 +279,14 @@
                     src="../assets/sand.png"
                     width="30"
                     height="20"
-                    class="ml-5"
+                    class="ml-5 mt-2"
                   />
                 </td>
-                <td>Jacob</td>
-                <td>Thornton</td>
+                <td>
+                  SAND
+                  <footer>The Sandbox</footer>
+                </td>
+                <td>${{ marketPrice.sandusdt }}</td>
                 <td>@fat</td>
               </tr>
               <tr>
@@ -262,11 +295,14 @@
                     src="../assets/alice.png"
                     width="30"
                     height="20"
-                    class="ml-5"
+                    class="ml-5 mt-2"
                   />
                 </td>
-                <td>Jacob</td>
-                <td>Thornton</td>
+                <td>
+                  ALICE
+                  <footer>My Neighbor Alice</footer>
+                </td>
+                <td>${{ marketPrice.aliceusdt }}</td>
                 <td>@fat</td>
               </tr>
               <tr>
@@ -275,11 +311,14 @@
                     src="../assets/mana.png"
                     width="30"
                     height="20"
-                    class="ml-5"
+                    class="ml-5 mt-2"
                   />
                 </td>
-                <td>Jacob</td>
-                <td>Thornton</td>
+                <td>
+                  MANA
+                  <footer>Decentraland</footer>
+                </td>
+                <td>${{ marketPrice.manausdt }}</td>
                 <td>@fat</td>
               </tr>
               <tr>
@@ -288,11 +327,14 @@
                     src="../assets/gala.png"
                     width="30"
                     height="20"
-                    class="ml-5"
+                    class="ml-5 mt-2"
                   />
                 </td>
-                <td>Jacob</td>
-                <td>Thornton</td>
+                <td>
+                  GALA
+                  <footer>Gala</footer>
+                </td>
+                <td>${{ marketPrice.galausdt }}</td>
                 <td>@fat</td>
               </tr>
               <tr>
@@ -301,11 +343,14 @@
                     src="../assets/shib.png"
                     width="30"
                     height="20"
-                    class="ml-5"
+                    class="ml-5 mt-2"
                   />
                 </td>
-                <td>Jacob</td>
-                <td>Thornton</td>
+                <td>
+                  SHIB
+                  <footer>SHIBA INU</footer>
+                </td>
+                <td>${{ marketPrice.shibusdt }}</td>
                 <td>@fat</td>
               </tr>
             </tbody>
@@ -345,6 +390,7 @@ export default {
       style: {
         color: "#ffffff",
       },
+
       // items: [
       //   {
       //     Name: "BNB",
@@ -385,10 +431,11 @@ export default {
       // ],
     };
   },
+
   created: function () {
     const vm = this;
     this.connection = new WebSocket(
-      `wss://stream.binance.com:9443/stream?streams=btcusdt@trade/bnbusdt@trade/ethusdt@trade`
+      `wss://stream.binance.com:9443/stream?streams=btcusdt@trade/bnbusdt@trade/ethusdt@trade/chzusdt@trade/adausdt@trade/ampusdt@trade/sandusdt@trade/aliceusdt@trade/manausdt@trade/galausdt@trade/shibusdt@trade`
     );
     this.connection.onmessage = function (event) {
       const convert = JSON.parse(event.data);

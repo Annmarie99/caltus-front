@@ -17,7 +17,7 @@
             type="texy"
             id="inline-form-input-name"
             class="mb-2 mr-sm-2 mb-sm-0 mt-5"
-            v-model="fistname"
+            v-model="fist_name"
             placeholder="firstname"
           ></b-form-input>
 
@@ -26,7 +26,7 @@
             id="inline-form-input-name"
             class="mb-2 mr-sm-2 mb-sm-0 mt-3"
             placeholder="lastname"
-            v-model="lastname"
+            v-model="last_name"
           ></b-form-input>
 
           <b-form-input
@@ -108,8 +108,8 @@ export default {
   name: "Signupform",
   data() {
     return {
-      firstname: "",
-      lastname: "",
+      first_name: "",
+      last_name: "",
       username: "",
       email: "",
       password: "",
