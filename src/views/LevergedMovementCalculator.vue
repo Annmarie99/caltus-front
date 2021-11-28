@@ -20,7 +20,7 @@
         ></b-form-input> <br>
 
     <p class="m-0 p-0 text-lg text-white"> Gain want to achieve in %  : </p>
-    <b-input-group append="%">
+    <b-input-group prepend="%" append="%">
     <b-form-input 
     class="bg-dark text-white"
         v-model="rate" 

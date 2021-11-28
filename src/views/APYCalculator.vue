@@ -19,12 +19,24 @@
           v-model="value"
           placeholder="Enter your amount"
         ></b-form-input></b-input-group>
+
+        <div class="range1">
+        <div class="field">
+        <div class="value left text-white ">0</div>
+        <label for="range-1"  class="text-white" ></label> 
+         <b-form-input id="range2" v-model="value" value="50" type="range" min="0"   max="10000000" step="1" ></b-form-input>
+        <div class="value right text-white">10,000,000</div>
+        <div id="selector">
+        <div class="SelectBtn">
         
-         <label for="range-1"  class="text-white" ></label> 
-         <b-form-input id="range-1" v-model="value" type="range" min="0"  class="bg-dark" max="10000000" step="1"></b-form-input>
+        </div>
+        </div>
+        </div>
+        </div>
+         
           
 
-        <br />
+        <br/>
         <p class="m-0 p-0 text-lg text-white">APY</p>
         <b-form-input
           class="bg-dark text-white"
@@ -117,3 +129,55 @@ export default {
   },
 };
 </script>
+
+<style>
+
+.range1{
+
+  width: 100%;
+  margin: 24% auto;
+  position: relative;
+}
+#range2{
+
+  -webkit-appearance: none;
+  width: 100%;
+  height: 7px;
+  outline: none;
+  border-radius: 3px ;
+}
+#range2::-webkit-range2-thumb{
+
+   -webkit-appearance: none;
+    width: 48px;
+    height: 48px;
+    cursor: pointer;
+    z-index: 3;
+    position: relative;
+}
+#selector{
+
+   height: 104px;
+   width: 48px;
+   position: absolute;
+   bottom: -20px;
+   left: 50%;
+   transform: translateX(-50%);
+   z-index: 2;
+}
+.SelectBtn{
+  height: 48px;
+  width: 48px;
+  background-size: cover;
+  background-position: center;
+  border-radius: 50%;
+  bottom: 0;
+}
+.range1 .field{
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center ;
+  height: 100%;
+}
+</style>

@@ -4,8 +4,9 @@
     type="dark"
     variant="dark"
     class="px-3	"
+   
   >
-    <b-navbar-brand href="#" class="flex">
+    <b-navbar-brand href="#" border-gray-400 class="flex">
       <img
         @click="$router.push('/dash')"
         src="../../assets/logpic.svg"

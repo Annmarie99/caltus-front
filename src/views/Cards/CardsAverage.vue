@@ -1,6 +1,7 @@
 <template>
     <div>
-<p class="text-white text-center text-2xl  p-0 m-0">Leverged Movement  CALCULATOR</p>
+<p class="text-white text-center text-2xl  p-0 m-0">AVERAGE DOWN CALCULATOR</p>
+
     </div>
 </template>
 
