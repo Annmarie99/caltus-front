@@ -1,19 +1,13 @@
 <template>
   <div>
-    <div
-      class="w-full mx-auto pb-36 p-10 m-0 text-center h-screen"
-      :style="{
-        'background-image':
-          'url(https://images6.alphacoders.com/888/888108.png)',
-      }"
-    >
+    <div class="w-full mx-auto pb-36 p-10 m-0 text-center bg-dark h-screen">
       <h1 class="text-white">TRACKER</h1>
       <div class="grid grid-cols-6">
         <h5 class="text-white text-left">Currency change</h5>
       </div>
       <div class="grid grid-cols-6">
         <b-form-select
-          class="text-white bg-dark mt-3 shadow ml-3 form-control text-left"
+          class="text-dark bg-white mt-3 shadow ml-3 form-control text-left"
           v-model="selectedCurr"
           :options="currOptions"
         ></b-form-select>
@@ -21,7 +15,7 @@
 
       <div class="grid grid-cols-3">
         <div v-for="coin in myCoin" :key="coin.id">
-          <div class="flex-1 bg-dark rounded-lg ml-3">
+          <div class="flex-1 bg-white rounded-lg ml-3">
             <div class="card-body flex itmes-center justify-center space-x-5">
               <div class="my-auto">
                 <img
@@ -98,10 +92,10 @@
         </div>
       </div>
       <div class="ml-auto mt-10 text-center w-full flex justify-center">
-        <div class="text-center mr-0 h-25 bg-dark rounded-lg shadow-lg py-5">
+        <div class="text-center mr-0 h-25 bg-white rounded-lg shadow-lg py-5">
           <form action="" class="">
-            <div class="form-group mt-3 form-control bg-dark text-white">
-              <div class="flex items-center space-x-3 bg-dark">
+            <div class="form-group mt-3 form-control bg-white text-white">
+              <div class="flex items-center space-x-3 bg-red">
                 <input
                   type="text"
                   v-model="searchCoin"
@@ -113,7 +107,7 @@
                   v-model="selected"
                   :options="filteredCoin"
                   size="lg"
-                  class="text-lg bg-dark"
+                  class="text-lg text-dark bg-white"
                   placeholder="pls choose "
                 ></b-form-select>
               </div>
@@ -140,14 +134,15 @@
               <button
                 @click="handleSubmit"
                 class="
-                  bg-green-800
-                  hover:bg-green-700
+                  bg-green-500
+                  hover:bg-green-100
                   text-white
                   font-bold
                   py-2
                   px-4
                   rounded
                   flex-1
+                  shadow
                 "
               >
                 ADD
@@ -156,8 +151,8 @@
                 type="reset"
                 value="Reset"
                 class="
-                  bg-red-800
-                  hover:bg-red-700
+                  bg-red-500
+                  hover:bg-red-100
                   text-white
                   font-bold
                   py-2

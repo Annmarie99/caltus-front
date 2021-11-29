@@ -1,19 +1,10 @@
 <template>
   <div>
-    <div
-      class="w-full p-10"
-      :style="{
-        'background-image':
-          'url(https://images6.alphacoders.com/888/888108.png)',
-      }"
-    >
+    <div class="w-full bg-dark p-10">
       <div class="row">
         <div class="col pt-10">
-          <div
-            class="card border-success mb-3 bg-dark"
-            style="max-width: 18rem"
-          >
-            <div class="card-header text-gray-100">Bitcoin Price</div>
+          <div class="card mb-3 bg-white" style="max-width: 18rem">
+            <div class="card-header border-dark text-dark">Bitcoin Price</div>
             <div class="card-body flex itmes-center justify-center space-x-5">
               <div class="my-auto">
                 <img
@@ -24,11 +15,11 @@
                 />
               </div>
               <div>
-                <p class="text-gray-300 p-0 m-0">
+                <p class="text-gray-500 p-0 m-0">
                   BTC / USDT
                   <!-- <span class="text-green-500 font-bold m-0 p-0">5%</span> -->
                 </p>
-                <p class="text-2xl font-bold p-0 m-0 text-gray-400">
+                <p class="text-2xl font-bold p-0 m-0 text-gray-600">
                   {{
                     Math.floor(marketPrice.btcusdt).toLocaleString("en-US", {
                       maximumFractionDigits: 2,
@@ -36,7 +27,7 @@
                   }}
                   USD
                 </p>
-                <p class="text-lg p-0 m-0 text-gray-400">
+                <p class="text-lg p-0 m-0 text-gray-500">
                   {{
                     Math.floor(marketPrice.btcusdt * 33.3).toLocaleString(
                       "en-US",
@@ -52,8 +43,8 @@
           </div>
         </div>
         <div class="col pt-10">
-          <div class="card mb-3 bg-dark" style="max-width: 18rem">
-            <div class="card-header text-white">Ethereum Price</div>
+          <div class="card mb-3 bg-white" style="max-width: 18rem">
+            <div class="card-header border-dark text-dark">Ethereum Price</div>
             <div class="card-body flex itmes-center justify-center space-x-5">
               <div class="my-auto">
                 <img
@@ -64,11 +55,11 @@
                 />
               </div>
               <div>
-                <p class="text-gray-300 p-0 m-0">
+                <p class="text-gray-500 p-0 m-0">
                   ETH / USDT
                   <!-- <span class="text-green-500 font-bold m-0 p-0">5%</span> -->
                 </p>
-                <p class="text-2xl font-bold p-0 m-0 text-gray-400">
+                <p class="text-2xl font-bold p-0 m-0 text-gray-600">
                   {{
                     Math.floor(marketPrice.ethusdt).toLocaleString("en-US", {
                       maximumFractionDigits: 2,
@@ -76,7 +67,7 @@
                   }}
                   USD
                 </p>
-                <p class="text-lg p-0 m-0 text-gray-400">
+                <p class="text-lg p-0 m-0 text-gray-500">
                   {{
                     Math.floor(marketPrice.ethusdt * 33.3).toLocaleString(
                       "en-US",
@@ -92,8 +83,10 @@
           </div>
         </div>
         <div class="col pt-10">
-          <div class="card mb-3 bg-dark" style="max-width: 18rem">
-            <div class="card-header text-gray-100">Binacne Coin Price</div>
+          <div class="card mb-3 bg-white" style="max-width: 18rem">
+            <div class="card-header border-dark text-dark">
+              Binacne Coin Price
+            </div>
             <div class="card-body flex itmes-center justify-center space-x-5">
               <div class="my-auto">
                 <img
@@ -104,11 +97,11 @@
                 />
               </div>
               <div>
-                <p class="text-gray-300 p-0 m-0">
+                <p class="text-gray-500 p-0 m-0">
                   BNB / USDT
                   <!-- <span class="text-red-500 font-bold m-0 p-0">-5%</span> -->
                 </p>
-                <p class="text-2xl font-bold p-0 m-0 text-gray-400">
+                <p class="text-2xl font-bold p-0 m-0 text-gray-600">
                   {{
                     Math.floor(marketPrice.bnbusdt).toLocaleString("en-US", {
                       maximumFractionDigits: 2,
@@ -116,7 +109,7 @@
                   }}
                   USD
                 </p>
-                <p class="text-lg p-0 m-0 text-gray-400">
+                <p class="text-lg p-0 m-0 text-gray-500">
                   {{
                     Math.floor(marketPrice.bnbusdt * 33.3).toLocaleString(
                       "en-US",
@@ -132,9 +125,9 @@
           </div>
         </div>
         <div class="col">
-          <div class="card mb-3 flex bg-dark">
-            <div class="card-header text-white">My Coin !</div>
-            <div class="card-body text-white">
+          <div class="card mb-3 flex bg-white">
+            <div class="card-header border-dark text-dark">My Coin !</div>
+            <div class="card-body text-dark">
               <DashPie />
             </div>
           </div>
@@ -142,7 +135,7 @@
       </div>
       <div class="row mt-3">
         <div class="span3">
-          <table class="table sticky table-dark table-striped">
+          <table class="table sticky table-light table-striped">
             <thead>
               <tr>
                 <th scope="col"></th>
@@ -164,7 +157,7 @@
                 </td>
                 <td>
                   ETH
-                  <footer>Eteream</footer>
+                  <footer class="text-gray-500">Eteream</footer>
                 </td>
                 <td>
                   ${{
@@ -186,7 +179,7 @@
                 </td>
                 <td>
                   BNB
-                  <footer>bnb</footer>
+                  <footer class="text-gray-500">bnb</footer>
                 </td>
                 <td>
                   ${{
@@ -208,7 +201,7 @@
                 </td>
                 <td>
                   BTC
-                  <footer>Bitcoin</footer>
+                  <footer class="text-gray-500">Bitcoin</footer>
                 </td>
                 <td>
                   ${{
@@ -230,7 +223,7 @@
                 </td>
                 <td>
                   CHZ
-                  <footer>Chiliz</footer>
+                  <footer class="text-gray-500">Chiliz</footer>
                 </td>
                 <td>
                   ${{
@@ -252,7 +245,7 @@
                 </td>
                 <td>
                   ADA
-                  <footer>Cardano</footer>
+                  <footer class="text-gray-500">Cardano</footer>
                 </td>
                 <td>${{ marketPrice.adausdt }}</td>
                 <td>{{ priceChange.adausdt }}%</td>
@@ -268,7 +261,7 @@
                 </td>
                 <td>
                   AMP
-                  <footer>Amp</footer>
+                  <footer class="text-gray-500">Amp</footer>
                 </td>
                 <td>${{ marketPrice.ampusdt }}</td>
                 <td>{{ priceChange.ampusdt }}%</td>
@@ -284,7 +277,7 @@
                 </td>
                 <td>
                   SAND
-                  <footer>The Sandbox</footer>
+                  <footer class="text-gray-500">The Sandbox</footer>
                 </td>
                 <td>${{ marketPrice.sandusdt }}</td>
                 <td>{{ priceChange.sandusdt }}%</td>
@@ -300,7 +293,7 @@
                 </td>
                 <td>
                   ALICE
-                  <footer>My Neighbor Alice</footer>
+                  <footer class="text-gray-500">My Neighbor Alice</footer>
                 </td>
                 <td>${{ marketPrice.aliceusdt }}</td>
                 <td>{{ priceChange.aliceusdt }}%</td>
@@ -316,7 +309,7 @@
                 </td>
                 <td>
                   MANA
-                  <footer>Decentraland</footer>
+                  <footer class="text-gray-500">Decentraland</footer>
                 </td>
                 <td>${{ marketPrice.manausdt }}</td>
                 <td>{{ priceChange.manausdt }}%</td>
@@ -332,7 +325,7 @@
                 </td>
                 <td>
                   GALA
-                  <footer>Gala</footer>
+                  <footer class="text-gray-500">Gala</footer>
                 </td>
                 <td>${{ marketPrice.galausdt }}</td>
                 <td>{{ priceChange.galausdt }}%</td>
@@ -348,7 +341,7 @@
                 </td>
                 <td>
                   SHIB
-                  <footer>SHIBA INU</footer>
+                  <footer class="text-gray-500">SHIBA INU</footer>
                 </td>
                 <td>${{ marketPrice.shibusdt }}</td>
                 <td>{{ priceChange.shibusdt }}%</td>
@@ -364,7 +357,7 @@
                 </td>
                 <td>
                   DOGE
-                  <footer>Dogecoin</footer>
+                  <footer class="text-gray-500">Dogecoin</footer>
                 </td>
                 <td>${{ marketPrice.dogeusdt }}</td>
                 <td>{{ priceChange.dogeusdt }}%</td>
@@ -380,7 +373,7 @@
                 </td>
                 <td>
                   SOL
-                  <footer>Solana</footer>
+                  <footer class="text-gray-500">Solana</footer>
                 </td>
                 <td>${{ marketPrice.solusdt }}</td>
                 <td>{{ priceChange.solusdt }}%</td>
@@ -396,7 +389,7 @@
                 </td>
                 <td>
                   LUNA
-                  <footer>Terra</footer>
+                  <footer class="text-gray-500">Terra</footer>
                 </td>
                 <td>${{ marketPrice.lunausdt }}</td>
                 <td>{{ priceChange.lunausdt }}%</td>
@@ -412,7 +405,7 @@
                 </td>
                 <td>
                   FIL
-                  <footer>File coin</footer>
+                  <footer class="text-gray-500">File coin</footer>
                 </td>
                 <td>${{ marketPrice.filusdt }}</td>
                 <td>{{ priceChange.filusdt }}%</td>
@@ -428,7 +421,7 @@
                 </td>
                 <td>
                   AVAX
-                  <footer>Avalance</footer>
+                  <footer class="text-gray-500">Avalance</footer>
                 </td>
                 <td>${{ marketPrice.avaxusdt }}</td>
                 <td>{{ priceChange.avaxusdt }}%</td>
