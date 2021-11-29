@@ -198,6 +198,10 @@
 </template>
 
 <script>
+import Vue from "vue"; // in Vue 2
+import axios from "axios";
+import VueAxios from "vue-axios";
+Vue.use(VueAxios, axios);
 import CalculatorLayout from "../components/Layouts/CalculatorLayout.vue";
 export default {
   components: { CalculatorLayout },
@@ -212,6 +216,20 @@ export default {
       percent3: "",
       result: null,
     };
+  },
+   async mounted() {
+    let results = await axios.post("https://caltus.herokuapp.com/api/calculatePercent", [
+      {
+    id_cal: this.id_cal,
+    amount1_1: this.amount1_1,
+    percent1_2: this.percent1_2,
+    input2_1: this.input2_1,
+    input2_2: this.input2_2,
+    price3_1: this.price3_1,
+    price3_2: this.price3_2,
+    result: this.result,
+      },
+    ]);console.warn(results);
   },
   methods: {
     calculatePercent(e) {

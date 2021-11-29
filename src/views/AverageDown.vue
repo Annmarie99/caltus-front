@@ -177,6 +177,10 @@
 
 
 <script>
+import Vue from "vue"; // in Vue 2
+import axios from "axios";
+import VueAxios from "vue-axios";
+Vue.use(VueAxios, axios);
 import CalculatorLayout from "../components/Layouts/CalculatorLayout.vue";
 export default {
   components: { CalculatorLayout },
@@ -196,6 +200,27 @@ export default {
       result: null,
     };
   },
+async mounted() {
+    let results = await axios.post("https://caltus.herokuapp.com/api/calculateAverage", [
+      {
+
+    id_cal: this.id_cal,
+    quantity1: this.quantity1,
+    quantity2: this.quantity2,
+    quantity3:this.quantity3,
+    quantity4: this.quantity4,
+    quantity5: this.quantity5,
+    price1: this.price1,
+    price2: this.price2,
+    price3: this.price3,
+    price4: this.price4,
+    price5: this.price5,
+    result: this.result,
+        
+      },
+    ]);console.warn(results);
+  },
+
   methods: {
     calculateAver(u) {
       u.preventDefault();

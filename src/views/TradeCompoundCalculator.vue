@@ -98,7 +98,10 @@
 </template>
 
 <script>
-
+import Vue from "vue"; // in Vue 2
+import axios from "axios";
+import VueAxios from "vue-axios";
+Vue.use(VueAxios, axios);
 import CalculatorLayout from "../components/Layouts/CalculatorLayout.vue";
 export default {
   components: { CalculatorLayout },
@@ -113,6 +116,18 @@ name : "TradeCompoundCalculator",
       
       result: null,
     };
+  },
+  async mounted() {
+    let results = await axios.post("https://caltus.herokuapp.com/api/calculateTrade", [
+      {
+     id_cal: this.id_cal,
+    amount:this.amount,
+    leverage: this.leverage,
+    rate_trade: this.rate_trade,
+    number_trade:this.number_trade,
+    result: this.result,
+      },
+    ]);console.warn(results);
   },
   methods: {
     calculateTrad(t) {

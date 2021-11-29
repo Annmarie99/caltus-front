@@ -93,6 +93,10 @@
 </template>
 
 <script>
+import Vue from "vue"; // in Vue 2
+import axios from "axios";
+import VueAxios from "vue-axios";
+Vue.use(VueAxios, axios);
 import CalculatorLayout from "../components/Layouts/CalculatorLayout.vue";
 export default {
   components: { CalculatorLayout },
@@ -106,6 +110,19 @@ export default {
       sell: "",
       result: null,
     };
+  },
+  async mounted() {
+    let results = await axios.post("https://caltus.herokuapp.com/api/calculatePnl", [
+      {
+    id_cal: this.id_cal,
+    entry_price:this.entry_price,
+    exit_price: this.exit_price,
+    quantity: this.quantity,
+    buy_fee: this.buy_fee,
+    sell_fee: this.sell_fee,
+    result: this.result
+      },
+    ]);console.warn(results);
   },
   methods: {
     calculatePNL(p) {

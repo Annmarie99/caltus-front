@@ -79,7 +79,10 @@
 </template>
 
 <script>
-
+import Vue from "vue"; // in Vue 2
+import axios from "axios";
+import VueAxios from "vue-axios";
+Vue.use(VueAxios, axios);
 import CalculatorLayout from "../components/Layouts/CalculatorLayout.vue";
 export default {
   components: { CalculatorLayout },
@@ -90,6 +93,17 @@ name : "FeeCalculator",
       rate: "",
       result: null,
     };
+  },
+  async mounted() {
+    let results = await axios.post("https://caltus.herokuapp.com/api/calculateFee", [
+      {
+        id_cal: this.id_cal,
+    trade_size: this.trade_size,
+    fee_rate: this.fee_rate,
+    result: this.result,
+        
+      },
+    ]);console.warn(results);
   },
   methods: {
     calculateFee(f) {

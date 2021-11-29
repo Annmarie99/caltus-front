@@ -91,7 +91,10 @@
 </template>
 
 <script>
-
+import Vue from "vue"; // in Vue 2
+import axios from "axios";
+import VueAxios from "vue-axios";
+Vue.use(VueAxios, axios);
 import CalculatorLayout from "../components/Layouts/CalculatorLayout.vue";
 export default {
   components: { CalculatorLayout },
@@ -105,6 +108,17 @@ name : "LiquidationCalculator",
 
       result: null,
     };
+  },
+  async mounted() {
+    let results = await axios.post("https://caltus.herokuapp.com/api/calculateLiquidation", [
+      {
+    id_cal: this.id_cal,
+    entry_price: this.entry_price,
+    quantity: this.quantity,
+    balance: this.balance,
+    result: this.result,
+      },
+    ]);console.warn(results);
   },
   methods: {
     calculateAPY(e) {

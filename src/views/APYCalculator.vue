@@ -99,6 +99,8 @@
             }}</span>
           </p>
         </div>
+
+        
       </div>
    </div>
   </calculator-layout>
@@ -116,7 +118,6 @@ export default {
   data() {
     return {
       value: "",
-      amount: "",
       apy: "",
       days: "",
       result: null,
@@ -128,7 +129,7 @@ export default {
         id_cal: this.id_cal,
         principal_amount: this.principal_amount,
         apy: this.apy,
-        day: this.apy,
+        day: this.day,
         result: this.result
         
       },

@@ -11,12 +11,14 @@
       "
     >
       <note-sidebar :notes="notes" />
+
       <div class="px-28">
         <b-button @click="newNote" pill variant="outline-success"
           ><i class="bi bi-plus-circle"></i
         ></b-button>
       </div>
     </div>
+    
     <div class="flex-1 w-full grid grid-cols-3 gap-4 p-3">
       <b-card
         v-for="note in notes"

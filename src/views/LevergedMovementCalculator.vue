@@ -76,6 +76,10 @@
 </template>
 
 <script>
+import Vue from "vue"; // in Vue 2
+import axios from "axios";
+import VueAxios from "vue-axios";
+Vue.use(VueAxios, axios);
 import CalculatorLayout from "../components/Layouts/CalculatorLayout.vue";
 export default {
   components: { CalculatorLayout },
@@ -87,6 +91,16 @@ export default {
       p:0,
       result: null,
     };
+  },
+  async mounted() {
+    let results = await axios.post("https://caltus.herokuapp.com/api/calculateLeverage", [
+      {
+    id_cal: this.id_cal,
+    leverage: this.leverage,
+    rate: this.rate,
+    result: this.result,
+      },
+    ]);console.warn(results);
   },
   methods: {
     calculateMovment(m) {
