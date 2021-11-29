@@ -271,7 +271,7 @@
                   <footer>Amp</footer>
                 </td>
                 <td>${{ marketPrice.ampusdt }}</td>
-                <td class="text-red-300">{{ priceChange.ampusdt }}%</td>
+                <td>{{ priceChange.ampusdt }}%</td>
               </tr>
               <tr>
                 <td>
@@ -415,7 +415,7 @@
                   <footer>File coin</footer>
                 </td>
                 <td>${{ marketPrice.filusdt }}</td>
-                <td class="text-red-300">{{ priceChange.filusdt }}%</td>
+                <td>{{ priceChange.filusdt }}%</td>
               </tr>
               <tr>
                 <td>
