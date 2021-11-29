@@ -1,9 +1,6 @@
 <template>
   <div>
-    <img
-      src="https://images4.alphacoders.com/113/thumbbig-1135100.webp"
-      class="cradsA"
-    />
+   
     <br />
 
     <div class="center">

@@ -12,8 +12,7 @@
           :options="currOptions"
         ></b-form-select>
       </div>
-
-      <div class="grid grid-cols-3">
+      <div class="grid grid-cols-3 mt-3">
         <div v-for="coin in myCoin" :key="coin.id">
           <div class="flex-1 bg-white rounded-lg ml-3">
             <div class="card-body flex itmes-center justify-center space-x-5">
@@ -27,15 +26,15 @@
               </div>
 
               <div>
-                <p class="text-gray-300 p-0 m-0">{{ coin.name }}</p>
-                <p class="text-lg p-0 m-0 text-gray-400">
+                <p class="text-gray-500 p-0 m-0">{{ coin.name }}</p>
+                <p class="text-lg p-0 m-0 text-gray-600">
                   Amount :
-                  <span class="text-green-500 font-bold m-0 p-0">{{
+                  <span class="text-green-600 font-bold m-0 p-0">{{
                     coin.amount
                   }}</span>
                   {{ coin.symbol }}
                 </p>
-                <p class="text-lg p-0 m-0 text-gray-400">
+                <p class="text-lg p-0 m-0 text-gray-600">
                   Buying Price :
                   <span class="text-blue-500 font-bold m-0 p-0"
                     >{{
@@ -44,12 +43,12 @@
                         { maximumFractionDigits: 2 }
                       )
                     }}
-                    <span class="text-gray-400">{{
+                    <span class="text-gray-500">{{
                       selectedCurr.name
                     }}</span></span
                   >
                 </p>
-                <p class="text-lg p-0 m-0 text-gray-400">
+                <p class="text-lg p-0 m-0 text-gray-600">
                   Profit :
                   <span class="text-blue-500 font-bold m-0 p-0"
                     >{{
@@ -62,7 +61,7 @@
                       ).toLocaleString("en-US", { maximumFractionDigits: 2 })
                     }}
                     %
-                    <span class="text-gray-400">{{
+                    <span class="text-gray-500">{{
                       selectedCurr.name
                     }}</span></span
                   >
@@ -101,6 +100,7 @@
                   v-model="searchCoin"
                   class="text-black bg-white mt-3 form-control shadow"
                   placeholder="Search your coin"
+                  required
                 />
                 <b-form-select
                   :select-size="4"
@@ -118,6 +118,7 @@
                 type="text"
                 placeholder="amount"
                 v-model="amount"
+                required
               />
             </div>
 
@@ -127,6 +128,7 @@
                 type="text"
                 placeholder="price"
                 v-model="price"
+                required
               />
             </div>
 

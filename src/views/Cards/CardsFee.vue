@@ -1,9 +1,6 @@
 <template>
   <div>
-    <img
-      src="https://www.incimages.com/uploaded_files/image/1920x1080/calculating-panoramic_12716.jpg"
-      class="cradsA"
-    />
+   
     <br />
 
     <div>
