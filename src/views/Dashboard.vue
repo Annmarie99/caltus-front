@@ -148,7 +148,7 @@
                 <th scope="col"></th>
                 <th scope="col">Name</th>
                 <th scope="col">Last Price</th>
-                <th scope="col">24hr Change</th>
+                <th scope="col">Volume</th>
               </tr>
             </thead>
             <tbody>
@@ -173,7 +173,7 @@
                     })
                   }}
                 </td>
-                <td>@mdo</td>
+                <td>{{ lastPrice.ethusdt }}</td>
               </tr>
               <tr>
                 <td>
@@ -195,7 +195,7 @@
                     })
                   }}
                 </td>
-                <td>%</td>
+                <td>{{ lastPrice.bnbusdt }}</td>
               </tr>
               <tr>
                 <td>
@@ -217,7 +217,7 @@
                     })
                   }}
                 </td>
-                <td>@fat</td>
+                <td>{{ lastPrice.btcusdt }}</td>
               </tr>
               <tr>
                 <td>
@@ -239,7 +239,7 @@
                     })
                   }}
                 </td>
-                <td>@fat</td>
+                <td>{{ lastPrice.chzusdt }}</td>
               </tr>
               <tr>
                 <td>
@@ -255,7 +255,7 @@
                   <footer>Cardano</footer>
                 </td>
                 <td>${{ marketPrice.adausdt }}</td>
-                <td>@fat</td>
+                <td>{{ lastPrice.adausdt }}</td>
               </tr>
               <tr>
                 <td>
@@ -271,7 +271,7 @@
                   <footer>Amp</footer>
                 </td>
                 <td>${{ marketPrice.ampusdt }}</td>
-                <td>@fat</td>
+                <td>{{ lastPrice.ampusdt }}</td>
               </tr>
               <tr>
                 <td>
@@ -287,7 +287,7 @@
                   <footer>The Sandbox</footer>
                 </td>
                 <td>${{ marketPrice.sandusdt }}</td>
-                <td>@fat</td>
+                <td>{{ lastPrice.sandusdt }}</td>
               </tr>
               <tr>
                 <td>
@@ -303,7 +303,7 @@
                   <footer>My Neighbor Alice</footer>
                 </td>
                 <td>${{ marketPrice.aliceusdt }}</td>
-                <td>@fat</td>
+                <td>{{ lastPrice.aliceusdt }}</td>
               </tr>
               <tr>
                 <td>
@@ -319,7 +319,7 @@
                   <footer>Decentraland</footer>
                 </td>
                 <td>${{ marketPrice.manausdt }}</td>
-                <td>@fat</td>
+                <td>{{ lastPrice.manausdt }}</td>
               </tr>
               <tr>
                 <td>
@@ -335,7 +335,7 @@
                   <footer>Gala</footer>
                 </td>
                 <td>${{ marketPrice.galausdt }}</td>
-                <td>@fat</td>
+                <td>{{ lastPrice.galausdt }}</td>
               </tr>
               <tr>
                 <td>
@@ -351,7 +351,87 @@
                   <footer>SHIBA INU</footer>
                 </td>
                 <td>${{ marketPrice.shibusdt }}</td>
-                <td>@fat</td>
+                <td>{{ lastPrice.shibusdt }}</td>
+              </tr>
+              <tr>
+                <td>
+                  <img
+                    src="https://seeklogo.com/images/D/dogecoin-doge-logo-DE369C56E6-seeklogo.com.png"
+                    width="30"
+                    height="20"
+                    class="ml-5 mt-2"
+                  />
+                </td>
+                <td>
+                  DOGE
+                  <footer>Dogecoin</footer>
+                </td>
+                <td>${{ marketPrice.dogeusdt }}</td>
+                <td>{{ lastPrice.dogeusdt }}</td>
+              </tr>
+              <tr>
+                <td>
+                  <img
+                    src="https://www.gofx.com/wp-content/uploads/2021/07/coinmarketcap-solana-200.png"
+                    width="30"
+                    height="20"
+                    class="ml-5 mt-2"
+                  />
+                </td>
+                <td>
+                  SOL
+                  <footer>Solana</footer>
+                </td>
+                <td>${{ marketPrice.solusdt }}</td>
+                <td>{{ lastPrice.solusdt }}</td>
+              </tr>
+              <tr>
+                <td>
+                  <img
+                    src="https://s2.coinmarketcap.com/static/img/coins/64x64/4172.png"
+                    width="30"
+                    height="20"
+                    class="ml-5 mt-2"
+                  />
+                </td>
+                <td>
+                  LUNA
+                  <footer>Terra</footer>
+                </td>
+                <td>${{ marketPrice.lunausdt }}</td>
+                <td>{{ lastPrice.lunausdt }}</td>
+              </tr>
+              <tr>
+                <td>
+                  <img
+                    src="https://seeklogo.com/images/F/filecoin-fil-logo-A6A4EAB825-seeklogo.com.png"
+                    width="30"
+                    height="20"
+                    class="ml-5 mt-2"
+                  />
+                </td>
+                <td>
+                  FIL
+                  <footer>File coin</footer>
+                </td>
+                <td>${{ marketPrice.filusdt }}</td>
+                <td>{{ lastPrice.filusdt }}</td>
+              </tr>
+              <tr>
+                <td>
+                  <img
+                    src="https://s2.coinmarketcap.com/static/img/coins/64x64/5805.png"
+                    width="30"
+                    height="20"
+                    class="ml-5 mt-2"
+                  />
+                </td>
+                <td>
+                  AVAX
+                  <footer>Avalance</footer>
+                </td>
+                <td>${{ marketPrice.avaxusdt }}</td>
+                <td>{{ lastPrice.avaxusdt }}</td>
               </tr>
             </tbody>
           </table>
@@ -387,6 +467,7 @@ export default {
     return {
       user: null,
       marketPrice: [],
+      lastPrice: [],
       id: this.$route.params.id,
       style: {
         color: "#ffffff",
@@ -440,12 +521,13 @@ export default {
   created: function () {
     const vm = this;
     this.connection = new WebSocket(
-      `wss://stream.binance.com:9443/stream?streams=btcusdt@trade/bnbusdt@trade/ethusdt@trade/chzusdt@trade/adausdt@trade/ampusdt@trade/sandusdt@trade/aliceusdt@trade/manausdt@trade/galausdt@trade/shibusdt@trade`
+      `wss://stream.binance.com:9443/stream?streams=btcusdt@trade/bnbusdt@trade/ethusdt@trade/chzusdt@trade/adausdt@trade/ampusdt@trade/sandusdt@trade/aliceusdt@trade/manausdt@trade/galausdt@trade/shibusdt@trade/dogeusdt@trade/solusdt@trade/lunausdt@trade/filusdt@trade/avaxusdt@trade`
     );
     this.connection.onmessage = function (event) {
       const convert = JSON.parse(event.data);
-      // console.log(convert);
+      console.log(convert);
       Vue.set(vm.marketPrice, convert.data.s.toLowerCase(), convert.data.p);
+      Vue.set(vm.lastPrice, convert.data.s.toLowerCase(), convert.data.q);
       // console.log(vm.marketPrice);
     };
   },
