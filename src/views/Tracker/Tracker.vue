@@ -18,7 +18,7 @@
           :options="currOptions"
         ></b-form-select>
       </div>
-      
+
       <div class="grid grid-cols-3">
         <div v-for="coin in myCoin" :key="coin.id">
           <div class="flex-1 bg-dark rounded-lg ml-3">
@@ -173,6 +173,17 @@
           </form>
         </div>
       </div>
+     
+
+     <div>
+     
+     <b-button type="reset" variant="danger">Clear</b-button>
+     
+     </div>
+
+
+
+
     </div>
   </div>
 </template>
@@ -266,6 +277,11 @@ export default {
       this.myCoin.push(newCoin);
       console.log(this.apiLink);
     },
+    clearData(){
+
+
+      
+    }
   },
   watch: {
     myCoin() {

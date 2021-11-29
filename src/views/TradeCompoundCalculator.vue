@@ -57,7 +57,7 @@
           <p>
             TOTAL BALANCE AFTER INTEREST : :
             <span class="text-calc-accent">{{
-              result.totalCI.toFixed(3)
+              result.totalCI.toFixed(2)
             }}</span>
           </p>
             
@@ -79,15 +79,15 @@
             <span class="text-calc-accent">{{result.totalM}}</span> : <br>
             Base amount : 
           <span class="text-calc-accent">{{
-              result.totalaAmount.toFixed(3)
+              result.totalaAmount.toFixed(2)
             }}</span><br>
             Earnings : 
             <span class="text-calc-accent">{{
-              result.totalX.toFixed(3)
+              result.totalX.toFixed(2)
             }}</span><br>
             Balance : 
             <span class="text-calc-accent">{{
-              result.totalCI.toFixed(3)
+              result.totalCI.toFixed(2)
             }}</span>
          </p>
       </div>
@@ -123,8 +123,8 @@ name : "TradeCompoundCalculator",
      id_cal: this.id_cal,
     amount:this.amount,
     leverage: this.leverage,
-    rate_trade: this.rate_trade,
-    number_trade:this.number_trade,
+    rate_trade: this.rate,
+    number_trade:this.trades,
     result: this.result,
       },
     ]);console.warn(results);

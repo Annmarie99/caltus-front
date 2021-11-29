@@ -158,7 +158,7 @@
                     result.totalP1 
                   }}</span> = 
                   <span class="text-calc-accent">{{
-                    result.totalPercent.toFixed(3) 
+                    result.totalPercent.toFixed(2) 
                   }}</span> <br>
 
                   
@@ -170,7 +170,7 @@
                     result.totalA2
                   }}</span> = 
                   <span class="text-calc-accent">{{
-                    result.totalPercent2.toFixed(3) 
+                    result.totalPercent2.toFixed(2) 
                   }}</span> %<br>
                   
                   From 
@@ -182,7 +182,7 @@
                     result.totalP3
                   }}</span> = 
                   <span class="text-calc-accent">{{
-                    result.totalPercent3.toFixed(3) 
+                    result.totalPercent3.toFixed(2) 
                   }}</span> %
                   
                 </p>
@@ -221,12 +221,12 @@ export default {
     let results = await axios.post("https://caltus.herokuapp.com/api/calculatePercent", [
       {
     id_cal: this.id_cal,
-    amount1_1: this.amount1_1,
-    percent1_2: this.percent1_2,
-    input2_1: this.input2_1,
-    input2_2: this.input2_2,
-    price3_1: this.price3_1,
-    price3_2: this.price3_2,
+    amount1_1: this.amount1,
+    percent1_2: this.percent1,
+    input2_1: this.amount2,
+    input2_2: this.amount3,
+    price3_1: this.percent3,
+    price3_2: this.percent3,
     result: this.result,
       },
     ]);console.warn(results);

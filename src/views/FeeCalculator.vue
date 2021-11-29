@@ -66,7 +66,7 @@
            Amount of coins : <span class = "text-calc-accent">{{ result.totalA }}</span> <br>
              Fee Rate / Funding Rate (%):<span class="text-calc-accent">{{ result.totalR }}</span> % 
             Trading Fee / Funding: <span class="text-calc-accent">{{
-              result.totalCI.toFixed(3)
+              result.totalCI.toFixed(2)
             }}</span>
           </p>
   
@@ -97,9 +97,9 @@ name : "FeeCalculator",
   async mounted() {
     let results = await axios.post("https://caltus.herokuapp.com/api/calculateFee", [
       {
-        id_cal: this.id_cal,
-    trade_size: this.trade_size,
-    fee_rate: this.fee_rate,
+    id_cal: this.id_cal,
+    trade_size: this.amount,
+    fee_rate: this.rate,
     result: this.result,
         
       },

@@ -44,7 +44,7 @@
             LEVERAGE :
             YOU NEED TO TARGET 
             <span class="text-calc-accent">{{
-              result.totalCI.toFixed(3)
+              result.totalCI.toFixed(2)
             }}</span>%
           </p>
         </div>
@@ -64,7 +64,7 @@
             LEVERAGE :
             YOU NEED TO TARGET 
             <span class="text-calc-accent">{{
-              result.totalCI.toFixed(3)
+              result.totalCI.toFixed(2)
             }}</span>%
           </p>
         </div>
@@ -96,7 +96,7 @@ export default {
     let results = await axios.post("https://caltus.herokuapp.com/api/calculateLeverage", [
       {
     id_cal: this.id_cal,
-    leverage: this.leverage,
+    leverage: this. amount,
     rate: this.rate,
     result: this.result,
       },

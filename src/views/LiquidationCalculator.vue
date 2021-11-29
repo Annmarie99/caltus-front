@@ -63,7 +63,7 @@
           <p>
             Liquidation Price  :
             <span class="text-calc-accent">{{
-              result.totalPercentt.toFixed(3)
+              result.totalPercentt.toFixed(2)
             }}</span>
           </p>
           
@@ -79,7 +79,7 @@
           <p>
             Liquidation Price  :
             <span class="text-calc-accent">{{
-              result.totalPercentt.toFixed(3)
+              result.totalPercentt.toFixed(2)
             }}</span>
           </p>
           
@@ -113,8 +113,8 @@ name : "LiquidationCalculator",
     let results = await axios.post("https://caltus.herokuapp.com/api/calculateLiquidation", [
       {
     id_cal: this.id_cal,
-    entry_price: this.entry_price,
-    quantity: this.quantity,
+    entry_price: this.value,
+    quantity: this.price,
     balance: this.balance,
     result: this.result,
       },

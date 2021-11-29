@@ -133,13 +133,13 @@
           <p>
             The average cost for :
             <span class="text-calc-accent">{{
-              result.totalY.toFixed(3)
+              result.totalY.toFixed(2)
             }}</span>
           </p>
           <p>
             Contracts / Shares is $ : 
              <span class="text-calc-accent">{{
-              result.totalX.toFixed(3)
+              result.totalX.toFixed(2)
             }}</span>
             
           </p>
@@ -156,13 +156,13 @@
           <p>
             The average cost for :
             <span class="text-calc-accent">{{
-              result.totalY.toFixed(3)
+              result.totalY.toFixed(2)
             }}</span>
           </p>
           <p>
             Contracts / Shares is $ : 
              <span class="text-calc-accent">{{
-              result.totalX.toFixed(3)
+              result.totalX.toFixed(2)
             }}</span>
             
           </p>

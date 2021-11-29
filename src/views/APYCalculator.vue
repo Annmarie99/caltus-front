@@ -63,7 +63,7 @@
           <p>
             Total Interest :
             <span class="text-calc-accent">{{
-              result.totalInterest.toFixed(3)
+              result.totalInterest.toFixed(2)
             }}</span>
           </p>
           <p>
@@ -71,7 +71,7 @@
             <span class="text-calc-accent">{{ result.totalDays }}</span> days
             will be :
             <span class="text-calc-accent">{{
-              result.totalBalance.toFixed(3)
+              result.totalBalance.toFixed(2)
             }}</span>
           </p>
         </div>
@@ -85,9 +85,11 @@
 
         <div v-if="result" class="mt-5 text-gray-300 border-t-2 pt-4">
           <p>
+
+
             Total Interest :
             <span class="text-calc-accent">{{
-              result.totalInterest.toFixed(3)
+              result.totalInterest.toFixed(2)
             }}</span>
           </p>
           <p>
@@ -95,7 +97,7 @@
             <span class="text-calc-accent">{{ result.totalDays }}</span> days
             will be :
             <span class="text-calc-accent">{{
-              result.totalBalance.toFixed(3)
+              result.totalBalance.toFixed(2)
             }}</span>
           </p>
         </div>
@@ -123,14 +125,15 @@ export default {
       result: null,
     };
   },
+
   async mounted() {
     let results = await axios.post("https://caltus.herokuapp.com/api/calculateApy", [
       {
         id_cal: this.id_cal,
-        principal_amount: this.principal_amount,
+        principal_amount: this.value,
         apy: this.apy,
-        day: this.day,
-        result: this.result
+        day: this.days,
+        result: this.result,
         
       },
     ]);console.warn(results);

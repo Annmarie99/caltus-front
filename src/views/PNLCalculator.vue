@@ -66,7 +66,7 @@
           <p>
             PNL :
             <span class="text-calc-accent">{{
-              result.totalpnl.toFixed(3)
+              result.totalpnl.toFixed(2)
             }}</span>
           </p>
           
@@ -81,7 +81,7 @@
           <p>
             PNL :
             <span class="text-calc-accent">{{
-              result.totalpnl.toFixed(3)
+              result.totalpnl.toFixed(2)
             }}</span>
           </p>
           
@@ -106,8 +106,6 @@ export default {
       price1: "",
       price2: "",
       quantity: "",
-      buy: "",
-      sell: "",
       result: null,
     };
   },
@@ -115,11 +113,9 @@ export default {
     let results = await axios.post("https://caltus.herokuapp.com/api/calculatePnl", [
       {
     id_cal: this.id_cal,
-    entry_price:this.entry_price,
-    exit_price: this.exit_price,
+    entry_price:this.price1,
+    exit_price: this.price2,
     quantity: this.quantity,
-    buy_fee: this.buy_fee,
-    sell_fee: this.sell_fee,
     result: this.result
       },
     ]);console.warn(results);
