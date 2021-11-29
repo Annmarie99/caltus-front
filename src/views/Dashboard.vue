@@ -415,7 +415,7 @@
                   <footer>File coin</footer>
                 </td>
                 <td>${{ marketPrice.filusdt }}</td>
-                <td>{{ priceChange.filusdt }}%</td>
+                <td class="text-red-300">{{ priceChange.filusdt }}%</td>
               </tr>
               <tr>
                 <td>
