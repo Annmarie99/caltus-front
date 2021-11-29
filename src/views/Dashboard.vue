@@ -271,7 +271,7 @@
                   <footer>Amp</footer>
                 </td>
                 <td>${{ marketPrice.ampusdt }}</td>
-                <td class="text-red-300">{{ priceChange.ampusdt }}%</td>
+                <td>{{ priceChange.ampusdt }}%</td>
               </tr>
               <tr>
                 <td>

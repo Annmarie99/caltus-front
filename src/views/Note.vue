@@ -1,5 +1,5 @@
 <template>
-  <div class="flex w-full pr-4 bg-gradient-to-r from-green-600 to-gray-700">
+  <div class="flex w-full pr-4 bg-dark">
     <div
       class="
         sidebar
@@ -24,8 +24,8 @@
         v-for="note in notes"
         :key="note.id"
         class="cursor-pointer h-48"
-        bg-variant="dark"
-        text-variant="white"
+        bg-variant="white"
+        text-variant="bg-gray-400"
         @click="note.edit = !note.edit"
       >
         <p>{{ note.content }}</p>
