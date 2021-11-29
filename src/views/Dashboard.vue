@@ -179,7 +179,7 @@
                 </td>
                 <td>
                   BNB
-                  <footer>bnb</footer>
+                  <footer class="text-gray-500">bnb</footer>
                 </td>
                 <td>
                   ${{
@@ -201,7 +201,7 @@
                 </td>
                 <td>
                   BTC
-                  <footer>Bitcoin</footer>
+                  <footer class="text-gray-500">Bitcoin</footer>
                 </td>
                 <td>
                   ${{
@@ -223,7 +223,7 @@
                 </td>
                 <td>
                   CHZ
-                  <footer>Chiliz</footer>
+                  <footer class="text-gray-500">Chiliz</footer>
                 </td>
                 <td>
                   ${{
@@ -245,7 +245,7 @@
                 </td>
                 <td>
                   ADA
-                  <footer>Cardano</footer>
+                  <footer class="text-gray-500">Cardano</footer>
                 </td>
                 <td>${{ marketPrice.adausdt }}</td>
                 <td>{{ priceChange.adausdt }}%</td>
@@ -261,7 +261,7 @@
                 </td>
                 <td>
                   AMP
-                  <footer>Amp</footer>
+                  <footer class="text-gray-500">Amp</footer>
                 </td>
                 <td>${{ marketPrice.ampusdt }}</td>
                 <td>{{ priceChange.ampusdt }}%</td>
@@ -277,7 +277,7 @@
                 </td>
                 <td>
                   SAND
-                  <footer>The Sandbox</footer>
+                  <footer class="text-gray-500">The Sandbox</footer>
                 </td>
                 <td>${{ marketPrice.sandusdt }}</td>
                 <td>{{ priceChange.sandusdt }}%</td>
@@ -293,7 +293,7 @@
                 </td>
                 <td>
                   ALICE
-                  <footer>My Neighbor Alice</footer>
+                  <footer class="text-gray-500">My Neighbor Alice</footer>
                 </td>
                 <td>${{ marketPrice.aliceusdt }}</td>
                 <td>{{ priceChange.aliceusdt }}%</td>
@@ -309,7 +309,7 @@
                 </td>
                 <td>
                   MANA
-                  <footer>Decentraland</footer>
+                  <footer class="text-gray-500">Decentraland</footer>
                 </td>
                 <td>${{ marketPrice.manausdt }}</td>
                 <td>{{ priceChange.manausdt }}%</td>
@@ -325,7 +325,7 @@
                 </td>
                 <td>
                   GALA
-                  <footer>Gala</footer>
+                  <footer class="text-gray-500">Gala</footer>
                 </td>
                 <td>${{ marketPrice.galausdt }}</td>
                 <td>{{ priceChange.galausdt }}%</td>
@@ -341,7 +341,7 @@
                 </td>
                 <td>
                   SHIB
-                  <footer>SHIBA INU</footer>
+                  <footer class="text-gray-500">SHIBA INU</footer>
                 </td>
                 <td>${{ marketPrice.shibusdt }}</td>
                 <td>{{ priceChange.shibusdt }}%</td>
@@ -357,7 +357,7 @@
                 </td>
                 <td>
                   DOGE
-                  <footer>Dogecoin</footer>
+                  <footer class="text-gray-500">Dogecoin</footer>
                 </td>
                 <td>${{ marketPrice.dogeusdt }}</td>
                 <td>{{ priceChange.dogeusdt }}%</td>
@@ -373,7 +373,7 @@
                 </td>
                 <td>
                   SOL
-                  <footer>Solana</footer>
+                  <footer class="text-gray-500">Solana</footer>
                 </td>
                 <td>${{ marketPrice.solusdt }}</td>
                 <td>{{ priceChange.solusdt }}%</td>
@@ -389,7 +389,7 @@
                 </td>
                 <td>
                   LUNA
-                  <footer>Terra</footer>
+                  <footer class="text-gray-500">Terra</footer>
                 </td>
                 <td>${{ marketPrice.lunausdt }}</td>
                 <td>{{ priceChange.lunausdt }}%</td>
@@ -405,7 +405,7 @@
                 </td>
                 <td>
                   FIL
-                  <footer>File coin</footer>
+                  <footer class="text-gray-500">File coin</footer>
                 </td>
                 <td>${{ marketPrice.filusdt }}</td>
                 <td>{{ priceChange.filusdt }}%</td>
@@ -421,7 +421,7 @@
                 </td>
                 <td>
                   AVAX
-                  <footer>Avalance</footer>
+                  <footer class="text-gray-500">Avalance</footer>
                 </td>
                 <td>${{ marketPrice.avaxusdt }}</td>
                 <td>{{ priceChange.avaxusdt }}%</td>
