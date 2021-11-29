@@ -83,7 +83,7 @@ export default {
     };
   },
   mounted() {
-    console.warn("kan so handsome");
+    console.warn("hello test");
     Vue.axios.get("https://caltus.herokuapp.com/api/user").then((response) => {
       console.log(response.data.data);
       this.userid = response.data.data;

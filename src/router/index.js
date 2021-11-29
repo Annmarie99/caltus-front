@@ -121,7 +121,7 @@ const routes = [{
     },
 
     {
-        path: "cardsLever",
+        path: "/CardsLever",
         name: "CardsLever",
         component: CardsLever,
     },

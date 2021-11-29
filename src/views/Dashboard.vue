@@ -148,7 +148,7 @@
                 <th scope="col"></th>
                 <th scope="col">Name</th>
                 <th scope="col">Last Price</th>
-                <th scope="col">Volume</th>
+                <th scope="col">24hr Change</th>
               </tr>
             </thead>
             <tbody>
@@ -173,7 +173,7 @@
                     })
                   }}
                 </td>
-                <td>{{ lastPrice.ethusdt }}</td>
+                <td>{{ priceChange.ethusdt }}%</td>
               </tr>
               <tr>
                 <td>
@@ -195,7 +195,7 @@
                     })
                   }}
                 </td>
-                <td>{{ lastPrice.bnbusdt }}</td>
+                <td>{{ priceChange.bnbusdt }}%</td>
               </tr>
               <tr>
                 <td>
@@ -217,7 +217,7 @@
                     })
                   }}
                 </td>
-                <td>{{ lastPrice.btcusdt }}</td>
+                <td>{{ priceChange.btcusdt }}%</td>
               </tr>
               <tr>
                 <td>
@@ -239,7 +239,7 @@
                     })
                   }}
                 </td>
-                <td>{{ lastPrice.chzusdt }}</td>
+                <td>{{ priceChange.chzusdt }}%</td>
               </tr>
               <tr>
                 <td>
@@ -255,7 +255,7 @@
                   <footer>Cardano</footer>
                 </td>
                 <td>${{ marketPrice.adausdt }}</td>
-                <td>{{ lastPrice.adausdt }}</td>
+                <td>{{ priceChange.adausdt }}%</td>
               </tr>
               <tr>
                 <td>
@@ -271,7 +271,7 @@
                   <footer>Amp</footer>
                 </td>
                 <td>${{ marketPrice.ampusdt }}</td>
-                <td>{{ lastPrice.ampusdt }}</td>
+                <td class="text-red-300">{{ priceChange.ampusdt }}%</td>
               </tr>
               <tr>
                 <td>
@@ -287,7 +287,7 @@
                   <footer>The Sandbox</footer>
                 </td>
                 <td>${{ marketPrice.sandusdt }}</td>
-                <td>{{ lastPrice.sandusdt }}</td>
+                <td>{{ priceChange.sandusdt }}%</td>
               </tr>
               <tr>
                 <td>
@@ -303,7 +303,7 @@
                   <footer>My Neighbor Alice</footer>
                 </td>
                 <td>${{ marketPrice.aliceusdt }}</td>
-                <td>{{ lastPrice.aliceusdt }}</td>
+                <td>{{ priceChange.aliceusdt }}%</td>
               </tr>
               <tr>
                 <td>
@@ -319,7 +319,7 @@
                   <footer>Decentraland</footer>
                 </td>
                 <td>${{ marketPrice.manausdt }}</td>
-                <td>{{ lastPrice.manausdt }}</td>
+                <td>{{ priceChange.manausdt }}%</td>
               </tr>
               <tr>
                 <td>
@@ -335,7 +335,7 @@
                   <footer>Gala</footer>
                 </td>
                 <td>${{ marketPrice.galausdt }}</td>
-                <td>{{ lastPrice.galausdt }}</td>
+                <td>{{ priceChange.galausdt }}%</td>
               </tr>
               <tr>
                 <td>
@@ -351,7 +351,7 @@
                   <footer>SHIBA INU</footer>
                 </td>
                 <td>${{ marketPrice.shibusdt }}</td>
-                <td>{{ lastPrice.shibusdt }}</td>
+                <td>{{ priceChange.shibusdt }}%</td>
               </tr>
               <tr>
                 <td>
@@ -367,7 +367,7 @@
                   <footer>Dogecoin</footer>
                 </td>
                 <td>${{ marketPrice.dogeusdt }}</td>
-                <td>{{ lastPrice.dogeusdt }}</td>
+                <td>{{ priceChange.dogeusdt }}%</td>
               </tr>
               <tr>
                 <td>
@@ -383,7 +383,7 @@
                   <footer>Solana</footer>
                 </td>
                 <td>${{ marketPrice.solusdt }}</td>
-                <td>{{ lastPrice.solusdt }}</td>
+                <td>{{ priceChange.solusdt }}%</td>
               </tr>
               <tr>
                 <td>
@@ -399,7 +399,7 @@
                   <footer>Terra</footer>
                 </td>
                 <td>${{ marketPrice.lunausdt }}</td>
-                <td>{{ lastPrice.lunausdt }}</td>
+                <td>{{ priceChange.lunausdt }}%</td>
               </tr>
               <tr>
                 <td>
@@ -415,7 +415,7 @@
                   <footer>File coin</footer>
                 </td>
                 <td>${{ marketPrice.filusdt }}</td>
-                <td>{{ lastPrice.filusdt }}</td>
+                <td>{{ priceChange.filusdt }}%</td>
               </tr>
               <tr>
                 <td>
@@ -431,7 +431,7 @@
                   <footer>Avalance</footer>
                 </td>
                 <td>${{ marketPrice.avaxusdt }}</td>
-                <td>{{ lastPrice.avaxusdt }}</td>
+                <td>{{ priceChange.avaxusdt }}%</td>
               </tr>
             </tbody>
           </table>
@@ -465,52 +465,17 @@ export default {
   name: "Login",
   data() {
     return {
+      x: 52,
       user: null,
       marketPrice: [],
       lastPrice: [],
+      openPrice: [],
+      lasttPrice: [],
+      priceChange: [],
       id: this.$route.params.id,
       style: {
         color: "#ffffff",
       },
-
-      // items: [
-      //   {
-      //     Name: "BNB",
-      //     Last_price: "$42,345.78",
-      //     lasthr_change: "-9.50%",
-      //     Market: 12,
-      //   },
-      //   {
-      //     Name: "BTC",
-      //     Last_price: "$42,345.78",
-      //     lasthr_change: "-8.30%",
-      //     Market: 678,
-      //   },
-      //   {
-      //     Name: "ETH",
-      //     Last_price: "$3,452.50",
-      //     lasthr_change: "-7.96%",
-      //     Market: 567,
-      //   },
-      //   {
-      //     Name: "heloo",
-      //     Last_price: "$0.456325",
-      //     lasthr_change: "-12.45%",
-      //     Market: 986,
-      //   },
-      //   {
-      //     Name: "FIL",
-      //     Last_price: "$74.60",
-      //     lasthr_change: "-9.23%",
-      //     Market: 89,
-      //   },
-      //   {
-      //     Name: "ADA",
-      //     Last_price: "$2.145",
-      //     lasthr_change: "-3.64%",
-      //     Market: 679,
-      //   },
-      // ],
     };
   },
   mounted() {
@@ -525,10 +490,23 @@ export default {
     );
     this.connection.onmessage = function (event) {
       const convert = JSON.parse(event.data);
-      console.log(convert);
+      //console.log(convert);
       Vue.set(vm.marketPrice, convert.data.s.toLowerCase(), convert.data.p);
-      Vue.set(vm.lastPrice, convert.data.s.toLowerCase(), convert.data.q);
+      //Vue.set(vm.lastPrice, convert.data.s.toLowerCase(), convert.data.e);
       // console.log(vm.marketPrice);
+    };
+    // URL connection
+    const ws = this;
+    this.ticker = new WebSocket(
+      `wss://stream.binance.com:9443/stream?streams=btcusdt@ticker/bnbusdt@ticker/ethusdt@ticker/chzusdt@ticker/adausdt@ticker/ampusdt@ticker/sandusdt@ticker/aliceusdt@ticker/manausdt@ticker/galausdt@ticker/shibusdt@ticker/dogeusdt@ticker/solusdt@ticker/lunausdt@ticker/filusdt@ticker/avaxusdt@ticker`
+    );
+    this.ticker.onmessage = function (event) {
+      const convert = JSON.parse(event.data);
+      //console.log(convert);
+      Vue.set(ws.openPrice, convert.data.s.toLowerCase(), convert.data.o);
+      Vue.set(ws.lasttPrice, convert.data.s.toLowerCase(), convert.data.c);
+      Vue.set(ws.priceChange, convert.data.s.toLowerCase(), convert.data.P);
+      //console.log(ws.priceChange);
     };
   },
   // async created() {
