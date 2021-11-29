@@ -1,19 +1,10 @@
 <template>
   <div>
-    <div
-      class="w-full p-10"
-      :style="{
-        'background-image':
-          'url(https://images6.alphacoders.com/888/888108.png)',
-      }"
-    >
+    <div class="w-full bg-dark p-10">
       <div class="row">
         <div class="col pt-10">
-          <div
-            class="card border-success mb-3 bg-dark"
-            style="max-width: 18rem"
-          >
-            <div class="card-header text-gray-100">Bitcoin Price</div>
+          <div class="card mb-3 bg-white" style="max-width: 18rem">
+            <div class="card-header border-dark text-dark">Bitcoin Price</div>
             <div class="card-body flex itmes-center justify-center space-x-5">
               <div class="my-auto">
                 <img
@@ -24,11 +15,11 @@
                 />
               </div>
               <div>
-                <p class="text-gray-300 p-0 m-0">
+                <p class="text-gray-500 p-0 m-0">
                   BTC / USDT
                   <!-- <span class="text-green-500 font-bold m-0 p-0">5%</span> -->
                 </p>
-                <p class="text-2xl font-bold p-0 m-0 text-gray-400">
+                <p class="text-2xl font-bold p-0 m-0 text-gray-600">
                   {{
                     Math.floor(marketPrice.btcusdt).toLocaleString("en-US", {
                       maximumFractionDigits: 2,
@@ -36,7 +27,7 @@
                   }}
                   USD
                 </p>
-                <p class="text-lg p-0 m-0 text-gray-400">
+                <p class="text-lg p-0 m-0 text-gray-500">
                   {{
                     Math.floor(marketPrice.btcusdt * 33.3).toLocaleString(
                       "en-US",
@@ -52,8 +43,8 @@
           </div>
         </div>
         <div class="col pt-10">
-          <div class="card mb-3 bg-dark" style="max-width: 18rem">
-            <div class="card-header text-white">Ethereum Price</div>
+          <div class="card mb-3 bg-white" style="max-width: 18rem">
+            <div class="card-header border-dark text-dark">Ethereum Price</div>
             <div class="card-body flex itmes-center justify-center space-x-5">
               <div class="my-auto">
                 <img
@@ -64,11 +55,11 @@
                 />
               </div>
               <div>
-                <p class="text-gray-300 p-0 m-0">
+                <p class="text-gray-500 p-0 m-0">
                   ETH / USDT
                   <!-- <span class="text-green-500 font-bold m-0 p-0">5%</span> -->
                 </p>
-                <p class="text-2xl font-bold p-0 m-0 text-gray-400">
+                <p class="text-2xl font-bold p-0 m-0 text-gray-600">
                   {{
                     Math.floor(marketPrice.ethusdt).toLocaleString("en-US", {
                       maximumFractionDigits: 2,
@@ -76,7 +67,7 @@
                   }}
                   USD
                 </p>
-                <p class="text-lg p-0 m-0 text-gray-400">
+                <p class="text-lg p-0 m-0 text-gray-500">
                   {{
                     Math.floor(marketPrice.ethusdt * 33.3).toLocaleString(
                       "en-US",
@@ -92,8 +83,10 @@
           </div>
         </div>
         <div class="col pt-10">
-          <div class="card mb-3 bg-dark" style="max-width: 18rem">
-            <div class="card-header text-gray-100">Binacne Coin Price</div>
+          <div class="card mb-3 bg-white" style="max-width: 18rem">
+            <div class="card-header border-dark text-dark">
+              Binacne Coin Price
+            </div>
             <div class="card-body flex itmes-center justify-center space-x-5">
               <div class="my-auto">
                 <img
@@ -104,11 +97,11 @@
                 />
               </div>
               <div>
-                <p class="text-gray-300 p-0 m-0">
+                <p class="text-gray-500 p-0 m-0">
                   BNB / USDT
                   <!-- <span class="text-red-500 font-bold m-0 p-0">-5%</span> -->
                 </p>
-                <p class="text-2xl font-bold p-0 m-0 text-gray-400">
+                <p class="text-2xl font-bold p-0 m-0 text-gray-600">
                   {{
                     Math.floor(marketPrice.bnbusdt).toLocaleString("en-US", {
                       maximumFractionDigits: 2,
@@ -116,7 +109,7 @@
                   }}
                   USD
                 </p>
-                <p class="text-lg p-0 m-0 text-gray-400">
+                <p class="text-lg p-0 m-0 text-gray-500">
                   {{
                     Math.floor(marketPrice.bnbusdt * 33.3).toLocaleString(
                       "en-US",
@@ -132,9 +125,9 @@
           </div>
         </div>
         <div class="col">
-          <div class="card mb-3 flex bg-dark">
-            <div class="card-header text-white">My Coin !</div>
-            <div class="card-body text-white">
+          <div class="card mb-3 flex bg-white">
+            <div class="card-header border-dark text-dark">My Coin !</div>
+            <div class="card-body text-dark">
               <DashPie />
             </div>
           </div>
@@ -142,7 +135,7 @@
       </div>
       <div class="row mt-3">
         <div class="span3">
-          <table class="table sticky table-dark table-striped">
+          <table class="table sticky table-light table-striped">
             <thead>
               <tr>
                 <th scope="col"></th>
@@ -164,7 +157,7 @@
                 </td>
                 <td>
                   ETH
-                  <footer>Eteream</footer>
+                  <footer class="text-gray-500">Eteream</footer>
                 </td>
                 <td>
                   ${{

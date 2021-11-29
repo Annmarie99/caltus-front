@@ -1,22 +1,17 @@
 <template>
   <div class="">
-    <div
-      class="w-full p-10 pt-10 h-screen"
-      :style="{
-        'background-image':
-          'url(https://images6.alphacoders.com/888/888108.png)',
-      }"
-    >
-      <form action="">
-        <div class="w-25 p-4 rounded-lg mx-auto mt-auto">
-          <h2 class="text-gray-100 text-center text-5xl">Sign Up</h2>
+    <div class="w-full p-10 pt-10 h-screen bg-dark">
+      <br /><br />
+      <form action="" class="center">
+        <div class="w-25 p-4 rounded-lg mx-auto mt-auto bg-white mt-11">
+          <h2 class="text-gray-600 text-center text-5xl">Sign Up</h2>
           <!-- <v-alert :value="userExists" color="error" icon="warning"
             >This user already exists, try a different set of data.</v-alert
           > -->
           <b-form-input
             type="texy"
             id="inline-form-input-name"
-            class="mb-2 mr-sm-2 mb-sm-0 mt-5"
+            class="mb-2 mr-sm-2 mb-sm-0 mt-5 shadow"
             v-model="fist_name"
             placeholder="firstname"
           ></b-form-input>
@@ -24,7 +19,7 @@
           <b-form-input
             type="text"
             id="inline-form-input-name"
-            class="mb-2 mr-sm-2 mb-sm-0 mt-3"
+            class="mb-2 mr-sm-2 mb-sm-0 mt-3 shadow"
             placeholder="lastname"
             v-model="last_name"
           ></b-form-input>
@@ -32,7 +27,7 @@
           <b-form-input
             type="text"
             id="inline-form-input-name"
-            class="mb-2 mr-sm-2 mb-sm-0 mt-3"
+            class="mb-2 mr-sm-2 mb-sm-0 mt-3 shadow"
             placeholder="username"
             v-model="username"
           ></b-form-input>
@@ -40,7 +35,7 @@
           <b-form-input
             type="email"
             id="inline-form-input-name"
-            class="mb-2 mr-sm-2 mb-sm-0 mt-3"
+            class="mb-2 mr-sm-2 mb-sm-0 mt-3 shadow"
             placeholder="email"
             v-model="email"
           ></b-form-input>
@@ -48,7 +43,7 @@
           <b-form-input
             type="password"
             id="inline-form-input-name"
-            class="mb-2 mr-sm-2 mb-sm-0 mt-3"
+            class="mb-2 mr-sm-2 mb-sm-0 mt-3 shadow"
             placeholder="password"
             v-model="password"
           >
@@ -58,7 +53,7 @@
           <b-form-input
             type="password"
             id="inline-form-input-name"
-            class="mb-2 mr-sm-2 mb-sm-0 mt-3"
+            class="mb-2 mr-sm-2 mb-sm-0 mt-3 shadow"
             placeholder="Re-password"
             v-model="repassword"
           ></b-form-input>

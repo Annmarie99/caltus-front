@@ -35,7 +35,7 @@
       ><b-nav-item href="#" @click="$router.push('/more')" class="learnmore"
         >Learn More</b-nav-item
       >
-      <b-nav-item class="ml-auto">{{ cookieName }}</b-nav-item>
+      <b-nav-item class="ml-auto">Hello, {{ cookieName }}</b-nav-item>
 
       <b-nav-item right href="#" @click="logOut()" class="logout ml-auto"
         >Logout</b-nav-item
@@ -49,7 +49,7 @@ export default {
   name: "Navbar",
   id: "",
   mounted() {
-    this.cookieName = localStorage.getItem("userName");
+    this.cookieName = localStorage.getItem("username");
     this.id = localStorage.getItem("id_user");
   },
   data() {
