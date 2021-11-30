@@ -96,17 +96,16 @@ export default {
       console.log(`result`, result);
     },
     handleSubmit() {
-      console.warn(this.username)
-      console.warn(this.password)
       const dataUser = {
-        username : 'test',
-        password : 'test'
+        username : "test",
+        password : "test"
       }
       axios.post("https://caltus.herokuapp.com/api/login",dataUser).then((response) => {
-        this.userid = response.data.data[0].id_user;
+        console.warn("------------------------------------------------")
         console.log(this.userid);
+        this.userid = response.data.data[0].id_user;
         localStorage.setItem("id_user",this.userid);
-        this.$router.push(`dash/${this.userid}`); 
+        this.$router.push("/dash/"+this.userid); 
       }
     );
     },
