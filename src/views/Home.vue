@@ -50,7 +50,7 @@
           </div>
         </form>
         <form action="#" class="sign-up-form">
-          <h2 class="title">Sign In</h2>
+          <h2 class="title">Signs In</h2>
         </form>
       </div>
     </div>
@@ -79,16 +79,16 @@ export default {
       password: "",
       user: "usertest",
       pass: "1234",
-      userid: [],
+      userid: 0,
     };
   },
-  mounted() {
-    console.warn("hello test");
-    Vue.axios.get("https://caltus.herokuapp.com/api/user").then((response) => {
-      console.log(response.data.data);
-      this.userid = response.data.data;
-    });
-  },
+  // mounted() {
+  //   console.warn("hello test");
+  //   Vue.axios.get("https://caltus.herokuapp.com/api/user").then((response) => {
+  //     console.log(response.data.data);
+  //     this.userid = response.data.data;
+  //   });
+  // },
   methods: {
     async logOut() {
       const result = await this.$gAuth.signOut();
@@ -96,38 +96,37 @@ export default {
       console.log(`result`, result);
     },
     handleSubmit() {
-      for (var i = 0; i <= this.userid.length; i++) {
-        console.warn(this.userid[i].username + " : " + this.userid[i].id_user);
-        if (
-          this.username == this.userid[i].username &&
-          this.password == this.userid[i].id_user
-        ) {
-          localStorage.setItem("username", this.username);
-          localStorage.setItem("id_user", this.userid[i].id_user);
-          this.$router.push("/dash/" + this.userid[i].id_user);
-          break;
-        } else if (i == this.userid.length - 1) {
-          alert("Invalid username or password!");
-        }
+      console.warn(this.username)
+      console.warn(this.password)
+      const dataUser = {
+        username : 'test',
+        password : 'test'
       }
+      axios.post("https://caltus.herokuapp.com/api/login",dataUser).then((response) => {
+        this.userid = response.data.data[0].id_user;
+        console.log(this.userid);
+        localStorage.setItem("id_user",this.userid);
+        this.$router.push(`dash/${this.userid}`); 
+      }
+    );
     },
 
-    async login() {
-      const googleUser = await this.$gAuth.signIn();
-      console.log("googleUser", googleUser);
-      // console.log("getId", googleUser.getId());
-      // console.log("getBaseProfile", googleUser.getBasicProfile());
-      // console.log("getBaseProfile", googleUser.getBasicProfile().Se);
-      // console.log("getAuthResponse", googleUser.getAuthResponse());
-      // console.log(
-      //   "getAuthResponse$G",
-      //   this.$gAuth.GoogleAuth.currentUser.get().getAuthResponse()
-      // );
-      this.isLogin = this.$gAuth.isAuthorized;
-      localStorage.setItem("userName", googleUser.getBasicProfile().Se);
+    // async login() {
+    //   const googleUser = await this.$gAuth.signIn();
+    //   console.log("googleUser", googleUser);
+    //   // console.log("getId", googleUser.getId());
+    //   // console.log("getBaseProfile", googleUser.getBasicProfile());
+    //   // console.log("getBaseProfile", googleUser.getBasicProfile().Se);
+    //   // console.log("getAuthResponse", googleUser.getAuthResponse());
+    //   // console.log(
+    //   //   "getAuthResponse$G",
+    //   //   this.$gAuth.GoogleAuth.currentUser.get().getAuthResponse()
+    //   // );
+    //   this.isLogin = this.$gAuth.isAuthorized;
+    //   localStorage.setItem("userName", googleUser.getBasicProfile().Se);
 
-      this.$router.push("/dash");
-    },
+    //   this.$router.push("/dash");
+    // },
     // getUerData() {
     //   this.FB.api(
     //     "/me",

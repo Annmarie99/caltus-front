@@ -126,25 +126,32 @@ export default {
     };
   },
 
-  async mounted() {
-    let results = await axios.post("https://caltus.herokuapp.com/api/calculateApy", [
-      {
-        id_cal: this.id_cal,
-        principal_amount: this.value,
-        apy: this.apy,
-        day: this.days,
-        result: this.result,
-        
-      },
-    ]);console.warn(results);
+  mounted() {
+    
   },
   methods: {
-    calculateAPY(e) {
+    async calculateAPY(e) {
       e.preventDefault();
       const x = (parseFloat(this.apy) / 365) * parseFloat(this.days);
       const totalInterest = (parseFloat(this.value) * x) / 100;
       const totalBalance = totalInterest + parseFloat(this.value);
       this.result = { totalInterest, totalBalance, totalDays: this.days };
+      
+      // console.warn(this.id_cal)
+      console.warn(this.value)
+      console.warn(this.apy)
+      console.warn(this.result)
+      console.warn(this.days)
+      let results = await axios.post("https://caltus.herokuapp.com/api/calculateApy", [
+      {
+        id_user: '5',
+        id_cal: this.id_cal,
+        principal_amount: this.value,
+        apy: this.apy,
+        day: this.days,
+        result: this.result,
+      },
+      ]);console.warn(results);
     },
   },
 };

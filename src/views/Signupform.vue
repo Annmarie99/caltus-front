@@ -2,7 +2,7 @@
   <div class="">
     <div class="w-full p-10 pt-10 h-screen bg-dark">
       <br /><br />
-      <form action="" class="center">
+      <form action="" class="center"  @submit="handleSubmit">
         <div class="w-25 p-4 rounded-lg mx-auto mt-auto bg-white mt-11">
           <h2 class="text-gray-600 text-center text-5xl">Sign Up</h2>
           <!-- <v-alert :value="userExists" color="error" icon="warning"
@@ -12,7 +12,7 @@
             type="texy"
             id="inline-form-input-name"
             class="mb-2 mr-sm-2 mb-sm-0 mt-5 shadow"
-            v-model="fist_name"
+            v-model="first_name"
             placeholder="firstname"
           ></b-form-input>
 
@@ -58,7 +58,7 @@
             v-model="repassword"
           ></b-form-input>
 
-          <div class="text-center mt-5" type="submit" @submit="handleSubmit">
+          <div class="text-center mt-5" type="submit">
             <button
               class="
                 bg-blue-400
@@ -108,37 +108,33 @@ export default {
       username: "",
       email: "",
       password: "",
+      repassword:"",
     };
   },
-  // data: () => ({
-  //   userExists: false,
-  //   firstname: "",
-  //   lastname: "",
-  //   username: "",
-  //   email: "",
-  //   password: "",
-  //   confirm_password: "",
-  //   rules: {
-  //     required: (value) => !!value || "Required",
-  //     email: (value) => {
-  //       const pattern =
-  //         /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-  //       return pattern.test(value) || "Invalid e-mail.";
-  //     },
-  //   },
-  // }),
   methods: {
     async handleSubmit() {
-      await axios.post("REGISTER", {
-        firstname: this.firstname,
-        lastname: this.lastname,
+      if(this.password==this.repassword){
+        console.warn("in if")
+        let result =await axios.post("https://caltus.herokuapp.com/api/register", {
+        first_name: this.first_name,
+        last_name: this.last_name,
         username: this.username,
         email: this.email,
         password: this.password,
-        confirm_password: this.confirm_password,
-      });
+        });
+        console.warn(result)
+        console.warn(result.data.error)
+        if(result.data.error==true){
+          alert("this user already has an account !");
+        }else{
+          this.$router.push('/index')
+        }
+      }else{
+        alert("Invalid password!");
+      }
+      
 
-      this.$router.push("/");
+      // this.$router.push("/");
     },
     // handleSubmit() {
     //   if (this.valid()) {

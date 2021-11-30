@@ -2,6 +2,7 @@
   <div>
     <div class="w-full mx-auto pb-36 p-10 m-0 text-center bg-dark h-screen">
       <h1 class="text-white">TRACKER</h1>
+       <h2 class="text-white">ระบบติดตามเหรียญที่ซื้อไปแล้ว</h2>
       <div class="grid grid-cols-6">
         <h5 class="text-white text-left">Currency change</h5>
       </div>
@@ -172,13 +173,13 @@
       </div>
      
 
-     <div>
+    <!--- <div>
      
      <b-button type="reset" variant="danger">Clear</b-button>
      
      </div>
 
-
+-->
 
 
     </div>
