@@ -9,7 +9,7 @@
       </p>
       <br />
       <p class="text-white text-center text-2xl p-0 m-0">
-        การคำนวณค่าเปอร์นที่เปลี่ยนไป
+        การคำนวณค่าเปอร์เซ็นต์ที่เปลี่ยนไป
       </p>
       <br />
     </div>
@@ -39,7 +39,7 @@
                 Base Amount </b-card-text
               ><br />
               <b-card-text class="text-left text-lg">
-                ขั้นตอนที่ 2 : ใส่กำไรเป้าหมายที่เคุณต้องการกี่เปอร์เซ็น ในช่อง
+                ขั้นตอนที่ 2 : ใส่กำไรเป้าหมายที่คุณต้องการกี่เปอร์เซ็น ในช่อง
                 Gain want to achieve in % </b-card-text
               ><br />
               <b-card-text class="text-left text-lg">

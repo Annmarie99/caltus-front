@@ -144,7 +144,7 @@ export default {
       console.warn(this.days)
       let results = await axios.post("https://caltus.herokuapp.com/api/calculateApy", [
       {
-        id_user: '5',
+        id_user: '2',
         id_cal: 8,
         principal_amount: this.value,
         apy: this.apy,

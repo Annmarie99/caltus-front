@@ -42,7 +42,7 @@
                 7x คุณสามารถป้อน ”7” ในช่อง Quantity </b-card-text
               ><br />
               <b-card-text class="text-left text-lg">
-                ขั้นตอนที่ 3 : ใส่ยอดคงเหลือในกระเป๋าเงินFutures ในช่อง Balance </b-card-text
+                ขั้นตอนที่ 3 : ใส่ยอดคงเหลือในกระเป๋าเงิน Futures ในช่อง Balance </b-card-text
               ><br />
               <b-card-text class="text-left text-lg">
                 ขั้นตอนที่ 4 : เมื่อใส่ตัวเลขทุกช่องตามที่ต้องการแล้ว ให้คุณกด

@@ -2,7 +2,7 @@
   <div class="container m-0">
     <div class="form-container bg-gradient-to-r from-green-600 to-gray-700">
       <div class="signin-signup">
-        <form action="" class="sign-in-form ml-auto w-3/4">
+        <form action="" class="sign-in-form ml-auto w-3/4"  >
           <h1 class="title text-white">Sign in</h1>
 
           <div class="input-field">
@@ -24,13 +24,12 @@
               required
             />
           </div>
-
+     
           <b-button
-            @click="handleSubmit"
+            @click="Submit"
             type="submit"
             class="bg-gradient-to-r from-green-600 to-gray-700"
-            >Sign in</b-button
-          >
+            >Sign in</b-button>
 
           <p class="forgot-password text-right text-white">
             <router-link to="forgot">Forgot password?</router-link>
@@ -49,9 +48,9 @@
             </a>
           </div>
         </form>
-        <form action="#" class="sign-up-form">
+      <!-- <form action="/dash/" class="sign-up-form" method="post" @submit="Submit">
           <h2 class="title">Signs In</h2>
-        </form>
+        </form>-->
       </div>
     </div>
 
@@ -95,62 +94,85 @@ export default {
       this.isLogin = false;
       console.log(`result`, result);
     },
-    handleSubmit() {
-      const dataUser = {
-        username : "test",
-        password : "test"
+    async Submit() {
+      let dataUser = {
+        username : this.username,
+        password : this.password
       }
+      console.warn(dataUser.username)
+      console.warn(dataUser.password)
+      console.log(dataUser);
       axios.post("https://caltus.herokuapp.com/api/login",dataUser).then((response) => {
-        console.warn("------------------------------------------------")
-        console.log(this.userid);
+       console.warn("------------------------------------------------")
+        console.log(response.data);
         this.userid = response.data.data[0].id_user;
         localStorage.setItem("id_user",this.userid);
-        this.$router.push("/dash/"+this.userid); 
+        this.isLogin = true;
+         this.$router.push("/dash/"+this.userid);
+        this.$router.push("/dash/");
       }
     );
     },
 
-    // async login() {
-    //   const googleUser = await this.$gAuth.signIn();
-    //   console.log("googleUser", googleUser);
-    //   // console.log("getId", googleUser.getId());
-    //   // console.log("getBaseProfile", googleUser.getBasicProfile());
-    //   // console.log("getBaseProfile", googleUser.getBasicProfile().Se);
-    //   // console.log("getAuthResponse", googleUser.getAuthResponse());
-    //   // console.log(
-    //   //   "getAuthResponse$G",
-    //   //   this.$gAuth.GoogleAuth.currentUser.get().getAuthResponse()
-    //   // );
-    //   this.isLogin = this.$gAuth.isAuthorized;
-    //   localStorage.setItem("userName", googleUser.getBasicProfile().Se);
+    async login() {
+      const googleUser = await this.$gAuth.signIn();
+      console.log("googleUser", googleUser.getBasicProfile());
 
-    //   this.$router.push("/dash");
-    // },
-    // getUerData() {
-    //   this.FB.api(
-    //     "/me",
-    //     "GET",
-    //     { field: "id,name,email" },
-    //     (UserInformation) => {
-    //       console.warn("get data from fb", UserInformation);
-    //       this.personalID = UserInformation.id;
-    //       this.email = UserInformation.email;
-    //       this.name = UserInformation.name;
-    //     }
-    //   );
-    // },
-    // sdkLoaded(payload) {
-    //   this.isConnected = payload.isConnected;
-    //   this.FB = payload.FB;
-    //   if (this.isConnected) this.getUserData();
-    // },
-    // onLogin() {
-    //   this.isConnected = true;
-    //   this.getUserData();
-    // },
-    // onLogout() {
-    //   this.isConnected = false;
-    // },
+      const dataUser = {
+        first_name: googleUser.getBasicProfile().VX,
+        last_name: googleUser.getBasicProfile().kW,
+        email: googleUser.getBasicProfile().pv,
+      }
+      console.log(dataUser);
+
+      axios.post("https://caltus.herokuapp.com/api/loginWithGoogle",dataUser).then((response) => {
+        console.warn("------------------------------------------------")
+        console.log(this.userid);
+        this.userid = response.data.data.id_user;
+        localStorage.setItem("id_user",this.userid);
+        this.isLogin = true;
+        this.$router.push("/dash/"+this.userid); 
+      }
+    );
+
+      // console.log("getId", googleUser.getId());
+      // console.log("getBaseProfile", googleUser.getBasicProfile());
+      // console.log("getBaseProfile", googleUser.getBasicProfile().Se);
+      // console.log("getAuthResponse", googleUser.getAuthResponse());
+      // console.log(
+      //   "getAuthResponse$G",
+      //   this.$gAuth.GoogleAuth.currentUser.get().getAuthResponse()
+      // );
+      // this.isLogin = this.$gAuth.isAuthorized;
+      // localStorage.setItem("userName", googleUser.getBasicProfile().Se);
+
+      // this.$router.push("/dash/" +googleUser);
+    },
+    getUerData() {
+      this.FB.api(
+        "/me",
+        "GET",
+        { field: "id,name,email" },
+        (UserInformation) => {
+          console.warn("get data from fb", UserInformation);
+          this.personalID = UserInformation.id;
+          this.email = UserInformation.email;
+          this.name = UserInformation.name;
+        }
+      );
+    },
+    sdkLoaded(payload) {
+      this.isConnected = payload.isConnected;
+      this.FB = payload.FB;
+      if (this.isConnected) this.getUserData();
+    },
+    onLogin() {
+      this.isConnected = true;
+      this.getUserData();
+    },
+    onLogout() {
+      this.isConnected = false;
+    },
   },
 };
 </script>

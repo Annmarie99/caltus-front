@@ -190,6 +190,8 @@
 import { tokenList } from "../../constants/tokenlist";
 import { curencyList } from "../../constants/currency";
 import Vue from "vue";
+// import { axios } from 'vue/types/umd';
+import axios from "axios";
 
 // import DashLine from "../components/graph/DashLine.vue";
 export default {
@@ -274,6 +276,15 @@ export default {
       };
       this.myCoin.push(newCoin);
       console.log(this.apiLink);
+
+      // Add Tracker backend
+      axios.get("https://caltus.herokuapp.com/api/session").then((res) => {
+        console.log(res.data);
+      })
+      axios.post("https://caltus.herokuapp.com/api/trackers",{stock_name: newCoin.coinName, amount_stock: newCoin.amount, buy_pricel:newCoin.price}).then((res) => {
+        console.log(res.data);
+      })
+
     },
     clearData(){
 

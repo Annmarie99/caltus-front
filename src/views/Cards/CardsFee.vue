@@ -33,7 +33,7 @@
               class="text-center text-2xl howto2"
             >
               <b-card-text class="text-left text-lg">
-                ขั้นตอนแรก : ใส่จำนวนจำนวนเหรียญของคุณ เช่น 100 เหรียญ ในช่อง
+                ขั้นตอนแรก : ใส่จำนวนเหรียญของคุณ เช่น 100 เหรียญ ในช่อง
                 Amount of coins </b-card-text
               ><br />
               <b-card-text class="text-left text-lg">
