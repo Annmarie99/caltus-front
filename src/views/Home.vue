@@ -2,7 +2,7 @@
   <div class="container m-0">
     <div class="form-container bg-gradient-to-r from-green-600 to-gray-700">
       <div class="signin-signup">
-        <form action="" class="sign-in-form ml-auto w-3/4"  >
+        <form @submit.prevent="Submit" action="" class="sign-in-form ml-auto w-3/4"  >
           <h1 class="title text-white">Sign in</h1>
 
           <div class="input-field">
@@ -26,7 +26,6 @@
           </div>
      
           <b-button
-            @click="Submit"
             type="submit"
             class="bg-gradient-to-r from-green-600 to-gray-700"
             >Sign in</b-button>
@@ -104,12 +103,10 @@ export default {
       console.log(dataUser);
       axios.post("https://caltus.herokuapp.com/api/login",dataUser).then((response) => {
        console.warn("------------------------------------------------")
-        console.log(response.data);
-        this.userid = response.data.data[0].id_user;
+        this.userid = response.data.data.id_user
         localStorage.setItem("id_user",this.userid);
         this.isLogin = true;
          this.$router.push("/dash/"+this.userid);
-        this.$router.push("/dash/");
       }
     );
     },
