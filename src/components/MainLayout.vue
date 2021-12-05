@@ -1,16 +1,17 @@
 <template>
   <div>
-    <navbar v-if="!isHome" />
+    <NavbarX v-if="!isHome" />
     <slot />
   </div>
 </template>
 
 <script>
-import Navbar from "./Layouts/Navbar.vue";
+import NavbarX from "./Layouts/NavbarX.vue";
 
 export default {
-  components: { Navbar },
+  components: { NavbarX },
   name: "MainLayout",
+
   computed: {
     isHome() {
       return this.$route.path === "/" || this.$route.path === "/signup";

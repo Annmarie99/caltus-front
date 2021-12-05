@@ -35,7 +35,7 @@
       ><b-nav-item href="#" @click="$router.push('/more')" class="learnmore"
         >Learn More</b-nav-item
       >
-      <b-nav-item class="ml-auto">Hello, {{ cookieName }}</b-nav-item>
+      <b-nav-item class="ml-auto">{{ firstName }} {{ lastName }}</b-nav-item>
 
       <b-nav-item right href="#" @click="logOut()" class="logout ml-auto"
         >Logout</b-nav-item
@@ -45,17 +45,31 @@
 </template>
 
 <script>
+import axios from "axios";
+
 export default {
-  name: "Navbar",
-  id: "",
-  mounted() {
-    this.cookieName = localStorage.getItem("username");
-    this.id = localStorage.getItem("id_user");
-  },
+  name: "NavbarX",
+
   data() {
     return {
-      cookieName: "user",
+      firstName: "Loading...",
+      lastName: "Loadings..",
     };
+  },
+  mounted() {
+    const userIDx = localStorage.getItem("id_user");
+    console.log(userIDx, "asdasdasdasd");
+    axios
+      .get("https://caltus.herokuapp.com/api/user")
+      .then((res) => {
+        console.log(res.data.data);
+        const x = res.data.data.filter((x) => +x.id_user === +userIDx);
+        this.firstName = x[0].first_name;
+        this.lastName = x[0].last_name;
+      })
+      .catch((err) => {
+        console.log(err, "yoyoyoyoyoyyooyoyoyoy");
+      });
   },
   methods: {
     async logOut() {

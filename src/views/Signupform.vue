@@ -2,7 +2,7 @@
   <div class="">
     <div class="w-full p-10 pt-10 h-screen bg-dark">
       <br /><br />
-      <form action="" class="center"  @submit="handleSubmit">
+      <form action="" class="center" @submit.prevent="handleSubmit">
         <div class="w-25 p-4 rounded-lg mx-auto mt-auto bg-white mt-11">
           <h2 class="text-gray-600 text-center text-5xl">Sign Up</h2>
           <!-- <v-alert :value="userExists" color="error" icon="warning"
@@ -108,31 +108,39 @@ export default {
       username: "",
       email: "",
       password: "",
-      repassword:"",
+      repassword: "",
     };
   },
   methods: {
     async handleSubmit() {
-      if(this.password==this.repassword){
-        console.warn("in if")
-        let result =await axios.post("https://caltus.herokuapp.com/api/register", {
+      console.log({
         first_name: this.first_name,
         last_name: this.last_name,
         username: this.username,
         email: this.email,
         password: this.password,
-        });
-        console.warn(result)
-        console.warn(result.data.error)
-        if(result.data.error==true){
+      });
+      if (this.password == this.repassword) {
+        console.warn("in if");
+        let result = await axios.post(
+          "https://caltus.herokuapp.com/api/register",
+          {
+            first_name: this.first_name,
+            last_name: this.last_name,
+            username: this.username,
+            email: this.email,
+            password: this.password,
+          }
+        );
+        // const userId = result.data.data.id_user;
+        if (result.data.error == true) {
           alert("this user already has an account !");
-        }else{
-          this.$router.push('/index')
+        } else {
+          this.$router.push(`/`);
         }
-      }else{
+      } else {
         alert("Invalid password!");
       }
-      
 
       // this.$router.push("/");
     },
