@@ -18,7 +18,7 @@
         ></b-button>
       </div>
     </div>
-    
+
     <div class="flex-1 w-full grid grid-cols-3 gap-4 p-3">
       <b-card
         v-for="note in notes"
@@ -44,10 +44,13 @@
             max-rows="20"
           ></b-form-textarea>
           <div class="w-full flex icon space-x-3 justify-end pt-3">
-            <b-button variant="danger" block @click="hideModal"
+            <b-button variant="danger" @click="deleteNote(note.id_note)" block
               >Delete</b-button
             >
-            <b-button variant="success" block @click="toggleModal"
+            <b-button
+              variant="success"
+              @click="saveNote(note.id_note, note.content)"
+              block
               >Save</b-button
             >
           </div>
@@ -59,33 +62,74 @@
 
 <script>
 import NoteSidebar from "../components/note/NoteSidebar.vue";
+import axios from "axios";
 export default {
   components: { NoteSidebar },
   name: "Note",
   data() {
     return {
       modalShow: false,
-      notes: [
-        {
-          id: 1,
-          content: "Hello, World",
-          edit: false,
-        },
-        {
-          id: 2,
-          content: "hello, again!",
-          edit: false,
-        },
-      ],
+      notes: [],
     };
   },
+  async mounted() {
+    console.warn(localStorage.getItem("user_id"));
+    this.notepage();
+  },
   methods: {
-    newNote() {
-      this.notes.push({
-        id: this.notes[this.notes.length - 1].id + 1,
-        content: "new Note",
-        edit: false,
+    async newNote() {
+      let results = await axios.post("http://localhost:5500/api/notes", {
+        id_user: localStorage.getItem("user_id"),
+        note_name: "notes",
+        content_note: "New Note Page",
+        image_note: "",
       });
+      console.warn(results);
+      this.notepage();
+    },
+    async notepage() {
+      this.notes = [];
+      let results = await axios.get("http://localhost:5500/api/notes", {
+        params: {
+          id_user: localStorage.getItem("user_id"),
+        },
+      });
+      console.warn(results);
+
+      for (let i = 0; i < results.data.data.length; i++) {
+        this.notes.push({
+          id_note: results.data.data[i].id_note,
+          content: results.data.data[i].content_note,
+          edit: false,
+        });
+      }
+    },
+    async saveNote(id, contact) {
+      console.warn(id);
+      console.warn(contact);
+      let results = await axios.put("http://localhost:5500/api/notes/" + id, {
+        params: {
+          id_user: localStorage.getItem("user_id"),
+          note_name: "notes",
+          content_note: contact,
+          image_note: "",
+        },
+      });
+      console.warn(results);
+      this.notepage();
+    },
+    async deleteNote(id) {
+      console.log("delete " + id);
+      let results = await axios.delete(
+        "http://localhost:5500/api/notes/" + id,
+        {
+          params: {
+            id_user: localStorage.getItem("user_id"),
+          },
+        }
+      );
+      console.warn(results);
+      this.notepage();
     },
   },
 };

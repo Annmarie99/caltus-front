@@ -2,7 +2,11 @@
   <div class="container m-0">
     <div class="form-container bg-gradient-to-r from-green-600 to-gray-700">
       <div class="signin-signup">
-        <form @submit.prevent="Submit" action="" class="sign-in-form ml-auto w-3/4"  >
+        <form
+          @submit.prevent="Submit"
+          action=""
+          class="sign-in-form ml-auto w-3/4"
+        >
           <h1 class="title text-white">Sign in</h1>
 
           <div class="input-field">
@@ -24,11 +28,12 @@
               required
             />
           </div>
-     
+
           <b-button
             type="submit"
             class="bg-gradient-to-r from-green-600 to-gray-700"
-            >Sign in</b-button>
+            >Sign in</b-button
+          >
 
           <p class="forgot-password text-right text-white">
             <router-link to="forgot">Forgot password?</router-link>
@@ -47,7 +52,7 @@
             </a>
           </div>
         </form>
-      <!-- <form action="/dash/" class="sign-up-form" method="post" @submit="Submit">
+        <!-- <form action="/dash/" class="sign-up-form" method="post" @submit="Submit">
           <h2 class="title">Signs In</h2>
         </form>-->
       </div>
@@ -95,20 +100,21 @@ export default {
     },
     async Submit() {
       let dataUser = {
-        username : this.username,
-        password : this.password
-      }
-      console.warn(dataUser.username)
-      console.warn(dataUser.password)
+        username: this.username,
+        password: this.password,
+      };
+      console.warn(dataUser.username);
+      console.warn(dataUser.password);
       console.log(dataUser);
-      axios.post("https://caltus.herokuapp.com/api/login",dataUser).then((response) => {
-       console.warn("------------------------------------------------")
-        this.userid = response.data.data.id_user
-        localStorage.setItem("id_user",this.userid);
-        this.isLogin = true;
-         this.$router.push("/dash/"+this.userid);
-      }
-    );
+      axios
+        .post("http://localhost:5500/api/login", dataUser)
+        .then((response) => {
+          console.warn("------------------------------------------------");
+          this.user_id = response.data.data.id_user;
+          localStorage.setItem("user_id", this.user_id);
+          this.isLogin = true;
+          this.$router.push("/dash");
+        });
     },
 
     async login() {
@@ -119,18 +125,19 @@ export default {
         first_name: googleUser.getBasicProfile().VX,
         last_name: googleUser.getBasicProfile().kW,
         email: googleUser.getBasicProfile().pv,
-      }
+      };
       console.log(dataUser);
 
-      axios.post("https://caltus.herokuapp.com/api/loginWithGoogle",dataUser).then((response) => {
-        console.warn("------------------------------------------------")
-        console.log(this.userid);
-        this.userid = response.data.data.id_user;
-        localStorage.setItem("id_user",this.userid);
-        this.isLogin = true;
-        this.$router.push("/dash/"+this.userid); 
-      }
-    );
+      axios
+        .post("https://caltus.herokuapp.com/api/loginWithGoogle", dataUser)
+        .then((response) => {
+          console.warn("------------------------------------------------");
+          console.log(this.userid);
+          this.userid = response.data.data.id_user;
+          localStorage.setItem("id_user", this.userid);
+          this.isLogin = true;
+          this.$router.push("/dash");
+        });
 
       // console.log("getId", googleUser.getId());
       // console.log("getBaseProfile", googleUser.getBasicProfile());

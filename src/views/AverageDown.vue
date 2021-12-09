@@ -152,21 +152,16 @@
        <div class="w-1/4 p-2 bg-gray-800 text-white">
         <p class="text-center uppercase">History</p>
 
-        <div v-if="result" class="mt-5 text-gray-300 border-t-2 pt-4">
+        <div v-for="lists in history" :key="lists.id_history_calculate" class="mt-5 text-gray-300 border-t-2 pt-4">
           <p>
             The average cost for :
             <span class="text-calc-accent">{{
-              result.totalY.toFixed(2)
-            }}</span>
+              lists.result
+            }}</span> 
           </p>
-          <p>
-            Contracts / Shares is $ : 
-             <span class="text-calc-accent">{{
-              result.totalX.toFixed(2)
-            }}</span>
+          
             
-          </p>
-        
+          
         </div>
       </div>
 
@@ -198,31 +193,15 @@ export default {
       price4: "",
       price5: "",
       result: null,
+      history: [],
     };
   },
 async mounted() {
-    let results = await axios.post("https://caltus.herokuapp.com/api/calculateAverage", [
-      {
-
-    id_cal: this.id_cal,
-    quantity1: this.quantity1,
-    quantity2: this.quantity2,
-    quantity3:this.quantity3,
-    quantity4: this.quantity4,
-    quantity5: this.quantity5,
-    price1: this.price1,
-    price2: this.price2,
-    price3: this.price3,
-    price4: this.price4,
-    price5: this.price5,
-    result: this.result,
-        
-      },
-    ]);console.warn(results);
+    this.historys()
   },
 
   methods: {
-    calculateAver(u) {
+    async calculateAver(u) {
       u.preventDefault();
       const x = parseFloat(this.quantity) + parseFloat(this.quantity2) + parseFloat(this.quantity3) + parseFloat(this.quantity4) + parseFloat(this.quantity5);
       const totalX = x/5;
@@ -230,7 +209,39 @@ async mounted() {
       const totalY = y/5;
 
       this.result = { totalX, totalY };
+       // console.warn(this.id_cal)
+      
+      let results = await axios.post("http://localhost:5500/api/calculateAverage", 
+      {
+      id_user: localStorage.getItem('user_id'),
+      id_cal: 4,
+      quantity1: this.quantity1,
+      quantity2: this.quantity2,
+      quantity3:this.quantity3,
+      quantity4: this.quantity4,
+      quantity5: this.quantity5,
+      price1: this.price1,
+      price2: this.price2,
+      price3: this.price3,
+      price4: this.price4,
+      price5: this.price5,
+      result: this.result.totalY,
+        
+      },
+    );console.warn(results);
+    this.historys()
     },
+    async historys(){
+      this.history = []
+      let results = await axios.get("http://localhost:5500/api/calculateAverage",{
+        params:{
+          id_user: localStorage.getItem('user_id'),
+        },
+      });
+      console.warn(results);
+      this.history = results.data.data
+      console.warn(this.history)
+    }
   },
 };
   

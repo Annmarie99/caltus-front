@@ -55,16 +55,17 @@
       
       <div class="w-1/4 p-2 bg-gray-800 text-white">
         <p class="text-center uppercase">History</p>
-        <div v-if="result" class="mt-5 text-gray-300 border-t-2 pt-4">
+
+           <div v-for="lists in history" :key="lists.id_history_calculate" class="mt-5 text-gray-300 border-t-2 pt-4">
           <p>
             FOR :
-            <span class="text-calc-accent">{{ result.totalR }}</span> %
+            <span class="text-calc-accent">{{ lists.rate }}</span> %
             GAIN ON BASE AMOUNT WITH
-            <span class="text-calc-accent">{{ result.totalA }}</span> X 
+            <span class="text-calc-accent">{{ lists.leverage }}</span> X 
             LEVERAGE :
             YOU NEED TO TARGET 
             <span class="text-calc-accent">{{
-              result.totalCI.toFixed(2)
+              lists.result
             }}</span>%
           </p>
         </div>
@@ -90,26 +91,41 @@ export default {
       rate: "",
       p:0,
       result: null,
+      history:[],
     };
   },
-  async mounted() {
-    let results = await axios.post("https://caltus.herokuapp.com/api/calculateLeverage", [
-      {
-    id_cal: this.id_cal,
-    leverage: this. amount,
-    rate: this.rate,
-    result: this.result,
-      },
-    ]);console.warn(results);
+   mounted() {
+    this.historys()
   },
   methods: {
-    calculateMovment(m) {
+    async calculateMovment(m) {
       m.preventDefault();
       
       const totalCI = parseFloat(this.rate)/parseFloat(this.amount);
       this.result = { totalCI  , totalA: this.amount , totalR:this.rate};
       console.log(totalCI)
+      let results = await axios.post("http://localhost:5500/api/calculateLeverage", 
+      {
+        id_user: localStorage.getItem('user_id'),
+        id_cal: 7,
+        leverage: this. amount,
+        rate: this.rate,
+        result: this.result.totalCI,
+      },
+    );console.warn(results);
+    this.historys()
     },
+    async historys(){
+      this.history = []
+      let results = await axios.get("http://localhost:5500/api/calculateLeverage",{
+        params:{
+          id_user: localStorage.getItem('user_id'),
+        },
+      });
+      console.warn(results);
+      this.history = results.data.data
+      console.warn(this.history)
+    }
   },
 };
 </script>

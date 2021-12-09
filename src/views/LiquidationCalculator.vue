@@ -17,7 +17,7 @@
       <b-input-group prepend="$" append="$">
         <b-form-input
          class="bg-dark text-white"
-          v-model="value "
+          v-model="value"
           placeholder=""
         ></b-form-input> </b-input-group>
 
@@ -26,6 +26,7 @@
         <div class="field1">
         <div class="value left text-white ">0</div>
         <label for="range-1"  class="text-white" ></label> 
+
          <b-form-input id="range4" v-model="value" value="50" type="range" min="0"   max="10000000" step="1" ></b-form-input>
         <div class="value right text-white">10,000,000</div>
         <div id="selector1">
@@ -74,13 +75,11 @@
       <div class="w-1/4 p-2 bg-gray-800 text-white">
         <p class="text-center uppercase">History</p>
 
+       <div v-for="lists in history" :key="lists.id_history_calculate" class="mt-5 text-gray-300 border-t-2 pt-4">
 
-        <div v-if="result" class="mt-5 text-gray-300 border-t-2 pt-4">
           <p>
             Liquidation Price  :
-            <span class="text-calc-accent">{{
-              result.totalPercentt.toFixed(2)
-            }}</span>
+            <span class="text-calc-accent">{{lists.result}}</span>
           </p>
           
         </div>
@@ -109,25 +108,42 @@ name : "LiquidationCalculator",
       result: null,
     };
   },
-  async mounted() {
-    let results = await axios.post("https://caltus.herokuapp.com/api/calculateLiquidation", [
-      {
-    id_cal: this.id_cal,
-    entry_price: this.value,
-    quantity: this.price,
-    balance: this.balance,
-    result: this.result,
-      },
-    ]);console.warn(results);
+ mounted() {
+    this.historys()
   },
   methods: {
-    calculateAPY(e) {
+    async calculateAPY(e) {
       e.preventDefault();
       const x = parseFloat(this.balance) / parseFloat(this.quantity);
       const totalPercentt = parseFloat(this.value) - x ;
       
       this.result = { totalPercentt ,totalB : this.balance , totalQ : this.quantity , totalP : this.value};
+
+
+
+      let results = await axios.post("http://localhost:5500/api/calculateLiquidation", 
+      {
+      id_user: localStorage.getItem('user_id'),
+      id_cal: 5,
+      entry_price: this.value,
+      quantity: this.price,
+      balance: this.balance,
+      result: this.result.totalPercentt,
+      },
+    );console.warn(results);
+    this.historys()
     },
+    async historys(){
+      this.history = []
+      let results = await axios.get("http://localhost:5500/api/calculateLiquidation",{
+        params:{
+          id_user: localStorage.getItem('user_id'),
+        },
+      });
+      console.warn(results);
+      this.history = results.data.data
+      console.warn(this.history)
+    }
   },
 };
   

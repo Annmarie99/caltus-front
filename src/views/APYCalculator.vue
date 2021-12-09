@@ -83,21 +83,21 @@
       <div class="w-1/4 p-2 bg-gray-700 text-white">
         <p class="text-center uppercase">History</p>
 
-        <div v-if="result" class="mt-5 text-gray-300 border-t-2 pt-4">
+        <div v-for="lists in history" :key="lists.id_history_calculate" class="mt-5 text-gray-300 border-t-2 pt-4">
           <p>
 
 
             Total Interest :
             <span class="text-calc-accent">{{
-              result.totalInterest.toFixed(2)
+              lists.result
             }}</span>
           </p>
           <p>
             Your total balance after
-            <span class="text-calc-accent">{{ result.totalDays }}</span> days
+            <span class="text-calc-accent">{{ lists.apy }}</span> days
             will be :
             <span class="text-calc-accent">{{
-              result.totalBalance.toFixed(2)
+              lists.day
             }}</span>
           </p>
         </div>
@@ -123,10 +123,12 @@ export default {
       apy: "",
       days: "",
       result: null,
+      history:[],
     };
   },
 
-  mounted() {
+  async mounted() {
+    this.historys()
     
   },
   methods: {
@@ -142,17 +144,29 @@ export default {
       console.warn(this.apy)
       console.warn(this.result)
       console.warn(this.days)
-      let results = await axios.post("https://caltus.herokuapp.com/api/calculateApy", [
+      let results = await axios.post("http://localhost:5500/api/calculateApy", 
       {
-        id_user: '2',
+        id_user: localStorage.getItem('user_id'),
         id_cal: 8,
         principal_amount: this.value,
         apy: this.apy,
         day: this.days,
-        result: this.result,
+        result: this.result.totalInterest,
       },
-      ]);console.warn(results);
+      );console.warn(results);
+      this.historys()
     },
+    async historys(){
+      this.history = []
+      let results = await axios.get("http://localhost:5500/api/calculateApy",{
+        params:{
+          id_user: localStorage.getItem('user_id'),
+        },
+      });
+      console.warn(results);
+      this.history = results.data.data
+      console.warn(this.history)
+    }
   },
 };
 </script>

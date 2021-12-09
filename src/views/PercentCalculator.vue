@@ -147,22 +147,22 @@
      <div class="w-1/4 p-2 bg-gray-800 text-white">
         <p class="text-center uppercase">History</p>
 
-        <div v-if="result" class="mt-5 text-gray-300 border-t-2 pt-4">
+        <div v-for="lists in history" :key="lists.id_history_calculate" class="mt-5 text-gray-300 border-t-2 pt-4">
                 <p>
                   what is :
                   <span class="text-calc-accent">{{
-                    result.totalA1
+                    lists.amount1_1
                   }}</span>
                   of% 
                   <span class="text-calc-accent">{{
-                    result.totalP1 
+                   lists.percent1_2
                   }}</span> = 
                   <span class="text-calc-accent">{{
-                    result.totalPercent.toFixed(2) 
+                    lists.result
                   }}</span> <br>
 
                   
-                  <span class="text-calc-accent">{{
+                 <!-- <span class="text-calc-accent">{{
                     result.totalP2
                   }}</span>
                   is what % of
@@ -184,7 +184,7 @@
                   <span class="text-calc-accent">{{
                     result.totalPercent3.toFixed(2) 
                   }}</span> %
-                  
+                  -->
                 </p>
                 
           </div>
@@ -215,24 +215,14 @@ export default {
       percent2: "",
       percent3: "",
       result: null,
+      history:[],
     };
   },
    async mounted() {
-    let results = await axios.post("https://caltus.herokuapp.com/api/calculatePercent", [
-      {
-    id_cal: this.id_cal,
-    amount1_1: this.amount1,
-    percent1_2: this.percent1,
-    input2_1: this.amount2,
-    input2_2: this.amount3,
-    price3_1: this.percent3,
-    price3_2: this.percent3,
-    result: this.result,
-      },
-    ]);console.warn(results);
+    this.historys()
   },
   methods: {
-    calculatePercent(e) {
+    async calculatePercent(e) {
       e.preventDefault();
       
       const totalPercent = (parseFloat(this.amount1)/ 100 ) * parseFloat(this.percent1);
@@ -245,7 +235,43 @@ export default {
       const totalPercent3 = totalValue * -100;
       
       this.result = { totalPercent,totalPercent2, totalPercent3, totalA1 : this.amount1 , totalA2 : this.amount2 ,totalA3 : this.amount3 , totalP1 : this.percent1, totalP2 : this.percent2 ,totalP3 : this.percent3 };
+      
+      // console.warn(this.id_cal)
+      console.warn(this.amount1)
+      console.warn(this.percent1)
+      console.warn(this.amount2)
+      console.warn(this.amount3)
+      console.warn(this.percent3)
+      console.warn(this.percent3)
+      let results = await axios.post("http://localhost:5500/api/calculatePercent", 
+      {
+         id_user: localStorage.getItem('user_id'),
+         id_cal: 2,
+         amount1_1: this.amount1,
+         percent1_2: this.percent1,
+         input2_1: this.amount2,
+         input2_2: this.amount3,
+         price3_1: this.percent3,
+         price3_2: this.percent3,
+         result: this.result.totalPercent,
+          result: this.result.totalPercent1,
+         
+      },
+    );console.warn(results);
+    this.historys()
     },
+    async historys(){
+      this.history = []
+      let results = await axios.get("http://localhost:5500/api/calculatePercent",{
+        params:{
+          id_user: localStorage.getItem('user_id'),
+        },
+      });
+      console.warn(results);
+      this.history = results.data.data
+      console.warn(this.history)
+    }
   },
+
 };
 </script>

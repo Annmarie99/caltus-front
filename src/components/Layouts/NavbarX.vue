@@ -19,7 +19,7 @@
 
     <b-collapse id="nav-collapse" is-nav>
       <b-navbar-nav>
-        <b-nav-item class="ml-5" href="#" @click="$router.push('/dash/' + id)"
+        <b-nav-item class="ml-5" href="#" @click="$router.push('/dash')"
           >Home</b-nav-item
         >
         <b-nav-item href="#" @click="$router.push('/apy-cal')"
@@ -57,13 +57,14 @@ export default {
     };
   },
   mounted() {
-    const userIDx = localStorage.getItem("id_user");
+    const userIDx = localStorage.getItem("user_id");
     console.log(userIDx, "asdasdasdasd");
     axios
-      .get("https://caltus.herokuapp.com/api/user")
+      .get("http://localhost:5500/api/user")
       .then((res) => {
         console.log(res.data.data);
         const x = res.data.data.filter((x) => +x.id_user === +userIDx);
+        console.log(x);
         this.firstName = x[0].first_name;
         this.lastName = x[0].last_name;
       })
@@ -73,10 +74,9 @@ export default {
   },
   methods: {
     async logOut() {
-      const result = await this.$gAuth.signOut();
       this.isLogin = false;
-      console.log(`result`, result);
-      localStorage.removeItem("userName");
+
+      localStorage.removeItem("user_id");
       this.$router.push("/");
     },
   },

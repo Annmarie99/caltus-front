@@ -77,11 +77,11 @@
       <div class="w-1/4 p-2 bg-gray-800 text-white">
         <p class="text-center uppercase">History</p>
 
-         <div v-if="result" class="mt-5 text-gray-300 border-t-2 pt-4">
+        <div v-for="lists in history" :key="lists.id_history_calculate" class="mt-5 text-gray-300 border-t-2 pt-4">
           <p>
             PNL :
             <span class="text-calc-accent">{{
-              result.totalpnl.toFixed(2)
+              lists.result
             }}</span>
           </p>
           
@@ -107,29 +107,50 @@ export default {
       price2: "",
       quantity: "",
       result: null,
+      history:[]
     };
   },
   async mounted() {
-    let results = await axios.post("https://caltus.herokuapp.com/api/calculatePnl", [
-      {
-    id_cal: this.id_cal,
-    entry_price:this.price1,
-    exit_price: this.price2,
-    quantity: this.quantity,
-    result: this.result
-      },
-    ]);console.warn(results);
+     this.historys()
+    
   },
   methods: {
-    calculatePNL(p) {
+    async calculatePNL(p) {
       p.preventDefault();
       const x = (parseFloat(this.price2)-parseFloat(this.price1));
       const totalpnl = x  *  parseFloat(this.quantity);
       
       this.result = { totalpnl };
+
+      // console.warn(this.id_cal)
+      console.warn(this.price1)
+      console.warn(this.price2)
+      console.warn(this.quantity)
+      
+      let results = await axios.post("http://localhost:5500/api/calculatePnl", 
+      {
+        id_user: localStorage.getItem('user_id'),
+        id_cal: 1,
+        entry_price:this.price1,
+        exit_price: this.price2,
+        quantity: this.quantity,
+        result: this.result.totalpnl,
+      },
+    );console.warn(results);
+    this.historys()
     },
+    async historys(){
+      this.history = []
+      let results = await axios.get("http://localhost:5500/api/calculatePnl",{
+        params:{
+          id_user: localStorage.getItem('user_id'),
+        },
+      });
+      console.warn(results);
+      this.history = results.data.data
+      console.warn(this.history)
+    }
   },
 };
 </script>
-
 

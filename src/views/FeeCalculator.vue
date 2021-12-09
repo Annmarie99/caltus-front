@@ -59,14 +59,14 @@
 
          <!--<datetime type="datetime" v-model="datetime13" format="yyyy-MM-dd HH:mm:ss"></datetime>-->
 
-          <div v-if="result" class="mt-5 text-gray-300 border-t-2 pt-4">
+           <div v-for="lists in history" :key="lists.id_history_calculate" class="mt-5 text-gray-300 border-t-2 pt-4">
 
             
           <p>
-           Amount of coins : <span class = "text-calc-accent">{{ result.totalA }}</span> <br>
-             Fee Rate / Funding Rate (%):<span class="text-calc-accent">{{ result.totalR }}</span> % 
+           Amount of coins : <span class = "text-calc-accent">{{ lists.trade_size }}</span> <br>
+             Fee Rate / Funding Rate (%):<span class="text-calc-accent">{{ lists.fee_rate }}</span> % 
             Trading Fee / Funding: <span class="text-calc-accent">{{
-              result.totalCI.toFixed(2)
+              lists.result
             }}</span>
           </p>
   
@@ -92,25 +92,42 @@ name : "FeeCalculator",
       amount: "",
       rate: "",
       result: null,
+      history:[],
     };
   },
   async mounted() {
-    let results = await axios.post("https://caltus.herokuapp.com/api/calculateFee", [
-      {
-    id_cal: this.id_cal,
-    trade_size: this.amount,
-    fee_rate: this.rate,
-    result: this.result,
-        
-      },
-    ]);console.warn(results);
+    this.historys()
   },
   methods: {
-    calculateFee(f) {
+    async calculateFee(f) {
       f.preventDefault();
      const totalCI = (parseFloat(this.rate)*parseFloat(this.amount)) /100;
       this.result = { totalCI , totalA: this.amount , totalR: this.rate};
+      console.warn(this.amount)
+      console.warn(this.rate)
+      let results = await axios.post("http://localhost:5500/api/calculateFee", 
+      {
+        id_user: localStorage.getItem('user_id'),
+        id_cal: 3,
+        trade_size: this.amount,
+        fee_rate: this.rate,
+        result: this.result.totalCI,
+        
+      },
+    );console.warn(results);
+    this.historys()
     },
+    async historys(){
+      this.history = []
+      let results = await axios.get("http://localhost:5500/api/calculateFee",{
+        params:{
+          id_user: localStorage.getItem('user_id'),
+        },
+      });
+      console.warn(results);
+      this.history = results.data.data
+      console.warn(this.history)
+    }
   },
 };
   

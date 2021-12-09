@@ -55,7 +55,7 @@
 
         <div v-if="result" class="mt-5 text-gray-300 border-t-2 pt-4">
           <p>
-            TOTAL BALANCE AFTER INTEREST : :
+            TOTAL BALANCE AFTER INTEREST : 
             <span class="text-calc-accent">{{
               result.totalCI.toFixed(2)
             }}</span>
@@ -73,21 +73,11 @@
         
         <p class="text-center uppercase">History</p>
          
-        <div v-if="result" class="mt-5 text-gray-300 border-t-2 pt-4">
+        <div v-for="lists in history" :key="lists.id_history_calculate" class="mt-5 text-gray-300 border-t-2 pt-4">
           <p>
-            Trade 
-            <span class="text-calc-accent">{{result.totalM}}</span> : <br>
-            Base amount : 
-          <span class="text-calc-accent">{{
-              result.totalaAmount.toFixed(2)
-            }}</span><br>
-            Earnings : 
+            TOTAL BALANCE AFTER INTEREST : 
             <span class="text-calc-accent">{{
-              result.totalX.toFixed(2)
-            }}</span><br>
-            Balance : 
-            <span class="text-calc-accent">{{
-              result.totalCI.toFixed(2)
+             lists.result
             }}</span>
          </p>
       </div>
@@ -113,24 +103,16 @@ name : "TradeCompoundCalculator",
       rate: "",
       trades: "",
       m: 0,
-      
       result: null,
+      history: [],
+      
     };
   },
   async mounted() {
-    let results = await axios.post("https://caltus.herokuapp.com/api/calculateTrade", [
-      {
-     id_cal: this.id_cal,
-    amount:this.amount,
-    leverage: this.leverage,
-    rate_trade: this.rate,
-    number_trade:this.trades,
-    result: this.result,
-      },
-    ]);console.warn(results);
+    this.historys()
   },
   methods: {
-    calculateTrad(t) {
+    async calculateTrad(t) {
       t.preventDefault()
      
       this.m++
@@ -142,6 +124,29 @@ name : "TradeCompoundCalculator",
       
       this.result = { totalCI ,totalX,totalaAmount, totalM: this.m , totalA: this.amount };
       console.log(totalCI)
+let results = await axios.post("http://localhost:5500/api/calculateTrade", 
+      {
+        id_user: localStorage.getItem('user_id'),
+     id_cal: 6,
+    amount:this.amount,
+    leverage: this.leverage,
+    rate_trade: this.rate,
+    number_trade:this.trades,
+    result: this.result.totalCI,
+      },
+    );console.warn(results);
+    this.historys()
+    },
+    async historys(){
+      this.history = []
+      let results = await axios.get("http://localhost:5500/api/calculateTrade",{
+        params:{
+          id_user: localStorage.getItem('user_id'),
+        },
+      });
+      console.warn(results);
+      this.history = results.data.data
+      console.warn(this.history)
     }
   },
 };

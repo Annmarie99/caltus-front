@@ -29,7 +29,7 @@
                 </p>
                 <p class="text-lg p-0 m-0 text-gray-500">
                   {{
-                    Math.floor(marketPrice.btcusdt * 33.3).toLocaleString(
+                    Math.floor(marketPrice.btcusdt * 33.97).toLocaleString(
                       "en-US",
                       {
                         maximumFractionDigits: 2,
@@ -225,13 +225,7 @@
                   CHZ
                   <footer class="text-gray-500">Chiliz</footer>
                 </td>
-                <td>
-                  ${{
-                    marketPrice.chzusdt.toLocaleString("en-US", {
-                      maximumFractionDigits: 2,
-                    })
-                  }}
-                </td>
+                <td>${{ marketPrice.chzusdt }}</td>
                 <td>{{ priceChange.chzusdt }}%</td>
               </tr>
               <tr>
@@ -458,7 +452,6 @@ export default {
   name: "Login",
   data() {
     return {
-      x: 52,
       user: null,
       marketPrice: [],
       lastPrice: [],
@@ -472,8 +465,9 @@ export default {
     };
   },
   mounted() {
-    console.warn("id " + this.id);
-    console.warn("name " + this.name);
+    // console.warn("id " + this.id);
+    // console.warn("name " + this.name);
+    console.warn(localStorage.getItem("user_id"));
   },
 
   created: function () {

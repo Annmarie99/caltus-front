@@ -2,7 +2,7 @@
   <div>
     <div class="w-full mx-auto pb-36 p-10 m-0 text-center bg-dark h-screen">
       <h1 class="text-white">TRACKER</h1>
-       <h2 class="text-white">ระบบติดตามเหรียญที่ซื้อไปแล้ว</h2>
+      <h2 class="text-white">ระบบติดตามเหรียญที่ซื้อไปแล้ว</h2>
       <div class="grid grid-cols-6">
         <h5 class="text-white text-left">Currency change</h5>
       </div>
@@ -171,17 +171,14 @@
           </form>
         </div>
       </div>
-     
 
-    <!--- <div>
+      <!--- <div>
      
      <b-button type="reset" variant="danger">Clear</b-button>
      
      </div>
 
 -->
-
-
     </div>
   </div>
 </template>
@@ -278,19 +275,20 @@ export default {
       console.log(this.apiLink);
 
       // Add Tracker backend
-      axios.get("https://caltus.herokuapp.com/api/session").then((res) => {
+      axios.get("http://localhost:5500/api/trackers").then((res) => {
         console.log(res.data);
-      })
-      axios.post("https://caltus.herokuapp.com/api/trackers",{stock_name: newCoin.coinName, amount_stock: newCoin.amount, buy_pricel:newCoin.price}).then((res) => {
-        console.log(res.data);
-      })
-
+      });
+      axios
+        .post("http://localhost:5500/api/trackers", {
+          stock_name: newCoin.coinName,
+          amount_stock: newCoin.amount,
+          buy_pricel: newCoin.price,
+        })
+        .then((res) => {
+          console.log(res.data);
+        });
     },
-    clearData(){
-
-
-      
-    }
+    clearData() {},
   },
   watch: {
     myCoin() {

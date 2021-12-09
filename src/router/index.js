@@ -45,7 +45,7 @@ const routes = [{
         component: Tracker,
     },
     {
-        path: "/dash/:id",
+        path: "/dash",
         name: "Dashboard",
         component: Dashboard,
     },
